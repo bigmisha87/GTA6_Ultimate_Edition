@@ -371,7 +371,7 @@ $('sectionSub').textContent=category==='all'?'סנן לפי תחום, חפש פ�
 $('eyebrow').textContent=category==='all'?'THE COMPLETE FIELD MANUAL':cats[category][1].toUpperCase();
 $('tipGrid').innerHTML=visible.length?visible.map(renderCard).join(''):`<div class="empty"><h3>אין פריטים שמתאימים לחיפוש</h3><p>נסה להסיר סינון או לחפש מונח אחר.</p><button type="button" class="tool-button primary" id="clearAllFilters" style="margin:16px auto 0">איפוס סינונים</button></div>`;
 }
-const lootMap={r015:['L1074','⌖ חנות נשק לדוגמה במפה'],r016:['L1074','⌖ חנות נשק לדוגמה במפה'],r020:['L266','⌖ הבית של ג׳ייסון במפה (משוער)'],r021:['L266','⌖ הבית של ג׳ייסון במפה (משוער)']};
+const lootMap={r015:['L1074','⌖ חנות נשק לדוגמה במפה'],r016:['L1074','⌖ חנות נשק לדוגמה במפה'],r020:['L266','⌖ הבית של ג׳ייסון במפה (משוער)'],r021:['L266','⌖ הבית של ג׳ייסון במפה (משוער)'],r032:['ogm-shooting-range-002','⌖ מטווח Rodgers Ranch במפה (משוער)']};
 function renderCard(x){let known=state.known.has(x.id)||state.tried.has(x.id),tried=state.tried.has(x.id),opened=expanded.has(x.id);
 let catname=cats[x.cat][0],style=`--tc:${colors[x.cat]}`;
 let label=x.level==='reported'?'<span class="pill community">דיווח קהילה</span>':'<span class="pill">מגובה במדריך</span>';
