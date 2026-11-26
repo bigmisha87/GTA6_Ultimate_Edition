@@ -1,0 +1,7 @@
+# Local only: never upload these to GitHub
+# - .claude/            local preview-server settings
+# - design-system.html  private design-system page (reads the real pages; for Misha only)
+# - design-system.cmd   double-click launcher for that page
+.claude/
+design-system.html
+design-system.cmd
