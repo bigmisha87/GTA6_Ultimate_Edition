@@ -148,6 +148,15 @@ section.block{padding:var(--s-6) 0}
 .kt h3{margin:0;font-size:var(--fs-6);font-weight:800}
 .kt p{margin:2px 0 0;font-size:var(--fs-8);color:var(--muted);line-height:1.55}
 .kt .key{flex:none}
+/* "L2 does nothing?" checklist */
+.l2help{margin-top:var(--s-4);background:var(--surface);border:1px solid var(--sun);border-radius:var(--r-3);padding:var(--s-5)}
+.l2help h3{margin:0 0 var(--s-1);font-size:var(--fs-4);font-weight:900}
+.l2help > p{margin:0 0 var(--s-4);font-size:var(--fs-7);color:var(--muted);max-width:760px}
+.l2help ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--s-3)}
+.l2help li{display:flex;gap:var(--s-2);align-items:flex-start}
+.l2help li b{display:block;font-size:var(--fs-7);font-weight:800}
+.l2help li p{margin:2px 0 0;font-size:var(--fs-8);color:var(--ink-2);line-height:1.6}
+.l2help .path{display:block;margin-top:2px;font-size:var(--fs-8);font-weight:700;color:var(--teal);direction:ltr;text-align:right}
 .basics-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s-4);margin-top:var(--s-4)}
 .helps{display:grid;gap:var(--s-3)}
 .help{display:grid;grid-template-columns:120px 1fr;gap:var(--s-3);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3);align-items:start}
@@ -305,6 +314,11 @@ body:not([data-platform="both"]) .ikpair .slash{display:none}
 .who span{font-size:var(--fs-9);font-weight:900;padding:3px 8px;border-radius:var(--r-pill);color:#1a0d00;background:#ffb454}
 .who span.L{background:#ff74bb;color:#2a0617}
 .done-tag{position:absolute;z-index:1;top:10px;left:10px;font-size:var(--fs-9);font-weight:900;padding:3px 8px;border-radius:var(--r-pill);background:var(--teal);color:#032521;display:none}
+/* silent clip from the video: fades in over the picture while the demo plays, then the picture comes back */
+video.clip{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;opacity:0;transition:opacity .2s;pointer-events:none}
+.clip-on > video.clip{opacity:1}
+.lb-media{position:relative}
+.lb-media video.clip{object-fit:contain}
 .move.learned .done-tag{display:block}
 .mbody{padding:var(--s-4);display:flex;flex-direction:column;gap:var(--s-3);flex:1}
 .mhead h3{margin:0;font-size:var(--fs-4);font-weight:900;line-height:1.25}
@@ -466,6 +480,7 @@ dialog.lb::backdrop{background:#05040aeb}
       </div>
     </div>
     <div class="keymap" id="keymap"></div>
+    <div class="l2help" id="l2help"></div>
 
     <div class="sec-head" style="margin-top:var(--s-6)">
       <div>
@@ -555,7 +570,7 @@ dialog.lb::backdrop{background:#05040aeb}
 
 <footer>
   <div class="wrap">
-    <p><b>מקור המידע והצילומים:</b> הסרטון <a class="en" href="https://youtu.be/-fTbPxYJX58" target="_blank" rel="noopener">Everything About Fighting In GTA 6 (Basics to Advanced)</a> של הערוץ <span class="en">Gemzy GTA</span> ביוטיוב, 24.11.2026. הצילומים הם מסרטון של היוצר, שצולם ב-PS5. כל מהלך מקשר לרגע המדויק בסרטון.</p>
+    <p><b>מקור המידע והצילומים:</b> הסרטון <a class="en" href="https://youtu.be/-fTbPxYJX58" target="_blank" rel="noopener">Everything About Fighting In GTA 6 (Basics to Advanced)</a> של הערוץ <span class="en">Gemzy GTA</span> ביוטיוב, 24.11.2026. הצילומים וקטעי הווידאו הקצרים (בלי סאונד) הם מסרטון של היוצר, שצולם ב-PS5. כל מהלך מקשר לרגע המדויק בסרטון. ב-26.11.2026 כל המהלכים נבדקו מול הכפתורים שהיוצר מציג על המסך בסרטון עצמו.</p>
     <p>עיצוב הכפתורים, האיורים, ההדגמות והתרגום לעברית נעשו לעמוד הזה. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
     <p>פרויקט מעריצים עצמאי, ללא קשר ל-Rockstar Games. הסימונים של "למדתי" נשמרים רק בדפדפן הזה. עודכן לאחרונה: 26.11.2026.</p>
   </div>
@@ -564,7 +579,7 @@ dialog.lb::backdrop{background:#05040aeb}
 <dialog class="lb" id="lb" aria-label="צילום מוגדל">
   <button class="lb-close" id="lbClose" type="button" aria-label="סגירה">✕</button>
   <div class="lb-in">
-    <img id="lbImg" alt="">
+    <div class="lb-media" id="lbMedia"><img id="lbImg" alt=""></div>
     <div class="lb-cap">
       <div><h3 id="lbTitle"></h3><p id="lbText"></p></div>
       <div class="lb-inputs" id="lbInputs"></div>
@@ -678,7 +693,7 @@ const KEYMAP=[
  {k:'sq',h:'אגרוף / בעיטה',p:'הקשה = מכה. החזקה = מכה כבדה. מתוך תפיסה: מכת המשך.'},
  {k:'x',h:'חסימה / התחמקות',p:'החזקה = חסימה. הקשה = התחמקות. רגע לפני המכה = התחמקות מושלמת.'},
  {k:'R2',h:'תפיסה',p:'החזקה מקרוב = תפיסה (קליץ׳). הקשה = דחיפה. גם בריחה מאחיזה.'},
- {k:'L2',h:'נעילה על יריב',p:'נועל עליו ומאפשר תנועה סביבו. על מי שעוד לא רב איתך: תפריט דיבור.'},
+ {k:'L2',h:'נעילה על יריב',p:'להחזיק לאורך כל הקרב. נועל עליו ומאפשר תנועה סביבו. על מי שעוד לא רב איתך: תפריט דיבור.'},
  {k:'o',h:'כריעה',p:'להתגנב מאחור לחניקה שקטה.'},
  {k:'tri',h:'הרמה',p:'על יריב ששוכב: הרמה על הכתף.'},
  {k:'L3',h:'ריצה',p:'לחיצה על הסטיק השמאלי. בהתקפות בריצה המרחק קובע הכול.'},
@@ -1006,8 +1021,20 @@ function ciCard(pf){
   </div>`;
 }
 
+// "L2 does nothing?" checklist. Menu paths are the game's English menu names (from written guides, 26.11.2026).
+const L2HELP=[
+ ['להחזיק, לא ללחוץ','{L2} עובד רק כל עוד הוא לחוץ. משחררים, והנעילה נעלמת. מחזיקים אותו לאורך כל הקרב, ומכים עם {sq} בזמן שהוא לחוץ.',''],
+ ['מה רואים כשזה עובד','הדמות מסתובבת אל היריב ונשארת מולו, והסטיק מזיז אותה בצעדים צידיים סביבו במקום לרוץ. בלי נעילה, {sq} נותן רק סטירה או דחיפה (מהלך 1).',''],
+ ['על מי זה נועל','על מי שכבר רב איתך. על עובר אורח רגיל, החזקה פותחת תפריט דיבור, כמו בהתגרות שבתחתית העמוד.',''],
+ ['הגדרת הכיוון','במשחק יש הגדרה שקובעת אם הכיוון ננעל על אנשים. אם היא על Free Aim, ייתכן שהמשחק לא נועל בכלל. כדאי לבחור Lock-On ולנסות שוב.','Settings ▸ Gameplay ▸ Combat ▸ Targeting'],
+ ['פריסת השליטה','העמוד בנוי על פריסת ברירת המחדל. בפריסות Classic ו-Left-Handed הכפתורים זזים למקומות אחרים.','Settings ▸ Controller ▸ Control Scheme ▸ Default']
+];
+
 function renderStatic(){
   document.getElementById('ctrlInfo').innerHTML=ciCard('ps')+ciCard('xb');
+  document.getElementById('l2help').innerHTML=`<h3>${ik('L2')} לא עושה כלום?</h3>
+    <p>זו הבעיה הכי נפוצה בקרב מגע. חמישה דברים לבדוק, לפי הסדר:</p>
+    <ol>${L2HELP.map(([b,p,path],i)=>`<li><span class="ci-n">${i+1}</span><div><b>${esc(b)}</b><p>${fillKeys(p)}</p>${path?`<span class="path">${esc(path)}</span>`:''}</div></li>`).join('')}</ol>`;
   document.getElementById('keymap').innerHTML=KEYMAP.map(t=>{
     const g=t.stick?keyHTML(S('up','כיוון'),'ps',0):`<span class="ps">${keyHTML(B(t.k),'ps',0)}</span><span class="xb">${keyHTML(B(t.k),'xb',0)}</span>`;
     return `<div class="kt">${g}<div><h3>${esc(t.h)}</h3><p>${esc(t.p)}</p></div></div>`;
@@ -1070,7 +1097,39 @@ function stamina(act){
 
 /* ================= LIGHTBOX ================= */
 const lb=document.getElementById('lb');
+/* ================= CLIPS ================= */
+// Short silent clips cut from the creator's video (combat-assets/clips/mNN.mp4). The demo button plays the clip
+// in place of the picture while the buttons light up; when the clip ends the picture comes back.
+let lbClip=null;   // clip name of the move open in the lightbox
+function stopClips(except){
+  document.querySelectorAll('.clip-on').forEach(h=>{if(h===except)return;h.classList.remove('clip-on');const v=h.querySelector('video.clip');if(v)v.pause()});
+}
+function playClip(host,name){
+  if(!host||!name)return;
+  let v=host.querySelector('video.clip');
+  if(v&&v.dataset.clip!==name){v.remove();v=null}
+  if(!v){
+    v=document.createElement('video');
+    v.className='clip';v.dataset.clip=name;v.muted=true;v.playsInline=true;v.preload='auto';
+    v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('aria-hidden','true');
+    v.src=`combat-assets/clips/${name}.mp4`;
+    v.addEventListener('ended',()=>host.classList.remove('clip-on'));
+    v.addEventListener('error',()=>host.classList.remove('clip-on'));
+    host.querySelector('img').after(v);   // under the number and the badges
+  }
+  stopClips(host);
+  v.currentTime=0;host.classList.add('clip-on');
+  const p=v.play();if(p&&p.catch)p.catch(()=>host.classList.remove('clip-on'));
+}
+function clipFor(id){
+  if(id==='lb')return [document.getElementById('lbMedia'),lbClip];
+  if(id==='taunt')return [document.querySelector('.bonus .shot'),'m00'];
+  return [document.querySelector(`#m${id} .shot`),'m'+String(id).padStart(2,'0')];
+}
+
 function openLB(img,title,text,seq){
+  stopClips();
+  lbClip=seq?img:null;
   document.getElementById('lbImg').src=`combat-assets/${img}.webp`;
   document.getElementById('lbImg').alt=title;
   document.getElementById('lbTitle').textContent=title;
@@ -1081,6 +1140,10 @@ function openLB(img,title,text,seq){
 }
 document.getElementById('lbClose').onclick=()=>lb.close();
 lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+lb.addEventListener('close',()=>{   // stop only the lightbox clip
+  const h=document.getElementById('lbMedia');h.classList.remove('clip-on');
+  const v=h.querySelector('video.clip');if(v)v.pause();
+});
 
 /* ================= EVENTS ================= */
 document.addEventListener('click',e=>{
@@ -1091,6 +1154,7 @@ document.addEventListener('click',e=>{
   if(t.dataset.st){stamina(t.dataset.st);return}
   if(t.dataset.demo){
     const host=t.dataset.demo==='lb'?document.getElementById('lbInputs'):t.dataset.demo==='taunt'?document.getElementById('tauntInputs'):document.querySelector(`#m${t.dataset.demo} .inputs`);
+    playClip(...clipFor(t.dataset.demo));
     playSeq(host,t);return;
   }
   if(t.dataset.move){const m=MOVES.find(x=>x.n===+t.dataset.move);openLB('m'+String(m.n).padStart(2,'0'),`#${m.n} · ${m.he}`,m.note,m.seq);return}
