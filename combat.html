@@ -310,6 +310,23 @@ video.clip{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;bac
 .mhead .en{display:block;font-size:var(--fs-8);color:var(--muted);font-weight:700;text-align:right}
 .inputs{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3)}
 .mnote{margin:0;font-size:var(--fs-7);color:var(--ink-2);line-height:1.65}
+/* where else a move is documented (deep research 26.11.2026) */
+.vsrc{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;font-size:var(--fs-8);line-height:1.5}
+.vsrc a{color:var(--teal);font-weight:700;text-decoration:none}
+.vsrc a:hover{text-decoration:underline}
+.sep-dot{color:var(--muted)}
+.vtag{display:inline-flex;align-items:center;font-size:var(--fs-9);font-weight:800;padding:2px 9px;border-radius:var(--r-pill);border:1px solid var(--chip-line);background:var(--chip);color:var(--muted);white-space:nowrap}
+.vtag.ok{color:var(--teal);border-color:var(--teal)}
+.vtag.part{color:var(--ink-2)}
+.vtag.alt{color:var(--sun);border-color:var(--sun)}
+.vnote{flex-basis:100%;margin:2px 0 0;font-size:var(--fs-8);color:var(--ink-2);line-height:1.6}
+.vnote.alt{border-inline-start:3px solid var(--sun);padding-inline-start:var(--s-2)}
+.l2src{margin-top:var(--s-4);padding-top:var(--s-3);border-top:1px dashed var(--line)}
+.verify-sum{margin:var(--s-5) 0 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);padding:var(--s-4) var(--s-5)}
+.verify-sum h3{margin:0 0 var(--s-1);font-size:var(--fs-5);font-weight:900}
+.verify-sum p{margin:0;font-size:var(--fs-7);color:var(--ink-2);max-width:860px}
+.verify-sum ul{margin:var(--s-2) 0;padding-inline-start:var(--s-5);font-size:var(--fs-7);color:var(--ink-2);display:grid;gap:2px}
+.verify-sum b{color:var(--ink)}
 .mactions{margin-top:auto;display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap;padding-top:var(--s-3);border-top:1px solid var(--line)}
 .demo{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:var(--r-pill);padding:6px 14px;font-size:var(--fs-8);font-weight:900}
 .demo:hover,.demo.on{background:var(--accent);color:var(--on-accent)}
@@ -541,6 +558,7 @@ dialog.lb::backdrop{background:#05040aeb}
   </div>
 </div>
 
+<div class="wrap"><div class="verify-sum" id="verifySum"></div></div>
 <main class="wrap" id="chapters"></main>
 
 <section class="block" id="secrets">
@@ -557,7 +575,7 @@ dialog.lb::backdrop{background:#05040aeb}
 
 <footer>
   <div class="wrap">
-    <p><b>מקור המידע והצילומים:</b> הסרטון <a class="en" href="https://youtu.be/-fTbPxYJX58" target="_blank" rel="noopener">Everything About Fighting In GTA 6 (Basics to Advanced)</a> של הערוץ <span class="en">Gemzy GTA</span> ביוטיוב, 24.11.2026. הצילומים וקטעי הווידאו הקצרים (בלי סאונד) הם מסרטון של היוצר, שצולם ב-PS5. כל מהלך מקשר לרגע המדויק בסרטון. ב-26.11.2026 כל המהלכים נבדקו מול הכפתורים שהיוצר מציג על המסך בסרטון עצמו.</p>
+    <p><b>מקור המידע והצילומים:</b> הסרטון <a class="en" href="https://youtu.be/-fTbPxYJX58" target="_blank" rel="noopener">Everything About Fighting In GTA 6 (Basics to Advanced)</a> של הערוץ <span class="en">Gemzy GTA</span> ביוטיוב, 24.11.2026. הצילומים וקטעי הווידאו הקצרים (בלי סאונד) הם מסרטון של היוצר, שצולם ב-PS5. כל מהלך מקשר לרגע המדויק בסרטון. ב-26.11.2026 כל המהלכים נבדקו מול הכפתורים שהיוצר מציג על המסך בסרטון עצמו, ואחר כך מול מדריכים כתובים, פורומים של שחקנים ומקורות רשמיים. בכל כרטיס כתוב מה נמצא.</p>
     <p>עיצוב הכפתורים, האיורים, ההדגמות והתרגום לעברית נעשו לעמוד הזה. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
     <p>פרויקט מעריצים עצמאי, ללא קשר ל-Rockstar Games. הסימונים של "למדתי" נשמרים רק בדפדפן הזה. עודכן לאחרונה: 26.11.2026.</p>
   </div>
@@ -680,7 +698,7 @@ const KEYMAP=[
  {k:'sq',h:'אגרוף / בעיטה',p:'הקשה = מכה. החזקה = מכה כבדה. מתוך תפיסה: מכת המשך.'},
  {k:'x',h:'חסימה / התחמקות',p:'החזקה = חסימה. הקשה = התחמקות. רגע לפני המכה = התחמקות מושלמת.'},
  {k:'R2',h:'תפיסה',p:'החזקה מקרוב = תפיסה (קליץ׳). הקשה = דחיפה. גם בריחה מאחיזה.'},
- {k:'L2',h:'נעילה על יריב',p:'להחזיק לאורך כל הקרב. נועל עליו ומאפשר תנועה סביבו. על מי שעוד לא רב איתך: תפריט דיבור.'},
+ {k:'L2',h:'נעילה על יריב',p:'להחזיק לאורך כל הקרב, עם ידיים ריקות. נועל עליו ומאפשר תנועה סביבו. על מי שעוד לא רב איתך: תפריט דיבור.'},
  {k:'o',h:'כריעה',p:'להתגנב מאחור לחניקה שקטה.'},
  {k:'tri',h:'הרמה',p:'על יריב ששוכב: הרמה על הכתף.'},
  {k:'L3',h:'ריצה',p:'לחיצה על הסטיק השמאלי. בהתקפות בריצה המרחק קובע הכול.'},
@@ -714,7 +732,7 @@ const TIPS=[
 const PS_SYM={x:'<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',o:'<circle cx="12" cy="12" r="6.4"/>',sq:'<rect x="6" y="6" width="12" height="12" rx="1.2"/>',tri:'<path d="M12 5l7.4 12.6H4.6z"/>'};
 const PS_NAME={x:'איקס',o:'עיגול',sq:'ריבוע',tri:'משולש'};
 const XB_FACE={x:'A',o:'B',sq:'X',tri:'Y'};
-const TRIG={L2:['L2','LT'],R2:['R2','RT'],L3:['L3','LS'],R1:['R1','RB']};
+const TRIG={L2:['L2','LT'],R2:['R2','RT'],L3:['L3','LS'],R1:['R1','RB'],L1:['L1','LB']};
 const MOD_CAP={tap:'הקשה',hold:'החזקה',mash:'לחיצות מהירות',once:'פעם אחת',x3:'3 הקשות',run:'ריצה'};
 const DIR={up:[0,-1],down:[0,1],right:[1,0],ur:[.72,-.72],ul:[-.72,-.72],dr:[.72,.72]};
 const DIR_CAP={up:'קדימה',down:'אחורה',right:'ימינה',ur:'אלכסון קדימה',ul:'אלכסון קדימה',dr:'אחורה ימינה'};
@@ -838,6 +856,100 @@ function setPlatform(p){
 const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
 const whoBadges=w=>(w.includes('J')?'<span class="J">ג׳ייסון</span>':'')+(w.includes('L')?'<span class="L">לוסיה</span>':'');
 
+/* ================= SOURCES (deep research, 26.11.2026) ================= */
+// Every move comes from the video. This table says which written sources also back it up.
+// ok = same input in an independent written source; part = the move or mechanic is mentioned, not every detail;
+// info = a useful extra note; alt = a written source describes it differently. Keys in {braces} become button chips.
+const SRC={
+ help:{n:'AllThingsHow · מסך העזרה של המשחק',u:'https://allthings.how/how-to-punch-block-and-grapple-in-gta-6-ps5-melee-controls/'},
+ gtabase:{n:'GTABase',u:'https://www.gtabase.com/gta-6/articles/how-to-master-melee-combat-in-gta-6-punches-dodges-grapples'},
+ gtabase_st:{n:'GTABase · התגנבות',u:'https://www.gtabase.com/gta-6/articles/gta-6-combat-stealth-guide'},
+ fuze:{n:'GamesFuze',u:'https://gamesfuze.com/game-tips/gta-6-best-fighting-moves-combos-throw-people/'},
+ vch:{n:'Vice City Hustle',u:'https://www.vicecityhustle.com/guides/gta-6-combat-controls'},
+ retro:{n:'RetroBroker',u:'https://retrobroker.com/en-US/us/blog/gta-6-underground-cage-fighting'},
+ neon:{n:'Neon Atlas',u:'https://neonatlasguide.com/gameplay/gta-6-fighting-weave-tackle/'},
+ gamerant:{n:'Game Rant',u:'https://gamerant.com/gta-6-suplex-combat-move/'},
+ worldeka:{n:'Worldeka',u:'https://worldeka.com/gta-6-best-melee-combat-tips-and-tricks-complete-2026-guide-to-brawling-grappling-and-takedowns/'},
+ htvg:{n:'How To Video Game',u:'https://howtovideogame.com/gta-6-talk-to-npcs/'},
+ gameta:{n:'Gameta',u:'https://gameta.gg/gta6/guides/combat/'},
+ ixbt:{n:'iXBT Games',u:'https://ixbt.games/en/articles/2026/11/24/bolee-40-neocevidnyx-funkcii-gta-vi-o-kotoryx-vy-mogli-ne-znat-poleznye-sovety-sekrety-i-xitrosti.html'},
+ thegamer:{n:'TheGamer',u:'https://www.thegamer.com/grand-theft-auto-6-gta6-controls-combat-driving-guide/'},
+ powerpyx:{n:'PowerPyx',u:'https://www.powerpyx.com/gta-6-headliners-help-with-the-launch-party-walkthrough/'},
+ preview:{n:'AllThingsHow · לפני היציאה',u:'https://allthings.how/gta-6-combat-how-grapples-counters-cover-and-drive-bys-work/'},
+ fightful:{n:'Fightful',u:'https://www.fightful.com/wrestling-news/list-of-pro-wrestling-moves-added-to-gta-6'},
+ resetera_tips:{n:'ResetEra · טיפים',u:'https://www.resetera.com/threads/gta-vi-tips-and-tricks-thread-mark-spoilers-or-keep-them-vague.1693481/'},
+ resetera_complaints:{n:'ResetEra · תלונות',u:'https://www.resetera.com/threads/now-that-some-of-us-have-played-gta-vi-for-a-dozen-hours-what-are-your-major-and-minor-complaints-about-it.1693253/'},
+ gamefaqs:{n:'GameFAQs',u:'https://gamefaqs.gamespot.com/boards/375801-grand-theft-auto-vi/81215004'},
+ nerdschalk:{n:'Nerdschalk',u:'https://nerdschalk.com/how-to-loot-bodies-gta-6'},
+ insider:{n:'Insider Gaming',u:'https://insider-gaming.com/gta-6-control-settings/'},
+ allthings_lock:{n:'AllThingsHow · הגדרת הכיוון',u:'https://allthings.how/gta-6-how-to-turn-on-lock-on-aim-targeting-setting-on-ps5/'},
+ rockstar_access:{n:'Rockstar Support · נגישות',u:'https://support.rockstargames.com/articles/5g5CmDTne3WcpK7nsWsMR8/grand-theft-auto-vi-accessibility-features'},
+ shack:{n:'Shacknews',u:'https://www.shacknews.com/article/151396/gta6-ps5-controls'}
+};
+const ENV_ALT={he:'לפי מדריכים אחרים, זורקים לקיר או מעל מעקה מתוך תפיסה: כיוון בסטיק ועוד לחיצה על {R2}, ולא {sq}.',s:['fuze','worldeka']};
+const THROW_ALT={he:'לפי מדריך אחר, את סוג הזריקה קובע כיוון הסטיק בזמן ההחזקה, ולא המקום שבו עומדים.',s:['fuze']};
+const ESC_ALT=t=>({he:`מאמר מאוגוסט 2026, לפני יציאת המשחק, כתב ש${t}. ייתכן שצולם בפריסה Classic, שבה המכה נמצאת על {o}.`,s:['preview']});
+const VERIFY={
+ 0:{ok:['htvg','gameta']},
+ 1:{part:['neon'],info:[{he:'לפי מדריך אחר, הסטירה קורית כשעוד לא רבים עם האדם. שחקנים מספרים שהמשחק לא נותן להרביץ לאדם רגוע עד שהוא מתחיל להתעצבן.',s:['neon','resetera_complaints']}]},
+ 3:{ok:['help','gtabase']},
+ 4:{ok:['help','vch'],info:[{he:'שחקנים מדווחים שהחסימה לא תמיד תופסת, גם עם כוח מלא.',s:['resetera_complaints']}]},
+ 6:{ok:['help','retro'],info:[{he:'ההבזק, ההאטה ומילוי הכוח לא מתוארים באף מקור כתוב. הם מופיעים רק בסרטון.',s:[]}]},
+ 7:{ok:['help','retro']},
+ 9:{alt:[{he:'שחקן כותב שדוחפים עם {R2} יחד עם כיוון בסטיק.',s:['resetera_tips']}]},
+ 11:{ok:['fuze']},
+ 12:{alt:[THROW_ALT]},
+ 13:{alt:[THROW_ALT]},
+ 14:{alt:[THROW_ALT]},
+ 15:{part:['worldeka']},
+ 16:{ok:['fuze','ixbt'],info:[{he:'לפי המדריך, מקישים פעם אחת על {sq} ורק אז לוחצים מהר.',s:['fuze']}]},
+ 18:{ok:['fuze'],info:[{he:'אותה פקודה בדיוק מופיעה במדריך אחר בשם "סקופ סלאם".',s:['fuze']}]},
+ 19:{ok:['fuze']},
+ 20:{part:['fuze']},
+ 21:{ok:['vch','gtabase_st'],alt:[{he:'שחקן מדווח שאצלו זה נגמר בשבירת מפרקת, כלומר הריגה ולא הרדמה. שחקן אחר כותב שלחיצה אחת על {sq} מאחור מעלפת.',s:['gamefaqs']}]},
+ 22:{part:['vch']},
+ 23:{part:['gamerant'],alt:[{he:'לפי Game Rant: מחזיקים {R2}, מחזיקים {sq} כדי לעבור אל מאחוריו, משחררים, מושכים את הסטיק אחורה ומחזיקים שוב {sq}.',s:['gamerant']}]},
+ 24:{ok:['neon','gamerant'],alt:[{he:'לפי TheGamer: תופסים עם {R2}, מחזיקים {sq} ולוחצים על החיצים.',s:['thegamer']}]},
+ 31:{part:['gtabase']},
+ 32:{part:['fuze','gtabase'],info:[{he:'לפי המדריך מחזיקים את {sq}, ושתי הדמויות יכולות לעשות את זה, מקדימה או מאחור.',s:['fuze']}]},
+ 34:{part:['fuze'],info:[{he:'לפי המדריך, הבעיטה יוצאת כשמחזיקים את כפתור הריצה במקום ללחוץ עליו.',s:['fuze']}]},
+ 35:{part:['ixbt','resetera_tips']},
+ 38:{part:['neon','resetera_tips']},
+ 41:{alt:[ENV_ALT]},
+ 42:{part:['worldeka','resetera_tips']},
+ 43:{alt:[ENV_ALT]},
+ 47:{part:['help']},
+ 48:{alt:[{he:'לפי iXBT, אפשר לזרוק סכין גם בלי הנחיה: מכוונים עם {L2} ולוחצים {R2}.',s:['ixbt']}]},
+ 51:{ok:['gtabase']},
+ 52:{part:['gtabase']},
+ 54:{part:['powerpyx'],alt:[ESC_ALT('משתחררים עם {o}')]},
+ 55:{alt:[ESC_ALT('משתחררים בלחיצות מהירות על {o}')]},
+ 57:{part:['neon'],info:[{he:'לפי המדריך, מחזיקים את {sq} ולא רק לוחצים.',s:['neon']}]},
+ 59:{part:['nerdschalk']},
+ 60:{part:['fightful']},
+ 61:{alt:[{he:'במדריך אחר, "סקופ סלאם" הוא בכלל הפקודה של מהלך 18: מתוך תפיסה, החזקת {L2}, סטיק באלכסון אחורה ו-{sq} פעמיים.',s:['fuze']}]},
+ 63:{part:['fightful'],alt:[{he:'לפי GTABase, רוק בוטום יוצא מתוך תפיסה כשעומדים פנים מול פנים, וכיוון הסטיק משפיע על המהלך שיוצא.',s:['gtabase']}]}
+};
+const srcLink=id=>`<a href="${SRC[id].u}" target="_blank" rel="noopener"><bdi>${esc(SRC[id].n)}</bdi> ↗</a>`;
+const srcLinks=ids=>ids.map(srcLink).join('<span class="sep-dot">·</span>');
+function verifyHTML(n){
+  const v=VERIFY[n]||{};
+  let h=v.ok?`<span class="vtag ok">✓ אושר גם במקור כתוב</span>${srcLinks(v.ok)}`
+       :v.part?`<span class="vtag part">מוזכר גם ב</span>${srcLinks(v.part)}`
+       :'<span class="vtag">מקור יחיד: הסרטון</span>';
+  (v.info||[]).forEach(x=>{h+=`<p class="vnote">${fillKeys(x.he)}${x.s.length?' '+srcLinks(x.s):''}</p>`});
+  (v.alt||[]).forEach(x=>{h+=`<p class="vnote alt"><span class="vtag alt">מקור אחר כותב אחרת</span> ${fillKeys(x.he)} ${srcLinks(x.s)}</p>`});
+  return `<div class="vsrc">${h}</div>`;
+}
+function verifySummary(){
+  const ns=MOVES.map(m=>m.n), c={ok:0,part:0,none:0,alt:0};
+  ns.forEach(n=>{const v=VERIFY[n]||{};c[v.ok?'ok':v.part?'part':'none']++;if(v.alt)c.alt++});
+  return `<h3>איך המהלכים נבדקו</h3>
+    <p>כל ${ns.length} המהלכים וההתגרות תואמים בדיוק לכפתורים שהיוצר מציג על המסך בסרטון. ב-26.11.2026 בדקנו אותם גם מול מדריכים כתובים, פורומים של שחקנים ומקורות רשמיים של רוקסטאר. בתחתית כל כרטיס כתוב מה נמצא.</p>
+    <ul><li><b>${c.ok}</b> אושרו גם במקור כתוב, עם אותם כפתורים.</li><li><b>${c.part}</b> מוזכרים במקור כתוב, אבל בלי כל הפרטים.</li><li><b>${c.none}</b> מופיעים רק בסרטון. המשחק יצא רק לפני שבוע, ועוד אין עליהם מדריכים.</li><li><b>${c.alt}</b> מהלכים שבהם מקור כתוב מתאר דרך אחרת. זה מסומן בצהוב בכרטיס, וכדאי לנסות את שתי הדרכים.</li></ul>
+    <p class="vnote">אף מקור רשמי של רוקסטאר לא סותר מהלך בעמוד הזה. המקורות הרשמיים מכסים רק את הכפתורים הבסיסיים.</p>`;
+}
+
 /* ================= RENDER ================= */
 function moveCard(m){
   return `<article class="move ${learned.has(m.n)?'learned':''}" id="m${m.n}" data-n="${m.n}">
@@ -850,6 +962,7 @@ function moveCard(m){
       <div class="mhead"><h3>${esc(m.he)}</h3><span class="en">${esc(m.en)}</span></div>
       <div class="inputs">${inputsHTML(m.seq)}</div>
       <p class="mnote">${esc(m.note)}</p>
+      ${verifyHTML(m.n)}
       <div class="mactions">
         <button class="demo" type="button" data-demo="${m.n}">${svg('<path d="M7 4.5v15l12-7.5z" fill="currentColor"/>')}הדגמה</button>
         <label class="learn"><input type="checkbox" data-learn="${m.n}" ${learned.has(m.n)?'checked':''}> למדתי</label>
@@ -867,6 +980,7 @@ function bonusCard(){
       <h3>${esc(m.he)} <span class="en" style="font-size:var(--fs-8);color:var(--muted)">${esc(m.en)}</span></h3>
       <div class="inputs" id="tauntInputs" style="margin:var(--s-2) 0">${inputsHTML(m.seq)}</div>
       <p class="mnote">${esc(m.note)}</p>
+      ${verifyHTML(0)}
       <div class="mactions" style="border:0;padding-top:var(--s-2)">
         <button class="demo" type="button" data-demo="taunt">${svg('<path d="M7 4.5v15l12-7.5z" fill="currentColor"/>')}הדגמה</button>
         <a class="yt" href="${VIDEO}?t=${m.t}" target="_blank" rel="noopener">ברגע בסרטון ${mmss(m.t)} ↗</a>
@@ -996,20 +1110,25 @@ function ciCard(pf){
   </div>`;
 }
 
-// "L2 does nothing?" checklist. Menu paths are the game's English menu names (from written guides, 26.11.2026).
+// "L2 does nothing?" checklist, from the deep research of 26.11.2026 (sources listed under the box).
 const L2HELP=[
- ['להחזיק, לא ללחוץ','{L2} עובד רק כל עוד הוא לחוץ. משחררים, והנעילה נעלמת. מחזיקים אותו לאורך כל הקרב, ומכים עם {sq} בזמן שהוא לחוץ.',''],
+ ['להחזיק, לא ללחוץ','גם במסך השליטה של המשחק כתוב שמחזיקים. {L2} נועל רק כל עוד הוא לחוץ, ומשחררים והנעילה נעלמת. מחזיקים אותו לאורך כל הקרב, ומכים עם {sq} בזמן שהוא לחוץ.',''],
  ['מה רואים כשזה עובד','הדמות מסתובבת אל היריב ונשארת מולו, והסטיק מזיז אותה בצעדים צידיים סביבו במקום לרוץ. בלי נעילה, {sq} נותן רק סטירה או דחיפה (מהלך 1).',''],
- ['על מי זה נועל','על מי שכבר רב איתך. על עובר אורח רגיל, החזקה פותחת תפריט דיבור, כמו בהתגרות שבתחתית העמוד.',''],
- ['הגדרת הכיוון','במשחק יש הגדרה שקובעת אם הכיוון ננעל על אנשים. אם היא על Free Aim, ייתכן שהמשחק לא נועל בכלל. כדאי לבחור Lock-On ולנסות שוב.','Settings ▸ Gameplay ▸ Combat ▸ Targeting'],
- ['פריסת השליטה','העמוד בנוי על פריסת ברירת המחדל. בפריסות Classic ו-Left-Handed הכפתורים זזים למקומות אחרים.','Settings ▸ Controller ▸ Control Scheme ▸ Default']
+ ['על מי זה נועל','על מי שכבר רב איתך. על אדם רגוע, החזקה פותחת תפריט שבו {x} מברך ו-{sq} מתגרה, כמו בהתגרות שבתחתית העמוד. שחקנים מספרים שהמשחק לא נותן להרביץ לאדם רגוע עד שהוא מתחיל להתעצבן.',''],
+ ['ידיים ריקות','אם יש ביד נשק חם, {L2} מכוון אותו ולא נועל לקרב אגרופים. מחזיקים {L1} כדי לפתוח את גלגל הנשקים, ובוחרים ידיים ריקות. שחקנים מספרים שנגיעה מקרית ב-{L1} שולפת אקדח.',''],
+ ['פריסת השליטה','העמוד בנוי על פריסת ברירת המחדל. בפריסה Left-Handed הנעילה עוברת ל-{R2} והתפיסה ל-{L2}. בפריסה Classic המכה עוברת ל-{o} והחסימה ל-{sq}.','Settings ▸ Controller ▸ Control Scheme ▸ Default'],
+ ['הגדרת הכיוון','יש שלוש אפשרויות: Lock-On נועל תמיד על הקרוב ביותר, Partial רק מושך את הכיוון לעברו, ו-Free Aim לא נועל אף פעם. המשחק מתאר את זה לכיוון נשק, ואף מקור לא כותב אם זה משפיע גם על אגרופים. אם שום דבר אחר לא עזר, כדאי לנסות Lock-On.','Settings ▸ Gameplay ▸ Combat ▸ Targeting'],
+ ['החזקה או לחיצה','בהגדרות הנגישות יש אפשרות לכיוון: החזקה (Hold) או לחיצה (Press). אם היא על Press, ייתכן שצריך ללחוץ פעם אחת כדי לנעול, ופעם נוספת כדי לשחרר.','Aiming ▸ Hold']
 ];
+const L2SRC=['help','insider','allthings_lock','rockstar_access','shack','resetera_tips','resetera_complaints'];
 
 function renderStatic(){
   document.getElementById('ctrlInfo').innerHTML=ciCard('ps')+ciCard('xb');
   document.getElementById('l2help').innerHTML=`<h3>${ik('L2')} לא עושה כלום?</h3>
-    <p>זו הבעיה הכי נפוצה בקרב מגע. חמישה דברים לבדוק, לפי הסדר:</p>
-    <ol>${L2HELP.map(([b,p,path],i)=>`<li><span class="ci-n">${i+1}</span><div><b>${esc(b)}</b><p>${fillKeys(p)}</p>${path?`<span class="path">${esc(path)}</span>`:''}</div></li>`).join('')}</ol>`;
+    <p>זו הבעיה הכי נפוצה בקרב מגע. כמה דברים לבדוק, לפי הסדר:</p>
+    <ol>${L2HELP.map(([b,p,path],i)=>`<li><span class="ci-n">${i+1}</span><div><b>${esc(b)}</b><p>${fillKeys(p)}</p>${path?`<span class="path">${esc(path)}</span>`:''}</div></li>`).join('')}</ol>
+    <div class="vsrc l2src"><span class="vtag">מקורות, נבדקו ב-26.11.2026</span>${srcLinks(L2SRC)}</div>`;
+  document.getElementById('verifySum').innerHTML=verifySummary();
   document.getElementById('keymap').innerHTML=KEYMAP.map(t=>{
     const g=t.stick?keyHTML(S('up','כיוון'),'ps',0):`<span class="ps">${keyHTML(B(t.k),'ps',0)}</span><span class="xb">${keyHTML(B(t.k),'xb',0)}</span>`;
     return `<div class="kt">${g}<div><h3>${esc(t.h)}</h3><p>${esc(t.p)}</p></div></div>`;
@@ -1017,7 +1136,7 @@ function renderStatic(){
   const lg=[
     [B('sq','tap'),'הקשה','לחיצה אחת קצרה. נקודה אחת מתחת לכפתור.'],
     [B('sq','hold'),'החזקה','להחזיק עד שהפס מתמלא. בהדגמה רואים אותו מתמלא.'],
-    [B('sq','mash'),'לחיצות מהירות','שוב ושוב, מהר, עד שהמהלך נגמר. אל תעצור באמצע.'],
+    [B('sq','mash'),'לחיצות מהירות','שוב ושוב, מהר, עד שהמהלך נגמר. אל תעצור באמצע. בהגדרות הנגישות של המשחק אפשר להחליף אותן בהחזקה.'],
     [S('down'),'סטיק שמאלי','הנקודה הטורקיז מראה לאן לדחוף. בתפיסה זה לפי המצלמה.'],
     [null,'ואז / יחד','החץ אומר "ואז". הפלוס אומר "באותו רגע".'],
     [C('מאחוריו'),'תנאי','איפה לעמוד או מה הוא צריך לעשות כדי שהמהלך יצא.']
