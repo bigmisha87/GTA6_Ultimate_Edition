@@ -90,6 +90,13 @@ img{max-width:100%;display:block}
 .cats a{white-space:nowrap;font-size:var(--fs-7);font-weight:700;color:var(--ink-2);text-decoration:none;padding:7px 12px;border-radius:var(--r-pill);border:1px solid transparent}
 .cats a:hover{background:var(--surface-3)}
 .cats a[aria-current]{background:var(--accent);color:var(--on-accent)}
+.pad-pick{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line-2);background:var(--surface-2);border-radius:var(--r-pill);padding:4px}
+.pad-label{font-size:var(--fs-9);font-weight:800;color:var(--muted);padding:0 8px 0 4px;white-space:nowrap}
+.pad-opt{display:inline-flex;align-items:center;gap:7px;border:0;background:none;border-radius:var(--r-pill);padding:5px 12px 5px 6px;font-size:var(--fs-8);font-weight:900;color:var(--ink-2);white-space:nowrap}
+.pad-opt:hover{background:var(--surface-3)}
+.pad-opt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.pad-ico{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--key-face);border:1px solid var(--key-rim)}
+.pad-ico svg{width:20px;height:20px}
 .theme-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-pill);border:1px solid var(--line-2);background:var(--surface-2)}
 .theme-btn svg{width:20px;height:20px}
 .theme-btn .sun{display:none}
@@ -345,6 +352,9 @@ dialog.lb::backdrop{background:#05040aeb}
   .progress .track{width:70px}
   .cats{order:3;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
   .topbar .wrap{justify-content:space-between}
+  .theme-btn{order:1}
+  .pad-pick{order:2;flex-basis:100%}
+  .pad-opt{flex:1;justify-content:center}
   .filters{position:relative}
   html{scroll-padding-top:12px}
 }
@@ -363,6 +373,11 @@ dialog.lb::backdrop{background:#05040aeb}
       <a href="map.html">מפת לאונידה</a>
       <a href="combat.html" aria-current="page">קרב מגע</a>
     </nav>
+    <div class="pad-pick" role="group" aria-label="איזה שלט להציג">
+      <span class="pad-label">השלט שלי</span>
+      <button class="pad-opt" type="button" data-set-platform="ps"><span class="pad-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6l2.6 4.4H9.4z" stroke="#4fdcae"/><circle cx="19" cy="12" r="2.4" stroke="#ff7d7d"/><path d="M10.2 15.2l3.6 3.6M13.8 15.2l-3.6 3.6" stroke="#93b4ff"/><rect x="2.8" y="9.8" width="4.4" height="4.4" rx=".5" stroke="#f29be2"/></svg></span>PlayStation</button>
+      <button class="pad-opt" type="button" data-set-platform="xb"><span class="pad-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3.2" fill="#ffd23f"/><circle cx="19" cy="12" r="3.2" fill="#ff6b5e"/><circle cx="12" cy="19" r="3.2" fill="#5fd068"/><circle cx="5" cy="12" r="3.2" fill="#5a9bff"/></svg></span>Xbox</button>
+    </div>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="מעבר בין מצב כהה למצב בהיר">
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
@@ -406,12 +421,7 @@ dialog.lb::backdrop{background:#05040aeb}
       <div>
         <div class="over">The basics</div>
         <h2>מפת הכפתורים של הקרב</h2>
-        <p>שמונה דברים שצריך לזכור. כל 63 המהלכים בנויים מהם, בשילובים שונים. הפריסה כאן היא ברירת המחדל של המשחק.</p>
-      </div>
-      <div class="seg" role="group" aria-label="סוג השלט">
-        <button type="button" data-set-platform="ps">PlayStation</button>
-        <button type="button" data-set-platform="xb">Xbox</button>
-        <button type="button" data-set-platform="both">שניהם</button>
+        <p>שמונה דברים שצריך לזכור. כל 63 המהלכים בנויים מהם, בשילובים שונים. הפריסה כאן היא ברירת המחדל של המשחק. את סוג השלט בוחרים למעלה, ליד "השלט שלי".</p>
       </div>
     </div>
     <div class="keymap" id="keymap"></div>
