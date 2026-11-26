@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0910">
+<title>קרב מגע | GTA VI · כל 63 המהלכים עם הכפתורים</title>
+<meta name="description" content="מדריך הקרב מגע של GTA VI: 63 מהלכים של ג׳ייסון ולוסיה, עם כפתורי PlayStation ו-Xbox, צילומי מסך והדגמה מונפשת לכל מהלך.">
+<script>
+// Dark is the default. Light only when the viewer chose it before.
+try{if(localStorage.getItem('gta6-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Barlow+Condensed:wght@800;900&display=swap" rel="stylesheet">
+<style>
+/* ============ DESIGN SYSTEM ============ */
+:root{
+  color-scheme:dark;
+  /* colour */
+  --bg:#0a0910; --bg-glow-1:#4a1636; --bg-glow-2:#0f3a44;
+  --surface:#15121d; --surface-2:#1d1928; --surface-3:#262036;
+  --line:#2f2840; --line-2:#433a5a;
+  --ink:#f5f0fb; --ink-2:#d2c8df; --muted:#9e93b0;
+  --accent:#ff4f9a; --accent-2:#ff86b9; --on-accent:#22050f;
+  --teal:#38e1cf; --sun:#ffb454; --violet:#ad8fff; --danger:#ff5b5b;
+  --cond-ink:#ffd36b; --cond-bg:#2b2412; --cond-line:#7d6326;
+  --jason:#ffb454; --lucia:#ff74bb;
+  --chip:#221d2e; --chip-line:#3a3150;
+  --sticky:#0a0910ec;
+  /* controller buttons are "physical objects": they keep their own colours in both themes */
+  --key-face:#1c1827; --key-rim:#4b4163; --key-ink:#f7f2ff; --key-shadow:#00000080;
+  --ps-x:#93b4ff; --ps-o:#ff7d7d; --ps-sq:#f29be2; --ps-tri:#4fdcae;
+  --xb-a:#5fd068; --xb-b:#ff6b5e; --xb-x:#5a9bff; --xb-y:#ffd23f;
+  /* type */
+  --font:'Heebo','Segoe UI',Arial,sans-serif;
+  --font-display:'Barlow Condensed','Heebo','Segoe UI',Arial,sans-serif;
+  --fs-1:clamp(52px,7.4vw,104px);  /* hero title (display, never under 36px) */
+  --fs-2:clamp(40px,4vw,56px);     /* move + chapter numbers (display) */
+  --fs-3:clamp(24px,2.4vw,32px);   /* section titles */
+  --fs-4:21px;                     /* card titles */
+  --fs-5:18px;                     /* lead text, big key letters */
+  --fs-6:16px;                     /* body */
+  --fs-7:14px;                     /* secondary text */
+  --fs-8:12.5px;                   /* labels, chips, captions */
+  --fs-9:11px;                     /* overlines, tiny meta */
+  /* shape + space */
+  --r-1:8px; --r-2:14px; --r-3:22px; --r-pill:999px;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:36px; --s-7:56px;
+  --shadow:0 20px 60px #0000006b;
+  --wrap:1320px;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f5f1ea; --bg-glow-1:#ffd6e8; --bg-glow-2:#cdeff0;
+  --surface:#ffffff; --surface-2:#f8f4fb; --surface-3:#efe8f5;
+  --line:#e3dbea; --line-2:#cfc3dc;
+  --ink:#1b1424; --ink-2:#3d3249; --muted:#6c6079;
+  --accent:#d81f6e; --accent-2:#b0185a; --on-accent:#ffffff;
+  --teal:#0d8f83; --sun:#b85f00; --violet:#6a45d8; --danger:#c62828;
+  --cond-ink:#7a4f00; --cond-bg:#fff3d1; --cond-line:#e2b85a;
+  --jason:#b85f00; --lucia:#c2186f;
+  --chip:#f1ebf6; --chip-line:#d9cfe4;
+  --sticky:#f5f1eaee;
+  --shadow:0 18px 50px #3a1f4a1f;
+}
+
+/* ============ BASE ============ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;background:
+  radial-gradient(900px 520px at 100% -8%,var(--bg-glow-1),transparent 70%),
+  radial-gradient(760px 520px at -6% 22%,var(--bg-glow-2),transparent 70%),var(--bg);
+  color:var(--ink);font-family:var(--font);font-size:var(--fs-6);line-height:1.65}
+a{color:var(--teal)}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{width:min(var(--wrap),calc(100% - 40px));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.en{direction:ltr;unicode-bidi:isolate}
+
+/* ============ TOP BAR ============ */
+.topbar{border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar .wrap{display:flex;align-items:center;gap:var(--s-4);padding:var(--s-3) 0;flex-wrap:wrap}
+.brand{font-weight:900;font-size:var(--fs-6);white-space:nowrap;text-decoration:none;color:var(--ink)}
+.brand b{color:var(--accent)}
+.cats{display:flex;gap:var(--s-1);flex-wrap:wrap;flex:1}
+.cats a{white-space:nowrap;font-size:var(--fs-7);font-weight:700;color:var(--ink-2);text-decoration:none;padding:7px 12px;border-radius:var(--r-pill);border:1px solid transparent}
+.cats a:hover{background:var(--surface-3)}
+.cats a[aria-current]{background:var(--accent);color:var(--on-accent)}
+.theme-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-pill);border:1px solid var(--line-2);background:var(--surface-2)}
+.theme-btn svg{width:20px;height:20px}
+.theme-btn .sun{display:none}
+:root[data-theme="light"] .theme-btn .sun{display:block}
+:root[data-theme="light"] .theme-btn .moon{display:none}
+
+/* ============ HERO ============ */
+.hero{padding:var(--s-7) 0 var(--s-6)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:var(--s-6);align-items:center}
+.over{font-size:var(--fs-9);font-weight:800;letter-spacing:.22em;color:var(--teal);direction:ltr;text-align:right;text-transform:uppercase}
+.hero h1{font-family:var(--font-display);font-weight:900;font-size:var(--fs-1);line-height:.92;margin:var(--s-3) 0 var(--s-4);letter-spacing:-.01em}
+.hero h1 span{display:block;color:var(--accent)}
+.lead{font-size:var(--fs-5);color:var(--ink-2);max-width:620px;margin:0 0 var(--s-5)}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-2);margin:0 0 var(--s-5);padding:0;list-style:none}
+.rules li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3)}
+.rules b{display:block;font-size:var(--fs-7);font-weight:800}
+.rules small{display:block;color:var(--muted);font-size:var(--fs-8);line-height:1.5;margin-top:2px}
+.rules i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:var(--r-pill);background:var(--accent);color:var(--on-accent);font-size:var(--fs-8);font-weight:900;margin-bottom:6px}
+.hero-cta{display:flex;gap:var(--s-2);flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:11px 20px;font-weight:800;font-size:var(--fs-7);text-decoration:none;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{filter:brightness(1.08)}
+.stats{display:flex;gap:var(--s-5);margin-top:var(--s-5);flex-wrap:wrap}
+.stats div{font-size:var(--fs-8);color:var(--muted)}
+.stats b{display:block;font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:1;color:var(--ink)}
+.mosaic{position:relative;aspect-ratio:5/4}
+.mosaic figure{position:absolute;margin:0;border-radius:var(--r-3);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line-2)}
+.mosaic img{width:100%;height:100%;object-fit:cover}
+.mosaic .f1{inset:0 0 22% 12%;transform:rotate(-1.5deg)}
+.mosaic .f2{width:46%;aspect-ratio:16/10;right:0;bottom:0;transform:rotate(2.5deg)}
+.mosaic .f3{width:40%;aspect-ratio:16/10;left:0;bottom:6%;transform:rotate(-3deg)}
+.mosaic figcaption{position:absolute;inset:auto 0 0 0;padding:6px 10px;font-size:var(--fs-9);font-weight:700;background:linear-gradient(transparent,#000000b0);color:#fff}
+
+/* ============ SECTIONS ============ */
+section.block{padding:var(--s-6) 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--s-4);margin-bottom:var(--s-5);flex-wrap:wrap}
+.sec-head h2{font-size:var(--fs-3);font-weight:900;margin:4px 0 0;line-height:1.2}
+.sec-head p{margin:6px 0 0;color:var(--muted);font-size:var(--fs-7);max-width:640px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);padding:var(--s-5)}
+
+/* keymap */
+.keymap{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-3)}
+.kt{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-4);display:flex;gap:var(--s-3);align-items:flex-start}
+.kt h3{margin:0;font-size:var(--fs-6);font-weight:800}
+.kt p{margin:2px 0 0;font-size:var(--fs-8);color:var(--muted);line-height:1.55}
+.kt .key{flex:none}
+.basics-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s-4);margin-top:var(--s-4)}
+.helps{display:grid;gap:var(--s-3)}
+.help{display:grid;grid-template-columns:120px 1fr;gap:var(--s-3);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3);align-items:start}
+.help button{padding:0;border:0;background:none;border-radius:var(--r-1);overflow:hidden}
+.help img{aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-1)}
+.help h3{margin:0;font-size:var(--fs-7);font-weight:800}
+.help p{margin:2px 0 0;font-size:var(--fs-8);color:var(--ink-2);line-height:1.65}
+.help .tip{color:var(--muted)}
+.ctrl-shot{margin:0}
+.ctrl-shot button{padding:0;border:0;background:none;width:100%;border-radius:var(--r-2);overflow:hidden;border:1px solid var(--line)}
+.ctrl-shot figcaption{font-size:var(--fs-8);color:var(--muted);margin-top:6px}
+
+/* legend */
+.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3)}
+.lg{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3) var(--s-4);display:flex;align-items:center;gap:var(--s-3)}
+.lg p{margin:0;font-size:var(--fs-8);color:var(--ink-2);line-height:1.5}
+.lg b{display:block;font-size:var(--fs-7);color:var(--ink)}
+
+/* ============ KEYS (our own button design) ============ */
+.seq{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 6px}
+.key{display:inline-flex;flex-direction:column;align-items:center;gap:3px;min-width:46px}
+.glyph{position:relative;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
+  background:radial-gradient(circle at 50% 30%,#2b2540,var(--key-face) 70%);border:2px solid var(--key-rim);
+  box-shadow:0 3px 0 var(--key-shadow),inset 0 1px 0 #ffffff1f;color:var(--key-ink);transition:transform .12s}
+.glyph svg{width:24px;height:24px}
+.k-ps-x .glyph{color:var(--ps-x)} .k-ps-o .glyph{color:var(--ps-o)} .k-ps-sq .glyph{color:var(--ps-sq)} .k-ps-tri .glyph{color:var(--ps-tri)}
+.k-xb .glyph b{font-size:var(--fs-5);font-weight:900;line-height:1}
+.k-xb-a .glyph{color:var(--xb-a);border-color:#3f7f45} .k-xb-b .glyph{color:var(--xb-b);border-color:#8a3a35}
+.k-xb-x .glyph{color:var(--xb-x);border-color:#35558c} .k-xb-y .glyph{color:var(--xb-y);border-color:#8a7426}
+.k-trig .glyph{width:56px;height:40px;border-radius:14px 14px 9px 9px;margin-top:3px}
+.k-trig .glyph b{font-size:var(--fs-7);font-weight:900;letter-spacing:.02em;color:#fff}
+.k-trig.k-bump .glyph{height:32px;border-radius:9px;margin:7px 0 4px}
+.k-stick .glyph{background:radial-gradient(circle,#2f2944 0 54%,var(--key-face) 56%)}
+.k-stick .knob{position:absolute;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#7cefe2,#1fae9f);border:2px solid #c9fff8;
+  transform:translate(var(--dx,0px),var(--dy,0px));transition:transform .25s}
+.k-stick .glyph svg.arrow{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.k-click .glyph::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px dashed #ffffff55}
+.meter{display:flex;gap:3px;align-items:center;height:6px}
+.meter i{display:block;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.meter .bar{width:40px;height:6px;border-radius:6px;background:var(--line-2);overflow:hidden;position:relative}
+.meter .bar i{position:absolute;inset:0 30% 0 0;width:auto;height:auto;border-radius:6px;background:var(--accent)}
+.cap{font-size:var(--fs-9);font-weight:700;color:var(--muted);white-space:nowrap;line-height:1.2;text-align:center}
+.sep{align-self:center;display:inline-flex;flex-direction:column;align-items:center;color:var(--muted);font-size:var(--fs-9);font-weight:700;margin-top:-14px}
+.sep svg{width:18px;height:18px;color:var(--accent)}
+.sep.plus{font-size:var(--fs-4);font-weight:900;color:var(--ink-2);margin-top:-16px}
+.sep.or{font-size:var(--fs-8)}
+.cond{align-self:center;margin-top:-14px;max-width:150px;font-size:var(--fs-8);font-weight:700;line-height:1.35;color:var(--cond-ink);background:var(--cond-bg);
+  border:1px dashed var(--cond-line);border-radius:10px;padding:6px 9px;text-align:center}
+.prow{display:flex;gap:var(--s-2);align-items:flex-start}
+.plabel{flex:none;font-size:var(--fs-9);font-weight:900;letter-spacing:.08em;color:var(--muted);direction:ltr;width:40px;padding-top:15px;display:none}
+body[data-platform="both"] .plabel{display:block}
+body[data-platform="ps"] .xb, body[data-platform="xb"] .ps{display:none!important}
+.prow+.prow{margin-top:var(--s-2);padding-top:var(--s-2);border-top:1px dashed var(--line)}
+/* inline mini keys inside running text */
+.ik{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 5px;border-radius:var(--r-pill);background:var(--key-face);border:1px solid var(--key-rim);
+  color:var(--key-ink);font-size:var(--fs-9);font-weight:900;vertical-align:-5px;margin:0 2px;direction:ltr}
+.ik svg{width:13px;height:13px}
+.ik.ps-x{color:var(--ps-x)}.ik.ps-o{color:var(--ps-o)}.ik.ps-sq{color:var(--ps-sq)}.ik.ps-tri{color:var(--ps-tri)}
+.ik.xb-a{color:var(--xb-a)}.ik.xb-b{color:var(--xb-b)}.ik.xb-x{color:var(--xb-x)}.ik.xb-y{color:var(--xb-y)}
+.ik.trig{border-radius:6px}
+.ikpair .slash{color:var(--muted);margin:0 1px}
+body:not([data-platform="both"]) .ikpair .slash{display:none}
+
+/* demo animation */
+@keyframes kPress{0%{transform:scale(1)}30%{transform:scale(.84);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 45%,transparent)}100%{transform:scale(1)}}
+@keyframes kHold{0%{transform:scale(1)}12%,88%{transform:scale(.88);box-shadow:0 0 0 7px color-mix(in srgb,var(--accent) 40%,transparent)}100%{transform:scale(1)}}
+@keyframes kFill{from{inset:0 100% 0 0}to{inset:0 0 0 0}}
+@keyframes kBlink{50%{opacity:.15}}
+@keyframes kCond{0%,100%{transform:scale(1)}40%{transform:scale(1.07);box-shadow:0 0 0 5px color-mix(in srgb,var(--cond-ink) 30%,transparent)}}
+@keyframes kKnob{0%{transform:translate(0,0)}35%,80%{transform:translate(var(--dx,0px),var(--dy,0px))}100%{transform:translate(0,0)}}
+.key.play .glyph{animation:kPress var(--dur) ease}
+.key.m-x3.play .glyph{animation:kPress calc(var(--dur) / 3) ease 3}
+.key.m-mash.play .glyph{animation:kPress 140ms ease 7}
+.key.m-mash.play .meter i{animation:kBlink 140ms linear 7}
+.key.m-hold.play .glyph{animation:kHold var(--dur) linear}
+.key.m-hold.play .meter .bar i{animation:kFill var(--dur) linear}
+.key.k-stick.play .glyph{animation:none}
+.key.k-stick.play .knob{animation:kKnob var(--dur) ease}
+.cond.play{animation:kCond var(--dur) ease}
+.seq.playing .key:not(.play),.seq.playing .cond:not(.play){opacity:.45;transition:opacity .2s}
+
+/* ============ STICKY FILTERS ============ */
+.filters{position:sticky;top:0;z-index:30;background:var(--sticky);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.filters .wrap{padding:var(--s-3) 0;display:grid;gap:var(--s-2)}
+.chiprow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+.chip{flex:none;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:6px 12px;font-size:var(--fs-8);font-weight:700;color:var(--ink-2);white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip .n{opacity:.7;margin-inline-start:4px}
+.toolrow{display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:3px}
+.seg button{border:0;background:none;border-radius:var(--r-pill);padding:5px 12px;font-size:var(--fs-8);font-weight:800;color:var(--ink-2);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px #0000003a}
+:root[data-theme="light"] .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.search{flex:1 1 200px;min-width:160px;border:1px solid var(--chip-line);background:var(--surface);border-radius:var(--r-pill);padding:8px 14px;font-size:var(--fs-7);color:var(--ink)}
+.search::placeholder{color:var(--muted)}
+.toggle{display:inline-flex;gap:6px;align-items:center;font-size:var(--fs-8);font-weight:700;color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.toggle input{accent-color:var(--teal);width:16px;height:16px}
+.progress{display:flex;align-items:center;gap:8px;font-size:var(--fs-8);font-weight:800;color:var(--ink-2);white-space:nowrap;margin-inline-start:auto}
+.progress .track{width:110px;height:7px;border-radius:7px;background:var(--line-2);overflow:hidden}
+.progress .track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--accent));transition:width .3s}
+
+/* ============ CHAPTERS + MOVE CARDS ============ */
+.chapter{padding:var(--s-6) 0 var(--s-2)}
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:var(--s-4);align-items:center;margin-bottom:var(--s-4)}
+.ch-num{font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:.9;color:transparent;-webkit-text-stroke:2px var(--accent)}
+.ch-head h2{margin:0;font-size:var(--fs-3);font-weight:900;line-height:1.2}
+.ch-head .over{text-align:right}
+.ch-head p{margin:4px 0 0;color:var(--ink-2);font-size:var(--fs-7);max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:var(--s-4)}
+.move{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,box-shadow .2s}
+.move:hover{border-color:var(--line-2)}
+.move.learned{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
+.shot{position:relative;display:block;padding:0;border:0;background:#000;aspect-ratio:16/9;overflow:hidden;cursor:zoom-in}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.move:hover .shot img{transform:scale(1.03)}
+.shot::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,#000000b8)}
+.num{position:absolute;z-index:1;bottom:6px;right:12px;font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:1;color:#fff;text-shadow:0 2px 12px #000}
+.num small{font-size:.5em;color:var(--accent-2);vertical-align:.7em;margin-left:2px}
+.who{position:absolute;z-index:1;top:10px;right:10px;display:flex;gap:4px}
+.who span{font-size:var(--fs-9);font-weight:900;padding:3px 8px;border-radius:var(--r-pill);color:#1a0d00;background:#ffb454}
+.who span.L{background:#ff74bb;color:#2a0617}
+.done-tag{position:absolute;z-index:1;top:10px;left:10px;font-size:var(--fs-9);font-weight:900;padding:3px 8px;border-radius:var(--r-pill);background:var(--teal);color:#032521;display:none}
+.move.learned .done-tag{display:block}
+.mbody{padding:var(--s-4);display:flex;flex-direction:column;gap:var(--s-3);flex:1}
+.mhead h3{margin:0;font-size:var(--fs-4);font-weight:900;line-height:1.25}
+.mhead .en{display:block;font-size:var(--fs-8);color:var(--muted);font-weight:700;text-align:right}
+.inputs{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3)}
+.mnote{margin:0;font-size:var(--fs-7);color:var(--ink-2);line-height:1.65}
+.mactions{margin-top:auto;display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap;padding-top:var(--s-3);border-top:1px solid var(--line)}
+.demo{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:var(--r-pill);padding:6px 14px;font-size:var(--fs-8);font-weight:900}
+.demo:hover,.demo.on{background:var(--accent);color:var(--on-accent)}
+.demo svg{width:12px;height:12px}
+.learn{display:inline-flex;gap:6px;align-items:center;font-size:var(--fs-8);font-weight:800;color:var(--ink-2);cursor:pointer}
+.learn input{accent-color:var(--teal);width:16px;height:16px}
+.yt{margin-inline-start:auto;font-size:var(--fs-8);font-weight:700;color:var(--muted);text-decoration:none}
+.yt:hover{color:var(--teal)}
+.bonus{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:var(--s-4);background:linear-gradient(120deg,var(--surface-2),var(--surface));border:1px dashed var(--line-2);border-radius:var(--r-3);padding:var(--s-4);align-items:center}
+.bonus .shot{border-radius:var(--r-2)}
+.bonus h3{margin:0 0 4px;font-size:var(--fs-4);font-weight:900}
+.bonus .tagline{font-size:var(--fs-9);font-weight:900;color:var(--sun);letter-spacing:.06em}
+.empty{padding:var(--s-6);text-align:center;color:var(--muted)}
+
+/* ============ SCREEN CUES ============ */
+.cues{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4)}
+.cue{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);overflow:hidden}
+.cue .shot{aspect-ratio:16/9}
+.cue .shot::after{display:none}
+.cue div.t{padding:var(--s-3) var(--s-4) var(--s-4)}
+.cue h3{margin:0;font-size:var(--fs-6);font-weight:800}
+.cue p{margin:4px 0 0;font-size:var(--fs-8);color:var(--ink-2);line-height:1.6}
+.lab{grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);padding:var(--s-5);display:flex;flex-direction:column;gap:var(--s-3);position:relative;overflow:hidden}
+.lab h3{margin:0;font-size:var(--fs-6);font-weight:800}
+.lab p{margin:0;font-size:var(--fs-8);color:var(--ink-2)}
+.stam{display:flex;align-items:center;gap:var(--s-3)}
+.stam .bolt{width:30px;height:30px;flex:none;display:grid;place-items:center;border-radius:50%;background:#0e2b28;border:2px solid var(--teal);color:var(--teal)}
+.stam .bolt svg{width:16px;height:16px}
+.stam .bar{direction:ltr;flex:1;height:18px;border-radius:6px;background:#0f1d1c;border:1px solid #2b4a46;overflow:hidden}
+.stam .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#1fae9f,#5ff3e3);transition:width .35s ease}
+.stam .pct{font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:1;min-width:3.2ch;text-align:left;direction:ltr}
+.lab.empty-st .stam .bolt{background:#3a0f12;border-color:var(--danger);color:var(--danger)}
+.lab .msg{min-height:1.6em;font-size:var(--fs-7);font-weight:800;color:var(--ink)}
+.lab .msg.bad{color:var(--danger)}
+.lab .row{display:flex;gap:var(--s-2);flex-wrap:wrap}
+.lab .flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.lab.flashing .flash{animation:flash .5s ease}
+@keyframes flash{0%{opacity:.75}100%{opacity:0}}
+
+/* ============ TIPS + FOOTER ============ */
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4)}
+.tipc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);padding:var(--s-5);position:relative}
+.tipc .tn{font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:1;color:var(--accent);opacity:.9}
+.tipc h3{margin:var(--s-2) 0 4px;font-size:var(--fs-6);font-weight:800}
+.tipc p{margin:0;font-size:var(--fs-7);color:var(--ink-2)}
+footer{border-top:1px solid var(--line);margin-top:var(--s-6);padding:var(--s-6) 0 var(--s-7);color:var(--muted);font-size:var(--fs-8);line-height:1.9}
+footer p{margin:0 0 var(--s-2);max-width:900px}
+
+/* ============ LIGHTBOX ============ */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);width:100%;color:var(--ink)}
+dialog.lb::backdrop{background:#05040aeb}
+.lb-in{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-3);overflow:hidden}
+.lb-in img{width:100%;max-height:68vh;object-fit:contain;background:#000}
+.lb-cap{padding:var(--s-4) var(--s-5);display:flex;gap:var(--s-4);align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.lb-cap h3{margin:0;font-size:var(--fs-4);font-weight:900}
+.lb-cap p{margin:4px 0 0;font-size:var(--fs-7);color:var(--ink-2);max-width:620px}
+.lb-close{position:absolute;top:12px;left:12px;z-index:2;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff55;background:#000000a0;color:#fff;font-size:var(--fs-5);font-weight:900}
+.lb-inputs{min-width:280px}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1060px){
+  .hero .wrap{grid-template-columns:1fr}
+  .mosaic{max-width:620px;width:100%;margin-inline:auto}
+  .keymap,.legend{grid-template-columns:repeat(2,1fr)}
+  .basics-grid{grid-template-columns:1fr}
+  .cues{grid-template-columns:repeat(2,1fr)}
+  .tips{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 24px)}
+  .hero{padding-top:var(--s-5)}
+  .rules{grid-template-columns:1fr}
+  .keymap,.legend,.cues,.tips{grid-template-columns:1fr}
+  .lab{grid-column:auto}
+  .grid{grid-template-columns:1fr}
+  .help{grid-template-columns:92px 1fr}
+  .bonus{grid-template-columns:1fr}
+  .progress{margin-inline-start:0}
+  .progress .track{width:70px}
+  .cats{order:3;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
+  .topbar .wrap{justify-content:space-between}
+  .filters{position:relative}
+  html{scroll-padding-top:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:1ms!important;animation-iteration-count:1!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body data-platform="ps">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">GTA VI <b>Ultimate</b></a>
+    <nav class="cats" aria-label="קטגוריות המדריך">
+      <a href="index.html">בונוסי Ultimate</a>
+      <a href="GTA6_Field_Guide/index.html">תנועות ומהלכים</a>
+      <a href="GTA6_Field_Guide/loot.html">רכבים, נשקים וכסף</a>
+      <a href="map.html">מפת לאונידה</a>
+      <a href="combat.html" aria-current="page">קרב מגע</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="מעבר בין מצב כהה למצב בהיר">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="over">GTA VI · Melee combat · Jason &amp; Lucia</div>
+      <h1>קרב מגע<span>63 מהלכים</span></h1>
+      <p class="lead">תפריט העזרה של המשחק נותן שלושה עמודים קצרים על מכות. כאן יש את כל השאר: כל מהלך של ג׳ייסון ולוסיה, מהבסיס ועד הסלאמים הגדולים, עם הכפתורים בגדול, צילום מהמשחק, והדגמה שמראה בדיוק מתי ללחוץ. בלי ספוילרים לעלילה.</p>
+      <ol class="rules" aria-label="הסוד של כל הקרב">
+        <li><i>1</i><b>איפה אתה עומד</b><small>מולו, מאחוריו, או צמוד למעקה, לרכב או לקיר</small></li>
+        <li><i>2</i><b>כמה הוא רחוק</b><small>מטר, מטר וחצי או שניים: כל מרחק נותן מהלך אחר</small></li>
+        <li><i>3</i><b>מה הוא עושה עכשיו</b><small>מניף, מקופל, שוכב או רץ אליך: זה קובע את הסלאם</small></li>
+      </ol>
+      <div class="hero-cta">
+        <a class="btn primary" href="#moves">קפוץ למהלכים</a>
+        <a class="btn" href="#basics">הכפתורים הבסיסיים</a>
+        <a class="btn" href="#screen">לקרוא את המסך</a>
+      </div>
+      <div class="stats">
+        <div><b>63</b>מהלכים</div>
+        <div><b>10</b>פרקים</div>
+        <div><b>2</b>לוחמים עם סגנון שונה</div>
+      </div>
+    </div>
+    <div class="mosaic" aria-hidden="true">
+      <figure class="f1"><img src="combat-assets/hero.webp" alt=""><figcaption>#45 · למים</figcaption></figure>
+      <figure class="f3"><img src="combat-assets/m18.webp" alt=""><figcaption>#18 · צלילה לרגליים</figcaption></figure>
+      <figure class="f2"><img src="combat-assets/m16.webp" alt=""><figcaption>#16 · משולש מעופף</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="basics">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="over">The basics</div>
+        <h2>מפת הכפתורים של הקרב</h2>
+        <p>שמונה דברים שצריך לזכור. כל 63 המהלכים בנויים מהם, בשילובים שונים. הפריסה כאן היא ברירת המחדל של המשחק.</p>
+      </div>
+      <div class="seg" role="group" aria-label="סוג השלט">
+        <button type="button" data-set-platform="ps">PlayStation</button>
+        <button type="button" data-set-platform="xb">Xbox</button>
+        <button type="button" data-set-platform="both">שניהם</button>
+      </div>
+    </div>
+    <div class="keymap" id="keymap"></div>
+
+    <div class="sec-head" style="margin-top:var(--s-6)">
+      <div>
+        <div class="over">How to read our buttons</div>
+        <h2>איך לקרוא את הכפתורים בעמוד</h2>
+        <p>הסדר הוא מימין לשמאל, כמו שקוראים. בכל מהלך יש כפתור ▶ הדגמה שמדליק את הכפתורים בקצב הנכון.</p>
+      </div>
+    </div>
+    <div class="legend" id="legend"></div>
+
+    <div class="basics-grid">
+      <div>
+        <div class="sec-head" style="margin:var(--s-6) 0 var(--s-4)">
+          <div>
+            <div class="over">What the help menu says</div>
+            <h2>מה המשחק עצמו מסביר</h2>
+            <p>שלושת עמודי העזרה מתוך המשחק, בתרגום. לחיצה על התמונה מגדילה אותה.</p>
+          </div>
+        </div>
+        <div class="helps" id="helps"></div>
+      </div>
+      <div>
+        <div class="sec-head" style="margin:var(--s-6) 0 var(--s-4)">
+          <div>
+            <div class="over">Control screen</div>
+            <h2>מסך השליטה במשחק</h2>
+            <p>כך זה מופיע בהגדרות, תחת Control Scheme ▸ Melee.</p>
+          </div>
+        </div>
+        <figure class="ctrl-shot">
+          <button type="button" data-zoom="help-controls" data-title="מסך השליטה בקרב מגע" data-text="ברירת המחדל: L2 נעילה ותנועה צידית, סטיק שמאלי תנועה, R2 תפיסה, ריבוע אגרוף ובעיטה, איקס חסימה והתחמקות, סטיק ימני מבט."><img src="combat-assets/help-controls.webp" alt="מסך הגדרות השליטה במשחק לקרב מגע" loading="lazy"></button>
+          <figcaption>צילום מתוך המשחק (PS5).</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="screen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="over">Read the screen</div>
+        <h2>לקרוא את המסך</h2>
+        <p>המשחק כמעט לא מסביר במילים, אבל הוא מראה לך מתי ללחוץ. אלה הסימנים שכדאי לחפש בזמן קרב.</p>
+      </div>
+    </div>
+    <div class="cues" id="cues"></div>
+  </div>
+</section>
+
+<div class="filters" id="moves">
+  <div class="wrap">
+    <div class="chiprow" id="chapterChips" role="group" aria-label="סינון לפי פרק"></div>
+    <div class="toolrow">
+      <div class="seg" role="group" aria-label="סינון לפי דמות">
+        <button type="button" data-who="all" aria-pressed="true">כולם</button>
+        <button type="button" data-who="J">ג׳ייסון</button>
+        <button type="button" data-who="L">לוסיה</button>
+      </div>
+      <div class="seg" role="group" aria-label="סוג השלט">
+        <button type="button" data-set-platform="ps">PS</button>
+        <button type="button" data-set-platform="xb">Xbox</button>
+        <button type="button" data-set-platform="both">שניהם</button>
+      </div>
+      <input class="search" id="q" type="search" placeholder="חיפוש מהלך: סופלקס, חניקה, spear..." aria-label="חיפוש מהלך">
+      <label class="toggle"><input type="checkbox" id="onlyNew"> רק מה שעוד לא למדתי</label>
+      <div class="progress" aria-live="polite"><span id="progText">0 / 63 נלמדו</span><span class="track"><i id="progBar"></i></span></div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="chapters"></main>
+
+<section class="block" id="secrets">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="over">Secrets from the footage</div>
+        <h2>סודות שהמשחק לא מספר</h2>
+      </div>
+    </div>
+    <div class="tips" id="tips"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>מקור המידע והצילומים:</b> הסרטון <a class="en" href="https://youtu.be/-fTbPxYJX58" target="_blank" rel="noopener">Everything About Fighting In GTA 6 (Basics to Advanced)</a> של הערוץ <span class="en">Gemzy GTA</span> ביוטיוב, 24.11.2026. הצילומים הם מסרטון של היוצר, שצולם ב-PS5. כל מהלך מקשר לרגע המדויק בסרטון.</p>
+    <p>עיצוב הכפתורים, האיורים, ההדגמות והתרגום לעברית נעשו לעמוד הזה. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
+    <p>פרויקט מעריצים עצמאי, ללא קשר ל-Rockstar Games. הסימונים של "למדתי" נשמרים רק בדפדפן הזה. עודכן לאחרונה: 26.11.2026.</p>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="צילום מוגדל">
+  <button class="lb-close" id="lbClose" type="button" aria-label="סגירה">✕</button>
+  <div class="lb-in">
+    <img id="lbImg" alt="">
+    <div class="lb-cap">
+      <div><h3 id="lbTitle"></h3><p id="lbText"></p></div>
+      <div class="lb-inputs" id="lbInputs"></div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* ================= DATA ================= */
+const VIDEO='https://youtu.be/-fTbPxYJX58';
+// building blocks for an input sequence
+const B=(k,m,c)=>({type:'btn',k,m,c});       // k: sq x o tri L2 R2 L3 · m: tap hold mash once x3 run
+const S=(d,c)=>({type:'stick',d,c});         // d: up down dr ur ul right
+const C=t=>({type:'cond',t});                // condition chip
+const THEN={type:'then'},PLUS={type:'plus'},OR={type:'or'};
+const GRAB=B('R2','hold','תפיסה');            // "clinch": hold R2 first
+
+const CHAPTERS=[
+ {id:1,he:'פותחים קרב',en:'Starting a fight',t:31,intro:'לפני שמרביצים: איך גורמים לו להתחיל, ומה ההבדל בין סטירה לאגרוף אמיתי. בלי נעילה עם L2, הכפתור של המכה הוא רק סטירה או דחיפה.'},
+ {id:2,he:'חסימה והתחמקות',en:'Block & dodge · perfect dodge',t:68,intro:'אותו כפתור עושה שני דברים: החזקה חוסמת, הקשה מתחמקת. התחמקות בתזמון מושלם גם מחזירה לך כוח.'},
+ {id:3,he:'התפיסה',en:'The clinch · flying triangle',t:135,intro:'החזקת R2 מקרוב נועלת את שניכם בתפיסה, והמצלמה עוברת מאחורי הכתף. מכאן כל כיוון של הסטיק נספר מהמצלמה: אם יצא מהלך לא נכון, תבדוק קודם את המצלמה. אצל לוסיה, איפה שהיא עומדת קובע איזו זריקה יוצאת.'},
+ {id:4,he:'מאחוריו',en:'From behind · German suplex',t:225,intro:'אם הוא לא ראה אותך: כריעה, התגנבות וחניקה שקטה. אם אתם כבר בקרב: תיכנס מאחוריו ויש שני מהלכים חזקים במרחק לחיצה אחת.'},
+ {id:5,he:'בעיטות ומרחק',en:'Kicks & distance',t:265,intro:'הבעיטות תלויות במרחק: צעד אחורה, צמוד אליו, או בטווח בעיטה. ומי שמתקפל קדימה מקבל בועה מעל הראש.'},
+ {id:6,he:'התקפות בריצה',en:'Running attacks · spear, clothesline',t:306,intro:'רוץ עם לחיצה על הסטיק השמאלי. כשאתה רץ אל הגב שלו, המרחק ברגע הלחיצה בוחר את המהלך: 2 מטר, מטר וחצי, מטר או מגע.'},
+ {id:7,he:'הסביבה',en:'Surroundings · rails, cars, walls, piers',t:345,intro:'לפני שאתה תופס מישהו, תסתכל מה יש מאחוריו. זה הגמר שלך: מעקה, רכב, קיר, חבית כביש, קצה מזח או הדלת הפתוחה של הרכב שלו.'},
+ {id:8,he:'סכינים ואקדחים',en:'Knives & guns',t:389,intro:'סכין ביד משנה את המכות. וגם בלי נשק אפשר לקחת לו את הנשק, אם מתזמנים נכון.'},
+ {id:9,he:'שוטרים',en:'Cops',t:420,intro:'שוטרים מכוונים, מסתערים, תופסים ומצמידים לרצפה. לכל אחד מהם יש תשובה.'},
+ {id:10,he:'גמר וה-Rock Bottom',en:'Finishers & the Rock Bottom',t:467,intro:'הסלאמים הגדולים תלויים במה שהוא עושה באותה שנייה. מפיק מחברת ההיאבקות AEW עשה לכידת תנועה למשחק, בתפקידי מאבטחים, בריונים ולוחמי MMA, והוא מופיע בקרדיטים.'}
+];
+
+const TAUNT={he:'התגרות',en:'Taunt',img:'m00',t:32,
+ seq:[B('L2','hold','נעילה עליו'),THEN,B('sq')],
+ note:'נעל עליו עם L2 ויופיע תפריט דיבור. הכפתור של המכה מתגרה בו. בחרת את הבחור הלא נכון? הוא יבוא אליך מוכן לקרב. דרך נוספת: לבעוט ברכב שמישהו יושב בו, והנהג יוצא להילחם.'};
+
+const MOVES=[
+ {n:1,ch:1,who:'JL',he:'סטירה / דחיפה',en:'Shove / Slap',t:51,seq:[C('בלי L2'),THEN,B('sq')],note:'בלי נעילה, המכה היא רק סטירה או דחיפה. טוב לפתוח ריב, לא לנצח בו.'},
+ {n:2,ch:1,who:'J',he:'קומבו שלוש מכות',en:'3-hit combo',t:55,seq:[B('L2','hold','נעילה'),PLUS,B('sq','x3')],note:'החזק L2 כדי לנעול עליו, והקש שלוש פעמים. זה הקומבו הבסיסי.'},
+ {n:3,ch:1,who:'J',he:'אגרוף כבד',en:'Heavy punch',t:62,seq:[B('L2','hold','נעילה'),PLUS,B('sq','hold'),C('מיד אחרי שהוא מחטיא')],note:'שמור אותו לרגע שאחרי שהוא מחטיא. אז הוא פתוח לגמרי.'},
+
+ {n:4,ch:2,who:'JL',he:'חסימה',en:'Block',t:68,seq:[B('x','hold')],note:'המכות שלו נהדפות, אבל כל אחת עולה לך 10% מהכוח (הפס הטורקיז בפינה העליונה). כשהפס נגמר, המכה הבאה עוברת.'},
+ {n:5,ch:2,who:'JL',he:'תפיסת בעיטה',en:'Kick catch',t:79,seq:[C('חסום בעיטה שלו'),THEN,B('sq',null,'מיד')],note:'חסום בעיטה ותתפוס לו את הרגל. לחץ מיד, לפני שהוא משחרר, והוא על הרצפה. לוסיה משכיבה אותו על הגב.'},
+ {n:6,ch:2,who:'JL',he:'התחמקות מושלמת',en:'Perfect dodge',t:89,seq:[B('x','tap'),C('רגע לפני שהמכה פוגעת')],note:'התחמקות רגילה עולה כוח. בתזמון מושלם המסך מהבהב ומאט, וזה מחזיר לך כוח: ג׳ייסון עלה מ-57% למלא בשנייה וחצי.'},
+ {n:7,ch:2,who:'JL',he:'מכת נגד',en:'Counter',t:110,seq:[B('x','tap','התחמקות'),THEN,B('sq')],note:'מיד אחרי ההתחמקות. ג׳ייסון עונה בהוק, לוסיה במכה ישרה. אם זה מפיל אותו, רואים את זה בהילוך איטי.'},
+ {n:8,ch:2,who:'J',he:'מהתחמקות לתפיסה',en:'Dodge into clinch',t:119,seq:[B('x','tap','התחמקות'),THEN,B('R2')],note:'במקום מכה אחרי ההתחמקות: R2, ואתה ישר בתפיסה.'},
+
+ {n:9,ch:3,who:'J',he:'הדיפה',en:'Shove off',t:135,seq:[C('צמוד אליו'),THEN,B('R2','tap')],note:'הקשה קצרה מקרוב רק דוחפת אותו ממך. החזקה של אותו כפתור נועלת אתכם בתפיסה.'},
+ {n:10,ch:3,who:'JL',he:'מכת ראש',en:'Headbutt',t:150,seq:[GRAB,THEN,B('sq','tap')],note:'הקשה אחת מתוך התפיסה. לשניהם יש אותה.'},
+ {n:11,ch:3,who:'J',he:'מחליק אל מאחוריו',en:'Slip behind',t:152,seq:[GRAB,THEN,B('sq','hold')],note:'ג׳ייסון מחליק אל מאחורי הגב שלו. משם הוא במרחק לחיצה אחת מסופלקס (#23) או מחניקה (#24).'},
+ {n:12,ch:3,who:'L',he:'זריקת מותן',en:'Hip throw',t:157,seq:[GRAB,THEN,B('sq','hold'),C('הראש שלו צמוד למותן שלה')],note:'אצל לוסיה אותה החזקה היא זריקה, והמקום שבו היא עומדת בוחר איזו.'},
+ {n:13,ch:3,who:'L',he:'הכשלה',en:'Leg trip',t:162,seq:[GRAB,THEN,B('sq','hold'),C('ממש מולו')],note:'היא מכשילה לו את הרגל ומפילה אותו.'},
+ {n:14,ch:3,who:'L',he:'גלגול מעל הגב',en:'Over the back',t:166,seq:[GRAB,THEN,B('sq','hold'),C('צמודה אליו')],note:'כשהיא לחוצה אליו, היא מגלגלת אותו מעל הגב שלה.'},
+ {n:15,ch:3,who:'JL',he:'ברכיים לגוף',en:'Knees',t:170,seq:[GRAB,THEN,S('up'),PLUS,B('sq','tap')],note:'דחוף את הסטיק קדימה והקש: ברכיים לבטן.'},
+ {n:16,ch:3,who:'L',he:'משולש מעופף',en:'Flying triangle',t:174,seq:[GRAB,THEN,S('down'),PLUS,B('sq','mash')],note:'משוך את הסטיק אחורה ולחץ מהר שוב ושוב: לוסיה מטפסת עליו לחניקת משולש. צופה פרסם את המתכון הזה בתגובות, והוא עובד.'},
+ {n:17,ch:3,who:'J',he:'הפלת כתף',en:'Shoulder drop',t:188,seq:[GRAB,THEN,S('down'),PLUS,B('sq'),C('כשהוא כבר פגוע')],note:'אותו סטיק ואותו כפתור כמו המשולש, אבל אצל ג׳ייסון ועל מישהו שכבר פגוע.'},
+ {n:18,ch:3,who:'J',he:'צלילה לרגליים',en:'Leg dive',t:191,seq:[GRAB,THEN,B('L2','hold'),PLUS,S('dr'),PLUS,B('sq'),THEN,B('sq',null,'שוב')],note:'ג׳ייסון יורד לרגליים ומרים אותו הפוך מעל הראש. לחיצה נוספת, והוא מטיח אותו.'},
+ {n:19,ch:3,who:'L',he:'שבירת יד',en:'Arm break',t:203,seq:[C('כשהוא על הרצפה'),THEN,S('down'),PLUS,B('sq')],note:'ברגע שהוא למטה, משיכת הסטיק אחורה ולחיצה שוברת לו את היד.'},
+ {n:20,ch:3,who:'L',he:'מכות מלמעלה',en:'Ground & pound',t:207,seq:[C('כשהוא על הרצפה'),THEN,B('sq','mash')],note:'היא עולה עליו וממשיכה להכות עד שהוא נגמר.'},
+
+ {n:21,ch:4,who:'J',he:'חניקה שקטה',en:'Silent choke',t:225,seq:[C('הוא לא ראה אותך'),THEN,B('o',null,'כריעה'),THEN,B('R2','hold'),THEN,B('sq','mash')],note:'כרע, התגנב מאחוריו, החזק R2 כשמופיעה הנחיית התפיסה, ולחץ מהר. ג׳ייסון חונק אותו בלי רעש. עובד גם על שוטרים.'},
+ {n:22,ch:4,who:'L',he:'בעיטה לברך וחניקה',en:'Knee stomp choke',t:235,seq:[B('o',null,'כריעה'),THEN,B('R2','hold'),THEN,B('sq','mash')],note:'לוסיה בועטת קודם בגב הברך ואז חונקת. אל תפסיק ללחוץ: אם תפסיק, הוא קם.'},
+ {n:23,ch:4,who:'J',he:'סופלקס גרמני',en:'German suplex',t:242,seq:[C('מאחוריו'),THEN,S('down','הרחק ממנו'),PLUS,B('sq')],note:'בקרב, היכנס מאחוריו, משוך את הסטיק הרחק ממנו, כאילו אתה מושך אותו אחורה, ולחץ. גם הקשה וגם החזקה עובדות.'},
+ {n:24,ch:4,who:'J',he:'חניקה מאחור',en:'Rear choke',t:254,seq:[C('מאחוריו'),THEN,B('sq','mash')],note:'לחיצות מהירות מאחוריו. בגלל זה שווה להחזיק את הכפתור בתפיסה (#11): זה שם אותך בדיוק מאחוריו.'},
+
+ {n:25,ch:5,who:'J',he:'בעיטת דחיפה',en:'Push kick',t:266,seq:[C('צעד אחד אחורה'),THEN,S('down'),PLUS,B('sq')],note:'ג׳ייסון מקפל אותו לשניים או מעיף אותו.'},
+ {n:26,ch:5,who:'L',he:'בעיטה מסתובבת',en:'Spin back kick',t:272,seq:[S('down'),PLUS,B('sq','once')],note:'אותה פקודה כמו בעיטת הדחיפה, אבל עם הקשה אחת: לוסיה מסתובבת לבעיטה אחורית.'},
+ {n:27,ch:5,who:'L',he:'סופר-קיק',en:'Super kick',t:277,seq:[C('קרוב אליו'),THEN,S('ur'),OR,S('ul'),PLUS,B('sq')],note:'אלכסון קדימה, לאיזה צד שתרצה. לוסיה נשענת אחורה ונועצת בעיטה בבטן, והוא מתקפל.'},
+ {n:28,ch:5,who:'L',he:'בעיטה לפנים',en:'Kick to the face',t:285,seq:[C('כשהוא מקופל'),THEN,B('sq')],note:'לחיצה נוספת בזמן שהוא מקופל, והיא בועטת לו בפנים.'},
+ {n:29,ch:5,who:'J',he:'ברכיים לפנים',en:'Head clinch knees',t:290,seq:[B('R2',null,'בבועה'),THEN,B('sq',null,'בטבעת')],note:'מי שמקופל קדימה מקבל בועת R2 מעל הראש. R2 תופס לו את הראש, ולחיצה כשמופיעה הטבעת נותנת ברכיים לפנים.'},
+ {n:30,ch:5,who:'L',he:'ברך אחת וזהו',en:'Headlock knee',t:296,seq:[C('הוא מתנודד'),THEN,B('R2'),THEN,B('sq',null,'בטבעת')],note:'לוסיה תופסת ככה בחור מתנודד ומסיימת אותו עם ברך אחת.'},
+ {n:31,ch:5,who:'L',he:'בעיטה לצלעות ואז לראש',en:'Mid kick ▸ head kick',t:301,seq:[C('בטווח בעיטה'),THEN,B('sq','tap'),THEN,B('sq','tap')],note:'שתי הקשות: הראשונה לצלעות, השנייה לפנים.'},
+
+ {n:32,ch:6,who:'J',he:'ספיר',en:'Spear',t:306,seq:[B('L3','run'),C('הוא מולך'),THEN,B('sq',null,'ברגע המגע')],note:'רוץ אליו כשהוא פונה אליך, ולחץ בדיוק כשאתה מגיע אליו.'},
+ {n:33,ch:6,who:'J',he:'בעיטה קדמית בקפיצה',en:'Jumping front kick',t:314,seq:[B('L3','run'),THEN,B('sq'),C('2–3 צעדים לפני')],note:'אותה ריצה, אבל לוחצים מוקדם יותר: בעיטה בקפיצה לחזה.'},
+ {n:34,ch:6,who:'L',he:'בעיטה מעופפת',en:'Flying kick',t:318,seq:[B('L3','run'),THEN,B('sq')],note:'לוסיה מזנקת אליו עם הרגליים קדימה.'},
+ {n:35,ch:6,who:'J',he:'דרופקיק',en:'Dropkick',t:321,seq:[C('רץ אל הגב שלו'),B('L3','run'),THEN,B('sq'),C('ב-2 מטר')],note:'כשרצים אל הגב שלו, המרחק בוחר את המהלך. בשני מטר: דרופקיק.'},
+ {n:36,ch:6,who:'J',he:'ברך מעופפת',en:'Flying knee',t:326,seq:[C('רץ אל הגב שלו'),B('L3','run'),THEN,B('sq'),C('במטר וחצי')],note:'מטר וחצי ממנו: ברך מעופפת בגב.'},
+ {n:37,ch:6,who:'J',he:'קפיצה על הגב',en:'Jump on his back',t:329,seq:[C('רץ אל הגב שלו'),B('L3','run'),THEN,B('sq'),C('במטר')],note:'מטר ממנו: ג׳ייסון קופץ לו על הגב.'},
+ {n:38,ch:6,who:'J',he:'הפלה',en:'Tackle',t:331,seq:[C('רץ אל הגב שלו'),B('L3','run'),THEN,B('sq'),C('ברגע המגע')],note:'צמוד אליו: הפלה לרצפה.'},
+ {n:39,ch:6,who:'L',he:'בעיטה בגב',en:'Kick to the back',t:333,seq:[C('רצה אל הגב שלו'),B('L3','run'),THEN,B('sq')],note:'לוסיה בועטת לו בגב בקפיצה, והוא עף עם הפנים לכביש.'},
+ {n:40,ch:6,who:'J',he:'קלותסליין',en:'Clothesline',t:337,seq:[C('הוא רץ אליך'),THEN,B('L3','run'),THEN,B('sq'),C('ברגע האחרון')],note:'רוץ ישר אליו ולחץ ברגע האחרון. סגן השריף בצילום התהפך באוויר והפיל את האקדח.'},
+
+ {n:41,ch:7,who:'J',he:'מעל המעקה',en:'Over the rail',t:346,seq:[C('הגב שלו למעקה'),THEN,GRAB,THEN,B('sq')],note:'הוא עף מעל המעקה עם הראש קדימה.'},
+ {n:42,ch:7,who:'J',he:'הטחה ברכב',en:'Car slam',t:355,seq:[C('ליד רכב'),THEN,B('L2','hold','נעילה'),THEN,B('R2'),THEN,B('sq','tap')],note:'נעילה, תפיסה, הקשה: והוא נטרק לתוך הרכב.'},
+ {n:43,ch:7,who:'J',he:'הצמדה לקיר',en:'Wall pin',t:363,seq:[C('ליד קיר'),THEN,GRAB,THEN,B('sq','hold')],note:'ג׳ייסון מצמיד אותו לקיר וממשיך להכות.'},
+ {n:44,ch:7,who:'L',he:'חבית לראש',en:'Barrel smash',t:367,seq:[C('ליד חבית כביש'),THEN,GRAB,THEN,B('sq')],note:'לוסיה מטיחה לו את הראש בחבית.'},
+ {n:45,ch:7,who:'J',he:'למים',en:'Into the water',t:374,seq:[C('קצה מזח, הגב שלו למים'),THEN,GRAB,THEN,B('sq','once')],note:'לחיצה אחת בלבד, והוא בים.'},
+ {n:46,ch:7,who:'J',he:'בחזרה לרכב',en:'Back in the car',t:383,seq:[C('ליד הדלת הפתוחה שלו'),THEN,GRAB,THEN,B('sq')],note:'נהג יצא לריב איתך? הוא חוזר ישר למושב שלו.'},
+
+ {n:47,ch:8,who:'L',he:'סכין',en:'Knife',t:389,seq:[C('עם סכין ביד'),THEN,B('L2','hold','נעילה'),PLUS,B('sq','tap','חיתוך'),OR,B('sq','hold','דקירה')],note:'הקשה לחיתוך, החזקה לדקירה כבדה.'},
+ {n:48,ch:8,who:'L',he:'זריקת סכין',en:'Knife throw',t:395,seq:[C('כשמופיעה הנחיית זריקה'),THEN,B('R2')],note:'כשמופיעה ההנחיה לזרוק, R2 ולוסיה זורקת את הסכין.'},
+ {n:49,ch:8,who:'L',he:'נעילת יד ומרפק',en:'Arm trap elbow',t:402,seq:[B('sq'),C('בדיוק כשהוא שולף סכין')],note:'שלף סכין? לחץ בזמן השליפה: לוסיה נועלת לו את היד ומעלפת אותו במרפק. בצילום הוא שלף בכלל אקדח, וזה עבד.'},
+ {n:50,ch:8,who:'J',he:'פירוק סכין',en:'Knife disarm',t:410,seq:[B('x','tap','התחמקות'),THEN,B('sq')],note:'ג׳ייסון מתחמק מהחיתוך, ואז לחיצה מפרקת אותו מהסכין.'},
+ {n:51,ch:8,who:'JL',he:'חטיפת אקדח',en:'Gun grab',t:415,seq:[C('קרוב למי שמחזיק אקדח'),THEN,B('sq',null,'בטבעת')],note:'התקרב, וכשמופיעה הטבעת לחץ. האקדח שלך.'},
+
+ {n:52,ch:9,who:'JL',he:'פירוק שוטר',en:'Cop disarm',t:420,seq:[C('הוא מכוון אליך'),THEN,C('לך אליו'),THEN,B('sq','tap')],note:'לוסיה לוקחת לו את האקדח. ג׳ייסון מכה אותו עם האקדח שלו.'},
+ {n:53,ch:9,who:'J',he:'הדיפת שוטר',en:'Push off',t:428,seq:[B('sq','hold'),C('כשהוא מסתער עליך')],note:'החזקה בזמן שהוא רץ אליך, ואתה הודף אותו.'},
+ {n:54,ch:9,who:'JL',he:'בריחה מאחיזה',en:'Grab escape',t:432,seq:[C('הוא תפס אותך'),THEN,B('R2'),PLUS,B('sq')],note:'ג׳ייסון משתחרר ומכה בבטן. לוסיה מעיפה אותו מעל הגב, אבל זה עולה לה שליש מהכוח.'},
+ {n:55,ch:9,who:'L',he:'בריחה מהצמדה',en:'Pin escape',t:441,seq:[C('הוא מצמיד אותך לרצפה'),THEN,B('sq','mash','בטבעת')],note:'לוסיה מתגלגלת ובועטת אותו ממנה. ברק אדום ליד הטבעת אומר שנגמר לך הכוח, ואין עם מה להילחם.'},
+ {n:56,ch:9,who:'J',he:'פטיש בריצה',en:'Running hammer fist',t:461,seq:[C('רץ אל שוטר חמוש'),THEN,B('L3','run'),THEN,B('sq','hold')],note:'ג׳ייסון קופץ פנימה עם מכת פטיש מלמעלה.'},
+
+ {n:57,ch:10,who:'J',he:'רקיעה',en:'Stomp',t:481,seq:[C('הוא על הרצפה'),THEN,B('sq')],note:'גש אליו כשהוא שוכב ולחץ.'},
+ {n:58,ch:10,who:'J',he:'אגרוף מלמעלה',en:'Overhand',t:486,seq:[B('sq'),C('בדיוק כשהוא קם')],note:'תפוס אותו בזמן שהוא קם, עם מכה מלמעלה לפנים.'},
+ {n:59,ch:10,who:'J',he:'הרמה וזריקה',en:'Pick up & throw',t:491,seq:[C('הוא שוכב'),THEN,B('tri','hold','הרמה'),THEN,B('R2',null,'זריקה'),OR,B('sq',null,'הפלה')],note:'כשמופיעה הנחיית ההרמה מעליו, ג׳ייסון מרים אותו על הכתף. R2 זורק, והכפתור השני פשוט מפיל.'},
+ {n:60,ch:10,who:'J',he:'נשיאה על הכתפיים והטחה',en:'Shoulder carry slam',t:500,seq:[C('פגוע אבל עדיין עומד'),THEN,B('R2'),THEN,B('sq','hold','בטבעת')],note:'תפוס אותו, והחזק כשמופיעה הטבעת: ג׳ייסון נושא אותו על הכתפיים ומטיח אותו.'},
+ {n:61,ch:10,who:'J',he:'סקופ סלאם',en:'Scoop slam',t:509,seq:[GRAB,THEN,S('right'),PLUS,B('sq','tap')],note:'סטיק ימינה והקשה בתוך התפיסה: ג׳ייסון מרים ומטיח אותו על הגב.'},
+ {n:62,ch:10,who:'J',he:'הטחת נגד',en:'Counter slam',t:515,seq:[C('צעד אחד ממנו'),THEN,B('sq','once'),C('בדיוק כשהוא מניף')],note:'הקשה אחת בדיוק כשהוא מניף: ג׳ייסון הופך אותו ומפיל אותו על הצוואר.'},
+ {n:63,ch:10,who:'J',he:'רוק בוטום',en:'Rock Bottom',t:523,seq:[B('x','tap'),C('כשהוא מניף, בלי הבזק'),THEN,C('תחזיק מעמד'),THEN,B('sq',null,'בטבעת')],note:'התחמקות מושלמת לא תיתן את זה: 86 התחמקויות מושלמות בצילומים ואף אחת לא הפכה לזה. בלי ההבזק, ג׳ייסון מתכופף ותופס אותו במותניים. הוא מכה לך בגב עד שמופיעה טבעת ליד הראש שלו. לחץ.'}
+];
+
+const KEYMAP=[
+ {k:'sq',h:'אגרוף / בעיטה',p:'הקשה = מכה. החזקה = מכה כבדה. מתוך תפיסה: מכת המשך.'},
+ {k:'x',h:'חסימה / התחמקות',p:'החזקה = חסימה. הקשה = התחמקות. רגע לפני המכה = התחמקות מושלמת.'},
+ {k:'R2',h:'תפיסה',p:'החזקה מקרוב = תפיסה (קליץ׳). הקשה = דחיפה. גם בריחה מאחיזה.'},
+ {k:'L2',h:'נעילה על יריב',p:'נועל עליו ומאפשר תנועה סביבו. על מי שעוד לא רב איתך: תפריט דיבור.'},
+ {k:'o',h:'כריעה',p:'להתגנב מאחור לחניקה שקטה.'},
+ {k:'tri',h:'הרמה',p:'על יריב ששוכב: הרמה על הכתף.'},
+ {k:'L3',h:'ריצה',p:'לחיצה על הסטיק השמאלי. בהתקפות בריצה המרחק קובע הכול.'},
+ {stick:'up',h:'סטיק שמאלי',p:'הכיוון של המהלך. בתפיסה הכיוון נספר מהמצלמה, לא מהדמות.'}
+];
+
+const HELPS=[
+ {img:'help-melee',h:'קרב מגע',txt:'בלי נשק או עם נשק קר: {sq} לתקיפה, החזקת {sq} למכה כבדה. החזק {R2} כדי לתפוס את היריב. בזמן התפיסה, {sq} נותן מכת המשך, והחזקת {sq} מעמידה אותו במצב פגיע.',tip:'מכות מרוקנות את פס הכוח. כשהוא ריק לגמרי, המכות שלך פחות אפקטיביות עד שתתאושש.'},
+ {img:'help-block',h:'חסימה ומכות נגד',txt:'החזק {x} כדי לחסום מכות. לחיצה על {x} רגע לפני שמכה מגיעה היא התחמקות, ואז {sq} תוקף בפתח שנוצר.',tip:'זה דורש תזמון מדויק. תסתכל על התנועות של היריב.'},
+ {img:'help-stealth',h:'התגנבות',txt:'{o} לכריעה: קשה יותר לזהות אותך, והליכה איטית מורידה רעש. החזק {R2} כשאתה מתגנב מאחורי מישהו כדי לתפוס אותו, ואז {sq} שוב ושוב להפלה שקטה.',tip:'אם מישהו מתחיל לזהות אותך, מצא מחסה מהר וצא לו משדה הראייה.'}
+];
+
+const CUES=[
+ {img:'cue-dodge',h:'איקס בעיגול לבן מעל הראש שלו',p:'זה המשחק שאומר לך להתחמק עכשיו. תזכור את הכפתור הזה: הסלאם הכי גדול בעמוד (#63) מתחיל בו.',k:'x'},
+ {img:'cue-bubble',h:'בועת R2 מעל מי שמקופל',p:'מי שמתקפל קדימה אחרי בעיטה מקבל בועה. R2 תופס לו את הראש (#29, #30).',k:'R2'},
+ {img:'cue-ring',h:'טבעת = לחץ עכשיו',p:'טבעת שמופיעה ליד האקדח, הראש או הגב שלו היא הרגע ללחוץ. הרבה מהלכים מחכים לה.',k:'sq'},
+ {img:'cue-empty',h:'ברק אדום ליד הטבעת',p:'נגמר לך הכוח. אפילו לחיצות מהירות לא יעזרו, כי אין עם מה להילחם. תתרחק ותן לפס להתמלא.',k:null},
+ {img:'cue-pickup',h:'הנחיית הרמה מעל מי ששוכב',p:'החזק את הכפתור כדי להרים אותו על הכתף, ואז לזרוק או להפיל (#59).',k:'tri'}
+];
+
+const TIPS=[
+ {h:'שלושה דברים קובעים הכול',p:'איפה אתה עומד, כמה הוא רחוק, ובסלאמים הגדולים: מה הוא עושה בדיוק באותה שנייה.'},
+ {h:'בתפיסה, המצלמה היא המצפן',p:'כל כיוון של הסטיק בתפיסה נספר מהמצלמה. יצא מהלך לא נכון? תזיז קודם את המצלמה.'},
+ {h:'ג׳ייסון כוח, לוסיה טכניקה',p:'ג׳ייסון מרים ומטיח. לוסיה זורקת, נועלת וחונקת. אותה פקודה נותנת מהלך אחר לכל אחד.'},
+ {h:'התחמקות מושלמת היא דלק',p:'חסימה עולה 10% לכל מכה. התחמקות מושלמת ממלאת את הפס בשנייה וחצי.'},
+ {h:'תסתכל מאחוריו לפני שתופס',p:'מעקה, רכב, קיר, חבית, מזח או דלת פתוחה: הסביבה הופכת תפיסה רגילה לגמר.'},
+ {h:'ה-Rock Bottom דווקא בלי הבזק',p:'אם המסך הבזיק, קיבלת מכת נגד. רק התחמקות לא מושלמת נותנת את הסלאם הגדול.'}
+];
+
+/* ================= KEY RENDERING ================= */
+const PS_SYM={x:'<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',o:'<circle cx="12" cy="12" r="6.4"/>',sq:'<rect x="6" y="6" width="12" height="12" rx="1.2"/>',tri:'<path d="M12 5l7.4 12.6H4.6z"/>'};
+const PS_NAME={x:'איקס',o:'עיגול',sq:'ריבוע',tri:'משולש'};
+const XB_FACE={x:'A',o:'B',sq:'X',tri:'Y'};
+const TRIG={L2:['L2','LT'],R2:['R2','RT'],L3:['L3','LS'],R1:['R1','RB']};
+const MOD_CAP={tap:'הקשה',hold:'החזקה',mash:'לחיצות מהירות',once:'פעם אחת',x3:'3 הקשות',run:'ריצה'};
+const DIR={up:[0,-1],down:[0,1],right:[1,0],ur:[.72,-.72],ul:[-.72,-.72],dr:[.72,.72]};
+const DIR_CAP={up:'קדימה',down:'אחורה',right:'ימינה',ur:'אלכסון קדימה',ul:'אלכסון קדימה',dr:'אחורה ימינה'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const svg=(inner,vb='0 0 24 24',extra='')=>`<svg viewBox="${vb}" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${inner}</svg>`;
+
+function meter(m){
+  if(m==='hold')return '<span class="meter"><span class="bar"><i></i></span></span>';
+  if(m==='mash')return '<span class="meter"><i></i><i></i><i></i><i></i><i></i></span>';
+  if(m==='x3')return '<span class="meter"><i></i><i></i><i></i></span>';
+  if(m==='tap'||m==='once')return '<span class="meter"><i></i></span>';
+  return '<span class="meter"></span>';
+}
+function keyName(k,pf){
+  if(TRIG[k])return TRIG[k][pf==='ps'?0:1];
+  return pf==='ps'?PS_NAME[k]:XB_FACE[k];
+}
+function glyphHTML(k,pf){
+  if(TRIG[k]){
+    const label=TRIG[k][pf==='ps'?0:1];
+    const cls=k==='L3'?'k-stick k-click':(k==='R1'?'k-trig k-bump':'k-trig');
+    if(k==='L3')return {cls,inner:`<span class="glyph"><b style="font-size:var(--fs-8);font-weight:900;color:#fff">${label}</b></span>`};
+    return {cls,inner:`<span class="glyph"><b>${label}</b></span>`};
+  }
+  if(pf==='ps')return {cls:'k-ps k-ps-'+k,inner:`<span class="glyph">${svg(PS_SYM[k])}</span>`};
+  return {cls:'k-xb k-xb-'+XB_FACE[k].toLowerCase(),inner:`<span class="glyph"><b>${XB_FACE[k]}</b></span>`};
+}
+function keyHTML(it,pf,beat){
+  if(it.type==='stick'){
+    const [x,y]=DIR[it.d];const dx=(x*8).toFixed(1),dy=(y*8).toFixed(1);
+    const f=n=>n.toFixed(1);
+    const tx=12+x*9,ty=12+y*9,bx=12+x*5,by=12+y*5,px=-y*3.4,py=x*3.4;
+    const arrow=`M12 12L${f(tx)} ${f(ty)}M${f(bx+px)} ${f(by+py)}L${f(tx)} ${f(ty)}L${f(bx-px)} ${f(by-py)}`;
+    const cap=it.c||DIR_CAP[it.d];
+    const lab='סטיק שמאלי '+cap;
+    return `<span class="key k-stick" data-beat="${beat}" data-dur="650" role="img" aria-label="${esc(lab)}" style="--dx:${dx}px;--dy:${dy}px"><span class="glyph"><span class="knob"></span><svg class="arrow" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${arrow}" stroke="#0b1513" stroke-width="4.6"/><path d="${arrow}" stroke="#fff" stroke-width="2.2"/></svg></span>${meter()}<span class="cap">${esc(cap)}</span></span>`;
+  }
+  const g=glyphHTML(it.k,pf);const m=it.m||'';
+  const dur={tap:450,once:450,x3:720,mash:1000,hold:1100,run:550}[m]||450;
+  const cap=[MOD_CAP[m],it.c].filter(Boolean).join(' · ');
+  const lab=[MOD_CAP[m]||'לחיצה',keyName(it.k,pf),it.c].filter(Boolean).join(' ');
+  return `<span class="key ${g.cls} ${m?'m-'+m:''}" data-beat="${beat}" data-dur="${dur}" role="img" aria-label="${esc(lab)}">${g.inner}${meter(m)}<span class="cap">${esc(cap)||'&nbsp;'}</span></span>`;
+}
+const CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+function seqHTML(seq,pf){
+  let beat=0,out='';
+  seq.forEach((it,i)=>{
+    if(it.type==='then'){beat++;out+=`<span class="sep then" aria-label="ואז">${CHEV}ואז</span>`;return}
+    if(it.type==='plus'){out+='<span class="sep plus" aria-label="יחד עם">+</span>';return}
+    if(it.type==='or'){out+='<span class="sep or" aria-label="או">או</span>';return}
+    if(it.type==='cond'){
+      // a condition gets its own beat unless it closes a step
+      const prev=seq[i-1];const next=seq[i+1];
+      const own=!prev||prev.type==='then';
+      if(own&&next&&next.type!=='then'){out+=`<span class="cond" data-beat="${beat}" data-dur="650">${esc(it.t)}</span>`;beat++;return}
+      out+=`<span class="cond" data-beat="${beat}" data-dur="650">${esc(it.t)}</span>`;return;
+    }
+    out+=keyHTML(it,pf,beat);
+  });
+  return `<div class="seq" data-pf="${pf}">${out}</div>`;
+}
+function inputsHTML(seq){
+  return `<div class="prow ps"><span class="plabel">PS5</span>${seqHTML(seq,'ps')}</div><div class="prow xb"><span class="plabel">XBOX</span>${seqHTML(seq,'xb')}</div>`;
+}
+// small inline key for running text: {sq} {x} {R2} ...
+function ik(k){
+  const one=pf=>{
+    if(TRIG[k])return `<span class="ik trig ${pf}">${TRIG[k][pf==='ps'?0:1]}</span>`;
+    if(pf==='ps')return `<span class="ik ps ps-${k}" role="img" aria-label="${PS_NAME[k]}">${svg(PS_SYM[k])}</span>`;
+    return `<span class="ik xb xb-${XB_FACE[k].toLowerCase()}">${XB_FACE[k]}</span>`;
+  };
+  return `<span class="ikpair">${one('ps')}<span class="slash">/</span>${one('xb')}</span>`;
+}
+const fillKeys=s=>esc(s).replace(/\{(\w+)\}/g,(_,k)=>ik(k));
+
+/* ================= DEMO PLAYER ================= */
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+let playing=null;
+async function playSeq(container,btn){
+  if(playing){playing.stop=true}
+  const token={stop:false};playing=token;
+  const seqs=[...container.querySelectorAll('.prow')].filter(r=>r.offsetParent!==null).map(r=>r.querySelector('.seq'));
+  if(btn)btn.classList.add('on');
+  seqs.forEach(s=>s.classList.add('playing'));
+  const beats=Math.max(...seqs.map(s=>Math.max(-1,...[...s.querySelectorAll('[data-beat]')].map(e=>+e.dataset.beat))));
+  for(let b=0;b<=beats&&!token.stop;b++){
+    const els=seqs.flatMap(s=>[...s.querySelectorAll(`[data-beat="${b}"]`)]);
+    if(!els.length)continue;
+    const dur=Math.max(...els.map(e=>+e.dataset.dur||450));
+    els.forEach(e=>{e.style.setProperty('--dur',dur+'ms');e.classList.add('play')});
+    await sleep(dur+140);
+    els.forEach(e=>e.classList.remove('play'));
+  }
+  seqs.forEach(s=>s.classList.remove('playing'));
+  if(btn)btn.classList.remove('on');
+  if(playing===token)playing=null;
+}
+
+/* ================= STATE ================= */
+const LEARN_KEY='gta6-combat-learned';
+let learned=new Set();
+try{learned=new Set(JSON.parse(localStorage.getItem(LEARN_KEY)||'[]'))}catch(e){}
+const saveLearned=()=>{try{localStorage.setItem(LEARN_KEY,JSON.stringify([...learned]))}catch(e){}};
+let fCh='all',fWho='all',fNew=false,fQ='';
+const PLATFORM_KEY='gta6-field-guide-controller-mode'; // shared with the moves guide
+function getPlatform(){
+  const q=new URLSearchParams(location.search).get('pad');
+  if(['ps','xb','both'].includes(q))return q;
+  try{const p=localStorage.getItem(PLATFORM_KEY);if(['ps','xb','both'].includes(p))return p}catch(e){}
+  return 'ps';
+}
+function setPlatform(p){
+  document.body.dataset.platform=p;
+  document.querySelectorAll('[data-set-platform]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.setPlatform===p)));
+  try{localStorage.setItem(PLATFORM_KEY,p)}catch(e){}
+  document.querySelectorAll('a[href]').forEach(a=>{
+    const h=a.getAttribute('href');
+    if(/^GTA6_Field_Guide\/(index|loot)\.html/.test(h))a.setAttribute('href',h.split('?')[0]+'?pad='+p);
+  });
+}
+const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+const whoBadges=w=>(w.includes('J')?'<span class="J">ג׳ייסון</span>':'')+(w.includes('L')?'<span class="L">לוסיה</span>':'');
+
+/* ================= RENDER ================= */
+function moveCard(m){
+  return `<article class="move ${learned.has(m.n)?'learned':''}" id="m${m.n}" data-n="${m.n}">
+    <button class="shot" type="button" data-move="${m.n}" aria-label="הגדלת הצילום של ${esc(m.he)}">
+      <img src="combat-assets/m${String(m.n).padStart(2,'0')}.webp" alt="צילום מהמשחק: ${esc(m.he)}" loading="lazy" width="960" height="540">
+      <span class="who">${whoBadges(m.who)}</span><span class="done-tag">✓ למדתי</span>
+      <span class="num"><small>#</small>${m.n}</span>
+    </button>
+    <div class="mbody">
+      <div class="mhead"><h3>${esc(m.he)}</h3><span class="en">${esc(m.en)}</span></div>
+      <div class="inputs">${inputsHTML(m.seq)}</div>
+      <p class="mnote">${esc(m.note)}</p>
+      <div class="mactions">
+        <button class="demo" type="button" data-demo="${m.n}">${svg('<path d="M7 4.5v15l12-7.5z" fill="currentColor"/>')}הדגמה</button>
+        <label class="learn"><input type="checkbox" data-learn="${m.n}" ${learned.has(m.n)?'checked':''}> למדתי</label>
+        <a class="yt" href="${VIDEO}?t=${m.t}" target="_blank" rel="noopener">ברגע בסרטון ${mmss(m.t)} ↗</a>
+      </div>
+    </div>
+  </article>`;
+}
+function bonusCard(){
+  const m=TAUNT;
+  return `<div class="bonus">
+    <button class="shot" type="button" data-zoom="${m.img}" data-title="${esc(m.he)}" data-text="${esc(m.note)}" aria-label="הגדלת הצילום של ${esc(m.he)}"><img src="combat-assets/${m.img}.webp" alt="צילום מהמשחק: ${esc(m.he)}" loading="lazy"></button>
+    <div>
+      <div class="tagline">בונוס · לפני המכה הראשונה</div>
+      <h3>${esc(m.he)} <span class="en" style="font-size:var(--fs-8);color:var(--muted)">${esc(m.en)}</span></h3>
+      <div class="inputs" id="tauntInputs" style="margin:var(--s-2) 0">${inputsHTML(m.seq)}</div>
+      <p class="mnote">${esc(m.note)}</p>
+      <div class="mactions" style="border:0;padding-top:var(--s-2)">
+        <button class="demo" type="button" data-demo="taunt">${svg('<path d="M7 4.5v15l12-7.5z" fill="currentColor"/>')}הדגמה</button>
+        <a class="yt" href="${VIDEO}?t=${m.t}" target="_blank" rel="noopener">ברגע בסרטון ${mmss(m.t)} ↗</a>
+      </div>
+    </div>
+  </div>`;
+}
+function matches(m){
+  if(fCh!=='all'&&m.ch!==+fCh)return false;
+  if(fWho!=='all'&&!m.who.includes(fWho))return false;
+  if(fNew&&learned.has(m.n))return false;
+  if(fQ){const hay=(m.he+' '+m.en+' '+m.note+' #'+m.n).toLowerCase();if(!hay.includes(fQ))return false}
+  return true;
+}
+function renderChapters(){
+  const root=document.getElementById('chapters');
+  let html='';
+  CHAPTERS.forEach(ch=>{
+    if(fCh!=='all'&&ch.id!==+fCh)return;
+    const list=MOVES.filter(m=>m.ch===ch.id&&matches(m));
+    const showBonus=ch.id===1&&!fQ&&!fNew&&fWho!=='L';
+    if(!list.length&&!showBonus)return;
+    html+=`<section class="chapter" id="ch${ch.id}" aria-labelledby="cht${ch.id}">
+      <div class="ch-head"><div class="ch-num" aria-hidden="true">${String(ch.id).padStart(2,'0')}</div>
+      <div><div class="over">Chapter ${ch.id} · ${esc(ch.en)}</div><h2 id="cht${ch.id}">${esc(ch.he)}</h2><p>${esc(ch.intro)} <a class="yt" style="margin:0" href="${VIDEO}?t=${ch.t}" target="_blank" rel="noopener">לפרק בסרטון ${mmss(ch.t)} ↗</a></p></div></div>
+      <div class="grid">${showBonus?bonusCard():''}${list.map(moveCard).join('')}</div>
+    </section>`;
+  });
+  root.innerHTML=html||'<p class="empty">לא נמצאו מהלכים. נסה לנקות את החיפוש או את הסינון.</p>';
+}
+function renderChips(){
+  const box=document.getElementById('chapterChips');
+  box.innerHTML=`<button class="chip" type="button" data-ch="all" aria-pressed="${fCh==='all'}">כל הפרקים<span class="n">63</span></button>`+
+    CHAPTERS.map(c=>`<button class="chip" type="button" data-ch="${c.id}" aria-pressed="${fCh===String(c.id)}">${c.id}. ${esc(c.he)}<span class="n">${MOVES.filter(m=>m.ch===c.id).length}</span></button>`).join('');
+}
+function renderProgress(){
+  const n=MOVES.filter(m=>learned.has(m.n)).length;
+  document.getElementById('progText').textContent=`${n} / 63 נלמדו`;
+  document.getElementById('progBar').style.width=(n/63*100)+'%';
+}
+function renderStatic(){
+  document.getElementById('keymap').innerHTML=KEYMAP.map(t=>{
+    const g=t.stick?keyHTML(S('up','כיוון'),'ps',0):`<span class="ps">${keyHTML(B(t.k),'ps',0)}</span><span class="xb">${keyHTML(B(t.k),'xb',0)}</span>`;
+    return `<div class="kt">${g}<div><h3>${esc(t.h)}</h3><p>${esc(t.p)}</p></div></div>`;
+  }).join('');
+  const lg=[
+    [B('sq','tap'),'הקשה','לחיצה אחת קצרה. נקודה אחת מתחת לכפתור.'],
+    [B('sq','hold'),'החזקה','להחזיק עד שהפס מתמלא. בהדגמה רואים אותו מתמלא.'],
+    [B('sq','mash'),'לחיצות מהירות','שוב ושוב, מהר, עד שהמהלך נגמר. אל תעצור באמצע.'],
+    [S('down'),'סטיק שמאלי','הנקודה הטורקיז מראה לאן לדחוף. בתפיסה זה לפי המצלמה.'],
+    [null,'ואז / יחד','החץ אומר "ואז". הפלוס אומר "באותו רגע".'],
+    [C('מאחוריו'),'תנאי','איפה לעמוד או מה הוא צריך לעשות כדי שהמהלך יצא.']
+  ];
+  document.getElementById('legend').innerHTML=lg.map(([it,b,p])=>{
+    let g;
+    if(!it)g=`<span class="seq"><span class="sep then">${CHEV}ואז</span><span class="sep plus">+</span></span>`;
+    else if(it.type==='cond')g=`<span class="seq"><span class="cond" style="margin:0">${esc(it.t)}</span></span>`;
+    else if(it.type==='stick')g=keyHTML(it,'ps',0);
+    else g=`<span class="ps">${keyHTML(it,'ps',0)}</span><span class="xb">${keyHTML(it,'xb',0)}</span>`;
+    return `<div class="lg">${g}<p><b>${esc(b)}</b>${esc(p)}</p></div>`;
+  }).join('');
+  document.getElementById('helps').innerHTML=HELPS.map(h=>`<div class="help">
+      <button type="button" data-zoom="${h.img}" data-title="${esc(h.h)}" data-text="${esc(h.txt.replace(/\{(\w+)\}/g,(_,k)=>TRIG[k]?TRIG[k][0]:PS_NAME[k]))}" aria-label="הגדלת עמוד העזרה ${esc(h.h)}"><img src="combat-assets/${h.img}.webp" alt="עמוד העזרה ${esc(h.h)} מתוך המשחק" loading="lazy"></button>
+      <div><h3>${esc(h.h)}</h3><p>${fillKeys(h.txt)}</p><p class="tip"><b>טיפ:</b> ${esc(h.tip)}</p></div></div>`).join('');
+  document.getElementById('cues').innerHTML=CUES.map(c=>`<div class="cue">
+      <button class="shot" type="button" data-zoom="${c.img}" data-title="${esc(c.h)}" data-text="${esc(c.p)}" aria-label="הגדלת הצילום: ${esc(c.h)}"><img src="combat-assets/${c.img}.webp" alt="צילום מהמשחק: ${esc(c.h)}" loading="lazy"></button>
+      <div class="t"><h3>${c.k?ik(c.k)+' ':''}${esc(c.h)}</h3><p>${esc(c.p)}</p></div></div>`).join('')+
+    `<div class="lab" id="lab"><span class="flash"></span>
+      <h3>מעבדת הכוח: הפס הטורקיז</h3>
+      <p>בפינה השמאלית העליונה של המסך יש פס טורקיז. זה הכוח שלך בקרב. נסה כאן מה מוריד אותו ומה ממלא אותו.</p>
+      <div class="stam"><span class="bolt" aria-hidden="true">${svg('<path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="currentColor" stroke="none"/>')}</span><span class="bar"><i id="stBar"></i></span><span class="pct" id="stPct">100%</span></div>
+      <div class="msg" id="stMsg" aria-live="polite">מלא. אפשר להילחם.</div>
+      <div class="row">
+        <button class="btn" type="button" data-st="block">חסימת מכה ‎−10%</button>
+        <button class="btn" type="button" data-st="escape">בריחה של לוסיה ‎−33%</button>
+        <button class="btn primary" type="button" data-st="perfect">התחמקות מושלמת</button>
+      </div>
+    </div>`;
+  document.getElementById('tips').innerHTML=TIPS.map((t,i)=>`<div class="tipc"><div class="tn">${String(i+1).padStart(2,'0')}</div><h3>${esc(t.h)}</h3><p>${esc(t.p)}</p></div>`).join('');
+}
+function renderAll(){renderChips();renderChapters();renderProgress()}
+
+/* ================= STAMINA LAB ================= */
+let st=100,stTimer=null;
+function drawSt(msg,bad){
+  document.getElementById('stBar').style.width=st+'%';
+  document.getElementById('stPct').textContent=Math.round(st)+'%';
+  const lab=document.getElementById('lab');lab.classList.toggle('empty-st',st<=0);
+  const m=document.getElementById('stMsg');m.textContent=msg;m.classList.toggle('bad',!!bad);
+}
+function stamina(act){
+  clearInterval(stTimer);
+  if(act==='block'){st=Math.max(0,st-10);drawSt(st<=0?'הפס ריק: המכה הבאה עוברת דרך החסימה.':'המכה נהדפה, אבל עלתה לך 10%.',st<=0)}
+  if(act==='escape'){st=Math.max(0,st-33);drawSt(st<=0?'ברק אדום: אין לך כוח להילחם.':'השתחררת, אבל זה עלה שליש מהכוח.',st<=0)}
+  if(act==='perfect'){
+    const lab=document.getElementById('lab');lab.classList.remove('flashing');void lab.offsetWidth;lab.classList.add('flashing');
+    const from=st,t0=performance.now();drawSt('הבזק והאטה: התחמקות מושלמת! הפס מתמלא.');
+    stTimer=setInterval(()=>{const k=Math.min(1,(performance.now()-t0)/1500);st=from+(100-from)*k;drawSt('הבזק והאטה: התחמקות מושלמת! הפס מתמלא.');if(k>=1){clearInterval(stTimer);drawSt('מלא שוב, תוך שנייה וחצי.')}},50);
+  }
+}
+
+/* ================= LIGHTBOX ================= */
+const lb=document.getElementById('lb');
+function openLB(img,title,text,seq){
+  document.getElementById('lbImg').src=`combat-assets/${img}.webp`;
+  document.getElementById('lbImg').alt=title;
+  document.getElementById('lbTitle').textContent=title;
+  document.getElementById('lbText').textContent=text||'';
+  const box=document.getElementById('lbInputs');
+  box.innerHTML=seq?`<div class="inputs">${inputsHTML(seq)}</div><button class="demo" type="button" data-demo="lb" style="margin-top:var(--s-2)">${svg('<path d="M7 4.5v15l12-7.5z" fill="currentColor"/>')}הדגמה</button>`:'';
+  if(lb.showModal)lb.showModal();else lb.setAttribute('open','');
+}
+document.getElementById('lbClose').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+
+/* ================= EVENTS ================= */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,[data-st]');if(!t)return;
+  if(t.dataset.setPlatform){setPlatform(t.dataset.setPlatform);return}
+  if(t.dataset.ch){fCh=t.dataset.ch;renderAll();document.getElementById('moves').scrollIntoView({behavior:'smooth'});return}
+  if(t.dataset.who){fWho=t.dataset.who;document.querySelectorAll('[data-who]').forEach(b=>b.setAttribute('aria-pressed',String(b===t)));renderChapters();return}
+  if(t.dataset.st){stamina(t.dataset.st);return}
+  if(t.dataset.demo){
+    const host=t.dataset.demo==='lb'?document.getElementById('lbInputs'):t.dataset.demo==='taunt'?document.getElementById('tauntInputs'):document.querySelector(`#m${t.dataset.demo} .inputs`);
+    playSeq(host,t);return;
+  }
+  if(t.dataset.move){const m=MOVES.find(x=>x.n===+t.dataset.move);openLB('m'+String(m.n).padStart(2,'0'),`#${m.n} · ${m.he}`,m.note,m.seq);return}
+  if(t.dataset.zoom){openLB(t.dataset.zoom,t.dataset.title,t.dataset.text,t.dataset.zoom==='m00'?TAUNT.seq:null);return}
+  if(t.id==='themeBtn'){
+    const light=document.documentElement.getAttribute('data-theme')!=='light';
+    if(light)document.documentElement.setAttribute('data-theme','light');else document.documentElement.removeAttribute('data-theme');
+    try{localStorage.setItem('gta6-theme',light?'light':'dark')}catch(e){}
+    document.querySelector('meta[name="theme-color"]').content=light?'#f5f1ea':'#0a0910';
+  }
+});
+document.addEventListener('change',e=>{
+  const c=e.target;
+  if(c.dataset.learn){const n=+c.dataset.learn;c.checked?learned.add(n):learned.delete(n);saveLearned();
+    const card=document.getElementById('m'+n);if(card)card.classList.toggle('learned',c.checked);renderProgress();
+    if(fNew&&c.checked)setTimeout(renderChapters,400);return}
+  if(c.id==='onlyNew'){fNew=c.checked;renderChapters()}
+});
+document.getElementById('q').addEventListener('input',e=>{fQ=e.target.value.trim().toLowerCase();renderChapters()});
+
+renderStatic();renderAll();setPlatform(getPlatform());drawSt('מלא. אפשר להילחם.');
+if(document.documentElement.getAttribute('data-theme')==='light')document.querySelector('meta[name="theme-color"]').content='#f5f1ea';
+</script>
+</body>
+</html>
