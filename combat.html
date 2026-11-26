@@ -176,26 +176,11 @@ section.block{padding:var(--s-6) 0}
 .ci-head .over{margin-inline-start:auto}
 .ci-stage{border-radius:var(--r-2);padding:var(--s-2) var(--s-2) 0;
   background:radial-gradient(62% 72% at 50% 46%,color-mix(in srgb,var(--ci-brand) 34%,transparent),transparent 76%),var(--surface-2)}
-.ci-stage svg{display:block;width:100%;max-width:440px;height:auto;margin-inline:auto}
-.ci-mk circle{fill:var(--accent);stroke:var(--surface);stroke-width:3}
-.ci-mk text{fill:var(--on-accent);font-family:var(--font);font-weight:900}
+.ci-stage svg{display:block;width:100%;max-width:500px;height:auto;margin-inline:auto}
+.ci-tag rect{fill:var(--accent);stroke:var(--surface);stroke-width:2.5}
+.ci-tag text{fill:var(--on-accent);font-family:var(--font);font-weight:800}
 .ci-ld{stroke:var(--accent);stroke-width:2.5;stroke-linecap:round}
-.ci-lists{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);direction:ltr}  /* left list sits on the left, like the controller */
-.ci-col{direction:rtl}
-.ci-col h4{margin:0 0 var(--s-2);font-size:var(--fs-9);font-weight:800;color:var(--muted)}
-.ci-col ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--s-2)}
-.ci-col li{display:flex;align-items:center;gap:var(--s-2)}
 .ci-n{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-size:var(--fs-9);font-weight:900}
-.ci-key{flex:none;display:grid;place-items:center;min-width:34px;height:34px;padding:0 5px;border-radius:50%;background:var(--key-face);border:1px solid var(--key-rim);
-  color:var(--key-ink);font-size:var(--fs-9);font-weight:900;direction:ltr}
-.ci-key.trig{border-radius:11px 11px 7px 7px}
-.ci-key svg{width:18px;height:18px}
-.ci-key.ps-x{color:var(--ps-x)}.ci-key.ps-sq{color:var(--ps-sq)}
-.ci-key.xb-a{color:var(--xb-a)}.ci-key.xb-x{color:var(--xb-x)}
-.ci-key.xb-a,.ci-key.xb-x{font-size:var(--fs-6)}
-.ci-t{min-width:0}
-.ci-t b{display:block;font-size:var(--fs-7);font-weight:800;line-height:1.3}
-.ci-t small{display:block;font-size:var(--fs-9);color:var(--muted);line-height:1.35}
 .ci-note{margin:0;font-size:var(--fs-8);color:var(--muted);line-height:1.5}
 .ctrl-orig{display:flex;align-items:center;gap:var(--s-3);width:100%;margin-top:var(--s-3);padding:var(--s-2);text-align:start;
   background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2)}
@@ -409,6 +394,8 @@ dialog.lb::backdrop{background:#05040aeb}
   .theme-btn{order:1}
   .pad-pick{order:2;flex-basis:100%}
   .pad-opt{flex:1;justify-content:center}
+  .ci{padding:var(--s-3)}
+  .ci-stage{padding:var(--s-1) 0 0}  /* phone: give the drawing every pixel so the tags stay readable */
   .filters{position:relative}
   html{scroll-padding-top:12px}
 }
@@ -507,7 +494,7 @@ dialog.lb::backdrop{background:#05040aeb}
           <div>
             <div class="over">Control screen</div>
             <h2>מסך השליטה במשחק</h2>
-            <p>ברירת המחדל של המשחק לקרב מגע, על השלט שבחרת למעלה. כל מספר על השלט מופיע ברשימה שמתחתיו. במשחק זה נמצא בהגדרות, תחת Control Scheme ▸ Melee.</p>
+            <p>ברירת המחדל של המשחק לקרב מגע, על השלט שבחרת למעלה. ליד כל כפתור על השלט כתוב מה הוא עושה. במשחק זה נמצא בהגדרות, תחת Control Scheme ▸ Melee.</p>
           </div>
         </div>
         <div class="ctrl-info" id="ctrlInfo"></div>
@@ -926,42 +913,33 @@ const LOGO={
  ps:'M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.18.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.152 0-3.237-1.126-4.675-4.438-5.827-1.307-.448-3.728-1.186-5.39-1.502zm4.656 16.241l6.296-2.275c.715-.258.826-.625.246-.818-.586-.192-1.637-.139-2.357.123l-4.205 1.5V14.98l.24-.085s1.201-.42 2.913-.615c1.696-.18 3.785.03 5.437.661 1.848.601 2.04 1.472 1.576 2.072-.465.6-1.622 1.036-1.622 1.036l-8.544 3.107V18.86zM1.807 18.6c-1.9-.545-2.214-1.668-1.352-2.32.801-.586 2.16-1.052 2.16-1.052l5.615-2.013v2.313L4.205 17c-.705.271-.825.632-.239.826.586.195 1.637.15 2.343-.12L8.247 17v2.074c-.12.03-.256.044-.39.073-1.939.331-3.996.196-6.038-.479z',
  xb:'M4.102 21.033C6.211 22.881 8.977 24 12 24c3.026 0 5.789-1.119 7.902-2.967 1.877-1.912-4.316-8.709-7.902-11.417-3.582 2.708-9.779 9.505-7.898 11.417zm11.16-14.406c2.5 2.961 7.484 10.313 6.076 12.912C23.002 17.48 24 14.861 24 12.004c0-3.34-1.365-6.362-3.57-8.536 0 0-.027-.022-.082-.042-.063-.022-.152-.045-.281-.045-.592 0-1.985.434-4.805 3.246zM3.654 3.426c-.057.02-.082.041-.086.042C1.365 5.642 0 8.664 0 12.004c0 2.854.998 5.473 2.661 7.533-1.401-2.605 3.579-9.951 6.08-12.91-2.82-2.813-4.216-3.245-4.806-3.245-.131 0-.223.021-.281.046v-.002zM12 3.551S9.055 1.828 6.755 1.746c-.903-.033-1.454.295-1.521.339C7.379.646 9.659 0 11.984 0H12c2.334 0 4.605.646 6.766 2.085-.068-.046-.615-.372-1.52-.339C14.946 1.828 12 3.545 12 3.545v.006z'
 };
-// The game's melee control screen, item by item. at = where the number sits on each drawing, ld = short pointer line.
+// The game's melee control screen: each action is written as a tag right on the controller drawing.
+// t = text (1-2 lines), c = tag centre, ld = short pointer line to the button (drawing coordinates, 400 x 262).
 const CTRL=[
- {n:1,side:'L',h:'מפה',ps:['pad','משטח המגע'],xb:['view','כפתור התצוגה'],at:{ps:[200,85],xb:[152,86]},ld:{xb:[160,93,168,99]}},
- {n:2,side:'L',h:'נעילה / תנועה צידית',ps:['L2','הדק שמאלי'],xb:['LT','הדק שמאלי'],at:{ps:[98,48],xb:[100,50]}},
- {n:3,side:'L',h:'תנועה',ps:['L','סטיק שמאלי'],xb:['LS','סטיק שמאלי'],at:{ps:[156,201],xb:[120,147]},ld:{ps:[156,181,156,190]}},
- {n:4,side:'R',h:'השהיה',ps:['opt','כפתור האפשרויות'],xb:['menu','כפתור התפריט'],at:{ps:[258,44],xb:[248,86]},ld:{ps:[258,55,258,66],xb:[240,93,232,99]}},
- {n:5,side:'R',h:'תפיסה',ps:['R2','הדק ימני'],xb:['RT','הדק ימני'],at:{ps:[302,48],xb:[300,50]}},
- {n:6,side:'R',h:'אגרוף / בעיטה',ps:['sq','ריבוע'],xb:['sq','כפתור X'],at:{ps:[260,96],xb:[246,113]}},
- {n:7,side:'R',h:'חסימה / התחמקות',ps:['x','איקס'],xb:['x','כפתור A'],at:{ps:[300,169],xb:[306,153]},ld:{ps:[300,150,300,158]}},
- {n:8,side:'R',h:'מבט',ps:['R','סטיק ימני'],xb:['RS','סטיק ימני'],at:{ps:[244,201],xb:[238,198]},ld:{ps:[244,181,244,190],xb:[238,176,238,187]}}
+ {h:'מפה',ps:{t:['מפה'],c:[200,85]},xb:{t:['מפה'],c:[158,80],ld:[166,90,170,98]}},
+ {h:'נעילה / תנועה צידית',ps:{t:['נעילה'],c:[97,50]},xb:{t:['נעילה'],c:[100,50]}},
+ {h:'תנועה',ps:{t:['תנועה'],c:[156,206],ld:[156,181,156,195]},xb:{t:['תנועה'],c:[94,158],ld:[116,130,104,147]}},
+ {h:'השהיה',ps:{t:['השהיה'],c:[258,24],ld:[258,35,258,66]},xb:{t:['השהיה'],c:[240,62],ld:[236,73,229,98]}},
+ {h:'תפיסה',ps:{t:['תפיסה'],c:[303,50]},xb:{t:['תפיסה'],c:[300,50]}},
+ {h:'אגרוף / בעיטה',ps:{t:['מכה'],c:[269,93]},xb:{t:['מכה'],c:[258,86]}},
+ {h:'חסימה / התחמקות',ps:{t:['חסימה','התחמקות'],c:[304,174]},xb:{t:['חסימה','התחמקות'],c:[310,162]}},
+ {h:'מבט',ps:{t:['מבט'],c:[244,206],ld:[244,181,244,195]},xb:{t:['מבט'],c:[238,198],ld:[238,176,238,187]}}
 ];
-const CI_ICON={
- pad:'<rect x="3" y="7" width="18" height="10" rx="2.5"/>',
- opt:'<path d="M7 7.5h10M7 12h10M7 16.5h10"/>',
- view:'<rect x="4" y="5" width="11" height="9" rx="1.5"/><rect x="9" y="10" width="11" height="9" rx="1.5"/>',
- menu:'<path d="M6 7.5h12M6 12h12M6 16.5h12"/>'
-};
-function ciKey(pf,k){
-  if(CI_ICON[k])return `<span class="ci-key">${svg(CI_ICON[k])}</span>`;
-  if(/^(L2|R2|LT|RT)$/.test(k))return `<span class="ci-key trig">${k}</span>`;
-  if(/^(L|R|LS|RS)$/.test(k))return `<span class="ci-key">${k}</span>`;
-  if(pf==='ps')return `<span class="ci-key ps-${k}">${svg(PS_SYM[k])}</span>`;
-  return `<span class="ci-key xb-${XB_FACE[k].toLowerCase()}">${XB_FACE[k]}</span>`;
-}
-// numbers on the drawing (font-size here is inside the drawing and scales with it)
-const ciMarks=pf=>CTRL.map(c=>{
-  const [x,y]=c.at[pf], l=c.ld&&c.ld[pf];
-  return (l?`<path class="ci-ld" d="M${l[0]} ${l[1]}L${l[2]} ${l[3]}"/>`:'')+
-    `<g class="ci-mk"><circle cx="${x}" cy="${y}" r="11"/><text x="${x}" y="${y+4.6}" text-anchor="middle" font-size="13">${c.n}</text></g>`;
+// tags on the drawing (their font-size is inside the drawing and scales with it)
+const ciTags=pf=>CTRL.map(c=>{
+  const g=c[pf], [x,y]=g.c, two=g.t.length>1;
+  const w=Math.round(Math.max(...g.t.map(s=>s.length))*8.4+12), h=two?38:22;
+  const lines=g.t.map((s,i)=>`<text x="${x}" y="${(y+(two?(i?13:-3):5)).toFixed(1)}" text-anchor="middle" font-size="${two?13:14}">${esc(s)}</text>`).join('');
+  return (g.ld?`<path class="ci-ld" d="M${g.ld[0]} ${g.ld[1]}L${g.ld[2]} ${g.ld[3]}"/>`:'')+
+    `<g class="ci-tag"><title>${esc(c.h)}</title><rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" rx="${two?12:11}"/>${lines}</g>`;
 }).join('');
+const ciLabel=pf=>CTRL.map(c=>c.h).join(', ');
 // The controllers are physical objects: they keep their own colours in both themes.
 function padPS(){
   const ink='#1d1a27';
   const body='M200 60L118 60C92 60 74 70 66 92C54 126 42 186 44 222C46 246 66 258 84 252C100 247 112 226 124 204C134 186 146 176 166 174L234 174C254 176 266 186 276 204C288 226 300 247 316 252C334 258 354 246 356 222C358 186 346 126 334 92C326 70 308 60 282 60Z';
   const stick=(x,y)=>`<circle cx="${x}" cy="${y}" r="22" fill="#15131c" stroke="#0b0a10" stroke-width="2"/><circle cx="${x}" cy="${y}" r="15" fill="#3a3646"/><circle cx="${x}" cy="${y}" r="10" fill="none" stroke="#575170" stroke-width="2"/>`;
-  return `<svg viewBox="0 0 400 262" role="img" aria-label="שלט פלייסטיישן 5, עם מספר ליד כל כפתור של קרב מגע">
+  return `<svg viewBox="0 0 400 262" role="img" aria-label="שלט פלייסטיישן 5. ליד כל כפתור כתוב מה הוא עושה בקרב מגע: ${esc(ciLabel())}">
     <defs><clipPath id="ciPsClip"><path d="${body}"/></clipPath></defs>
     <rect x="68" y="38" width="58" height="36" rx="14" fill="#dcdde6" stroke="${ink}" stroke-width="2.5"/>
     <rect x="274" y="38" width="58" height="36" rx="14" fill="#dcdde6" stroke="${ink}" stroke-width="2.5"/>
@@ -969,7 +947,7 @@ function padPS(){
     <path clip-path="url(#ciPsClip)" d="M108 262L116 152C120 124 142 110 168 110L232 110C258 110 280 124 284 152L292 262Z" fill="#2b2836"/>
     <path d="${body}" fill="none" stroke="${ink}" stroke-width="3"/>
     <rect x="156" y="63" width="88" height="45" rx="8" fill="#fbfbfe" stroke="${ink}" stroke-width="2"/>
-    <path d="M150 66V80M250 66V80" stroke="#4d86ff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M150 66V76M250 66V76" stroke="#4d86ff" stroke-width="3" stroke-linecap="round"/>
     <rect x="139" y="68" width="6" height="13" rx="3" fill="#cfd1db" stroke="${ink}" stroke-width="1.5"/>
     <rect x="255" y="68" width="6" height="13" rx="3" fill="#cfd1db" stroke="${ink}" stroke-width="1.5"/>
     <g fill="#fbfbfe" stroke="${ink}" stroke-width="2"><rect x="115" y="94" width="14" height="16" rx="3"/><rect x="115" y="122" width="14" height="16" rx="3"/><rect x="99" y="109" width="16" height="14" rx="3"/><rect x="129" y="109" width="16" height="14" rx="3"/></g>
@@ -982,7 +960,7 @@ function padPS(){
     ${stick(156,158)}${stick(244,158)}
     <path transform="translate(191 141) scale(.75)" fill="#e8e8f0" d="${LOGO.ps}"/>
     <rect x="194" y="166" width="12" height="4" rx="2" fill="#8d879f"/>
-    ${ciMarks('ps')}
+    ${ciTags('ps')}
   </svg>`;
 }
 function padXB(){
@@ -990,7 +968,7 @@ function padXB(){
   const body='M200 58C178 58 150 58 120 62C92 66 72 76 64 98C52 130 40 184 46 222C50 248 72 260 92 252C108 246 120 226 132 206C146 184 170 178 200 178C230 178 254 184 268 206C280 226 292 246 308 252C328 260 350 248 354 222C360 184 348 130 336 98C328 76 308 66 280 62C250 58 222 58 200 58Z';
   const stick=(x,y)=>`<circle cx="${x}" cy="${y}" r="22" fill="#121117" stroke="${rim}" stroke-width="2"/><circle cx="${x}" cy="${y}" r="15" fill="#2c2b35"/><circle cx="${x}" cy="${y}" r="10" fill="none" stroke="#4a4858" stroke-width="2"/>`;
   const face=(x,y,l,c)=>`<circle cx="${x}" cy="${y}" r="11" fill="${dark}" stroke="#4a4858" stroke-width="2"/><text x="${x}" y="${y+4.3}" text-anchor="middle" font-size="12" font-weight="900" fill="${c}">${l}</text>`;
-  return `<svg viewBox="0 0 400 262" role="img" aria-label="שלט אקס-בוקס, עם מספר ליד כל כפתור של קרב מגע">
+  return `<svg viewBox="0 0 400 262" role="img" aria-label="שלט אקס-בוקס. ליד כל כפתור כתוב מה הוא עושה בקרב מגע: ${esc(ciLabel())}">
     <rect x="72" y="40" width="56" height="34" rx="13" fill="#3a3946" stroke="${rim}" stroke-width="2.5"/>
     <rect x="272" y="40" width="56" height="34" rx="13" fill="#3a3946" stroke="${rim}" stroke-width="2.5"/>
     <path d="${body}" fill="#2a2932" stroke="${rim}" stroke-width="3"/>
@@ -1006,17 +984,14 @@ function padXB(){
     <path d="M156 139h12v9h9v12h-9v9h-12v-9h-9v-12h9z" fill="${dark}" stroke="${rim}" stroke-width="1.5"/>
     ${face(290,86,'Y','#ffd23f')}${face(312,108,'B','#ff6b5e')}${face(290,130,'A','#5fd068')}${face(268,108,'X','#5a9bff')}
     ${stick(238,154)}
-    ${ciMarks('xb')}
+    ${ciTags('xb')}
   </svg>`;
 }
 function ciCard(pf){
   const name=pf==='ps'?'PlayStation 5':'Xbox Series X|S';
-  const col=side=>CTRL.filter(c=>c.side===side).map(c=>{const [k,sub]=c[pf];
-    return `<li><span class="ci-n">${c.n}</span>${ciKey(pf,k)}<span class="ci-t"><b>${esc(c.h)}</b><small>${esc(sub)}</small></span></li>`}).join('');
   return `<div class="ci ${pf}">
     <div class="ci-head"><span class="pad-ico brand-${pf}" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#fff" d="${LOGO[pf]}"/></svg></span><b>${name}</b><span class="over">Melee · Default</span></div>
     <div class="ci-stage">${pf==='ps'?padPS():padXB()}</div>
-    <div class="ci-lists"><div class="ci-col"><h4>צד שמאל</h4><ol>${col('L')}</ol></div><div class="ci-col"><h4>צד ימין</h4><ol>${col('R')}</ol></div></div>
     ${pf==='xb'?'<p class="ci-note">המשחק מציג את המסך הזה רק בשלט של פלייסטיישן. באקס-בוקס אותם תפקידים יושבים על הכפתורים המקבילים, כמו בכל העמוד.</p>':''}
   </div>`;
 }
