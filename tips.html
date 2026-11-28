@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0a0910">
-<title>טיפים וטריקים | GTA VI · 68 טיפים שימושיים</title>
-<meta name="description" content="60 טיפים וטריקים שימושיים ל-GTA VI: בריחה מהמשטרה, שוד, כסף ושלל, כושר, Focus, נשק, רכבים ונסיעות. עם כפתורי PlayStation ו-Xbox, וסימון של מה שכבר ניסית.">
+<title>טיפים וטריקים | GTA VI · 77 טיפים שימושיים</title>
+<meta name="description" content="77 טיפים וטריקים שימושיים ל-GTA VI: בריחה מהמשטרה, שוד, כסף ושלל, כושר, Focus, נשק, רכבים ונסיעות. עם כפתורי PlayStation ו-Xbox, וסימון של מה שכבר ניסית.">
 <script>
 // Dark is the default. Light only when the viewer chose it before.
 try{if(localStorage.getItem('gta6-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}
@@ -206,13 +206,13 @@ body:not([data-platform="both"]) .ikpair .slash{display:none}
 
 /* ============ STICKY FILTERS ============ */
 .filters{position:sticky;top:0;z-index:30;background:var(--sticky);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);margin-top:var(--s-6)}
-.filters .wrap{padding:var(--s-3) 0;display:grid;gap:var(--s-2)}
+.filters .wrap{padding:var(--s-3) 0;display:grid;grid-template-columns:minmax(0,1fr);min-width:0;gap:var(--s-2)}
 .chiprow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
 .chip{flex:none;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:6px 12px;font-size:var(--fs-8);font-weight:700;color:var(--ink-2);white-space:nowrap}
 .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
 .chip .n{opacity:.7;margin-inline-start:6px;unicode-bidi:isolate}
 .toolrow{display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap}
-.seg{display:inline-flex;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:3px}
+.seg{display:inline-flex;max-width:100%;overflow-x:auto;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:3px}
 .seg button{border:0;background:none;border-radius:var(--r-pill);padding:5px 12px;font-size:var(--fs-8);font-weight:800;color:var(--ink-2);white-space:nowrap}
 .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px #0000003a}
 :root[data-theme="light"] .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
@@ -335,9 +335,9 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="over">GTA VI · Tips &amp; tricks · Caspahz · GameSpot · GamingBolt</div>
-      <h1>טיפים וטריקים<span>68 שימושיים</span></h1>
-      <p class="lead">טיפים קצרים משלושה סרטונים, שחוסכים זמן, כסף וכוכבי משטרה: איך מורידים את המשטרה מהזנב, איפה מסתתר כסף, איך מתאמנים נכון ואיך ממלאים את ה-Focus מהר. ניסית טיפ? סמן אותו, ואם הוא עבד לך או לא.</p>
+      <div class="over">GTA VI · Tips &amp; tricks · Caspahz · GameSpot · GamingBolt · Vex</div>
+      <h1>טיפים וטריקים<span>77 שימושיים</span></h1>
+      <p class="lead">טיפים קצרים מארבעה סרטונים, שחוסכים זמן, כסף וכוכבי משטרה: איך מורידים את המשטרה מהזנב, איפה מסתתר כסף, איך מתאמנים נכון ואיך ממלאים את ה-Focus מהר. ניסית טיפ? סמן אותו, ואם הוא עבד לך או לא.</p>
       <ol class="rules" aria-label="איך משתמשים בעמוד">
         <li><i>1</i><b>קרא את הטיפ</b><small>ואם צריך, צפה ברגע שלו בסרטון</small></li>
         <li><i>2</i><b>נסה במשחק</b><small>הכפתורים לפי השלט שבחרת למעלה</small></li>
@@ -352,7 +352,7 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
     <aside class="mine" aria-label="ההתקדמות שלי">
       <div class="over">My checklist</div>
       <div class="mine-top">
-        <div class="mine-num"><span id="mTried">0</span><small> / <span id="mTotal">68</span></small></div>
+        <div class="mine-num"><span id="mTried">0</span><small> / <span id="mTotal">77</span></small></div>
         <p><b>טיפים שניסית</b>הסימונים נשמרים רק בדפדפן הזה</p>
       </div>
       <div class="bigtrack"><i id="mBar"></i></div>
@@ -360,7 +360,7 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
         <li><span class="dot ok"></span>עבד לי <b id="mOk">0</b></li>
         <li><span class="dot bad"></span>לא עבד לי <b id="mBad">0</b></li>
         <li><span class="dot tried"></span>ניסיתי, בלי תשובה <b id="mPlain">0</b></li>
-        <li><span class="dot"></span>עוד לא ניסיתי <b id="mTodo">68</b></li>
+        <li><span class="dot"></span>עוד לא ניסיתי <b id="mTodo">77</b></li>
       </ul>
       <div class="catprog" id="catProg"></div>
       <div class="mine-foot"><span>לחיצה על נושא מציגה רק אותו</span><button class="linkbtn" type="button" id="resetBtn">איפוס כל הסימונים</button></div>
@@ -396,9 +396,10 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
         <button type="button" data-src="c">Caspahz</button>
         <button type="button" data-src="g">GameSpot</button>
         <button type="button" data-src="b">GamingBolt</button>
+        <button type="button" data-src="v">Vex</button>
       </div>
       <input class="search" id="q" type="search" placeholder="חיפוש טיפ: מצלמות, כספת, חדר כושר..." aria-label="חיפוש טיפ">
-      <div class="progress" aria-live="polite"><span id="progText">0 / 68 נוסו</span><span class="track"><i id="progBar"></i></span></div>
+      <div class="progress" aria-live="polite"><span id="progText">0 / 77 נוסו</span><span class="track"><i id="progBar"></i></span></div>
     </div>
   </div>
 </div>
@@ -407,7 +408,7 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
 
 <footer>
   <div class="wrap">
-    <p><b>מקור הטיפים:</b> טיפים 1 עד 28 מהסרטון <a class="en" href="https://youtu.be/wJTkZeMKU10" target="_blank" rel="noopener">GTA 6 Tips That Will ACTUALLY Help You</a> של הערוץ <span class="en">Caspahz</span>. טיפים 29 עד 60 מהסרטון <a class="en" href="https://youtu.be/dJDf76QVv70" target="_blank" rel="noopener">GTA 6 - 13 Things I Wish I Knew</a> של <span class="en">GameSpot</span> (19.11.2026), לפי הכתוביות שלו. טיפים 61 עד 68 מבוססים על הכתוביות של <a class="en" href="https://youtu.be/_YF0U8_g7AY" target="_blank" rel="noopener">GTA 6 - 15 BEST Tips and Tricks You’ll Wish You Knew Sooner</a> של <span class="en">GamingBolt</span>. כל טיפ מקשר לרגע שלו בסרטון.</p>
+    <p><b>מקור הטיפים:</b> טיפים 1 עד 28 מהסרטון <a class="en" href="https://youtu.be/wJTkZeMKU10" target="_blank" rel="noopener">GTA 6 Tips That Will ACTUALLY Help You</a> של הערוץ <span class="en">Caspahz</span>. טיפים 29 עד 60 מהסרטון <a class="en" href="https://youtu.be/dJDf76QVv70" target="_blank" rel="noopener">GTA 6 - 13 Things I Wish I Knew</a> של <span class="en">GameSpot</span> (19.11.2026), לפי הכתוביות שלו. טיפים 61 עד 68 מבוססים על הכתוביות של <a class="en" href="https://youtu.be/_YF0U8_g7AY" target="_blank" rel="noopener">GTA 6 - 15 BEST Tips and Tricks You’ll Wish You Knew Sooner</a> של <span class="en">GamingBolt</span>. טיפים 69 עד 77 מבוססים על הכתוביות של <a class="en" href="https://youtu.be/ejDHaxx78Zk" target="_blank" rel="noopener">GTA 6 Combat Tips and Tricks to BE UNSTOPPABLE</a> של <span class="en">Vex</span>. כל טיפ מקשר לרגע שלו בסרטון.</p>
     <p>הטיפים עוד לא נבדקו מול מדריכים כתובים, ולכן ייתכן שחלקם לא מדויקים. הכפתור של Focus מופיע בסרטון של GameSpot; הכפתורים של מחסה וכיוון נלקחו ממדריך התנועות באתר. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
     <p>פרויקט מעריצים עצמאי, ללא קשר ל-Rockstar Games. הסימונים של "ניסיתי" נשמרים רק בדפדפן הזה. עודכן לאחרונה: 28.11.2026.</p>
   </div>
@@ -419,7 +420,8 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
 const VIDS={
  c:{id:'wJTkZeMKU10',name:'Caspahz',title:'GTA 6 Tips That Will ACTUALLY Help You'},
  g:{id:'dJDf76QVv70',name:'GameSpot',title:'GTA 6 - 13 Things I Wish I Knew',date:'19.11.2026'},
- b:{id:'_YF0U8_g7AY',name:'GamingBolt',title:'GTA 6 - 15 BEST Tips and Tricks You\'ll Wish You Knew Sooner'}
+ b:{id:'_YF0U8_g7AY',name:'GamingBolt',title:'GTA 6 - 15 BEST Tips and Tricks You\'ll Wish You Knew Sooner'},
+ v:{id:'ejDHaxx78Zk',name:'Vex',title:'GTA 6 Combat Tips and Tricks to BE UNSTOPPABLE'}
 };
 const CATS=[
  {id:'police',he:'משטרה ובריחה',en:'Police & escape',p:'איך מורידים את רמת הזיהוי, ואיך יודעים לאן לברוח.'},
@@ -669,7 +671,43 @@ const TIPS=[
   note:'השיחות עשויות לכלול פרטי עלילה.'},
  {n:68,v:'b',t:351,c:'guns',h:'נשק ייחודי לעומת נשק שנלקח מאויב',
   p:'לפי הסרטון, נשק שנרכש וגרסאות נשק ייחודיות שנפתחו זמינים דרך אחסון הנשק. נשק שאספת מאויב אפשר לאחסן בכמות מוגבלת בתא המטען, אך אם אבד ייתכן שלא ניתן לשחזר אותו.',
-  how:'לפני משימה ודא איזה נשק שייך לך ואיזה רק אספת בדרך.'}
+  how:'לפני משימה ודא איזה נשק שייך לך ואיזה רק אספת בדרך.'},
+
+ /* ---- Vex: combat tips ---- */
+ {n:69,v:'v',t:95,c:'guns',h:'לבדוק רכבי חירום לציוד',
+  p:'Vex מציג איסוף נשק, שריון, תחמושת ופריטי ריפוי מתוך רכבי חירום, כולל רכבי משטרה.',
+  how:'אם נקלעת לקרב בלי ציוד מספיק, בדוק רכב חירום שנגיש לך.',
+  note:'התכולה והזמינות עשויות להשתנות בין רכבים ומצבים; לא אומתו בנפרד.'},
+ {n:70,v:'v',t:190,c:'focus',h:'להחליף דמות כדי להשתמש במד Focus אחר',
+  p:'לפי Vex, לג׳ייסון וללוסיה יש מדי Focus נפרדים. כששניהם יחד, אפשר להחליף דמות ולהשתמש במד של השותף.',
+  how:'בקרב משותף, עקוב אחרי מד ה-Focus ועבור לשותף כשמתאים.',
+  note:'הסרטון טוען גם שהדמות הקודמת טוענת נשק בזמן ההחלפה. זה לא מבטיח Focus או תחמושת ללא הגבלה.'},
+ {n:71,v:'v',t:252,c:'guns',h:'להכין לכל דמות ציוד לתפקיד אחר',
+  p:'אפשר, לפי הסרטון, לצייד את השותפים בסגנונות שונים: למשל רובה לטווח ארוך לאחת וציוד לטווח קצר לשני.',
+  how:'הכן ציוד לכל דמות דרך תא המטען של רכב שבבעלותך, והחלף ביניהן לפי המצב בקרב.'},
+ {n:72,v:'v',t:289,c:'guns',h:'להעביר נשק בין השותפים',
+  p:'Vex מדגים העברת נשק בין הדמויות גם בזמן קרב. אם הדמות עם הנשק הרצוי פצועה, הוא מציע להעביר את הנשק לשותף.',
+  note:'הסרטון טוען שהשותף הנשלט בידי המחשב לא יכול למות בקרב; לא אימתנו זאת ואין להסתמך על כך.'},
+ {n:73,v:'v',t:501,c:'drive',h:'לפתוח שער מתוך הרכב',
+  p:'הסרטון מציג ירי על כפתור של שער מתוך רכב כדי לפתוח אותו במהלך נסיעה.',
+  how:'כשאתה מתקרב לשער, חפש את כפתור ההפעלה לפני שאתה מחליט לעצור או לירות.',
+  note:'האפשרות תלויה בשער ובמצב; לא כל שער מגיב לירי.'},
+ {n:74,v:'v',t:546,c:'guns',h:'לחפש נקודות תורפה ברכב',
+  p:'לפי הסרטון, שימוש ב-Focus עשוי להבליט בצהוב רכיבים פגיעים, כמו מנוע או מכל דלק.',
+  how:'סרוק את הרכב לפני הירי ובדוק אילו חלקים מסומנים.',
+  note:'תגובת הרכב תלויה בסוגו ובנשק; הסימון והנזק לא אומתו בנפרד.'},
+ {n:75,v:'v',t:598,c:'guns',h:'להשתמש בדלת הרכב כמחסה',
+  p:'Vex מציג כניסה למחסה מאחורי דלת הרכב מיד אחרי היציאה ממנו.',
+  how:'נסה להיכנס למחסה מיד אחרי היציאה, לפני שהדלת נסגרת.',
+  note:'הכתוביות מציינות לחיצה על כפתור הכתף הימני, אך הפעולה לא אומתה מול פריסות השליטה במשחק.'},
+ {n:76,v:'v',t:657,c:'police',h:'להתפצל מהשותף בזמן מרדף',
+  p:'לפי הסרטון, אפשר להורות לשותף להיפרד ממך כדי שהמשטרה תפצל את המרדף ביניכם.',
+  how:'בדוק בתפריט השותף אם אפשר להורות לו להיפרד כשאתם נרדפים.',
+  note:'הסרטון טוען שהדבר מפחית חלק מרמת המבוקשות; ההשפעה המדויקת לא אומתה.'},
+ {n:77,v:'v',t:817,c:'drive',h:'לנסות לשרשר קפיצות ומכשולים',
+  p:'Vex מדגים מעבר רצוף מעל מכשולים וטוען שהמומנטום מהמעבר הראשון עוזר להגיע מהר יותר למכשול הבא.',
+  how:'תרגל רצף מכשולים במקום בטוח לפני שאתה מנסה אותו בזמן בריחה.',
+  note:'התזמון והאצת התנועה מתוארים בסרטון ולא נבדקו במשחק.'}
 ];
 const FOCUS_TEXT='מד מיוחד של הדמות. מפעילים אותו בלחיצה על שני הסטיקים יחד ({L3} + {R3}). עם נשק ביד הוא מאט את הזמן כדי לכוון, ומחוץ לקרב אפשר להשאיר אותו פתוח כמה שרוצים. {N} מהטיפים כאן קשורים אליו:';
 const FOCUS_COLS=[
