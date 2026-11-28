@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0a0910">
-<title>טיפים וטריקים | GTA VI · 28 טיפים שימושיים</title>
-<meta name="description" content="28 טיפים וטריקים שימושיים ל-GTA VI: בריחה מהמשטרה, שוד בהתגנבות, כסף, Focus, נשק ונהיגה. עם כפתורי PlayStation ו-Xbox, וסימון של מה שכבר ניסית.">
+<title>טיפים וטריקים | GTA VI · 60 טיפים שימושיים</title>
+<meta name="description" content="60 טיפים וטריקים שימושיים ל-GTA VI: בריחה מהמשטרה, שוד, כסף ושלל, כושר, Focus, נשק, רכבים ונסיעות. עם כפתורי PlayStation ו-Xbox, וסימון של מה שכבר ניסית.">
 <script>
 // Dark is the default. Light only when the viewer chose it before.
 try{if(localStorage.getItem('gta6-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}
@@ -242,6 +242,10 @@ body:not([data-platform="both"]) .ikpair .slash{display:none}
 .tip.is-bad .tnum{-webkit-text-stroke-color:var(--sun)}
 .tstate{margin-inline-start:auto;font-size:var(--fs-9);font-weight:900;padding:3px 10px;border-radius:var(--r-pill);background:var(--teal);color:var(--on-teal);white-space:nowrap}
 .tstate.bad{background:var(--sun);color:var(--on-sun)}
+.src{font-size:var(--fs-9);font-weight:800;color:var(--muted);border:1px solid var(--chip-line);border-radius:var(--r-pill);padding:2px 9px;direction:ltr;white-space:nowrap}
+.tlist{margin:0;padding-inline-start:var(--s-5);font-size:var(--fs-7);color:var(--ink-2);line-height:1.7;display:grid;gap:2px}
+.tlist li::marker{color:var(--accent)}
+.also{margin:0;font-size:var(--fs-8);color:var(--muted)}
 .tip h3{margin:0;font-size:var(--fs-4);font-weight:900;line-height:1.25}
 .tbody{margin:0;font-size:var(--fs-7);color:var(--ink-2);line-height:1.7}
 .how{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3);font-size:var(--fs-7);line-height:1.75}
@@ -331,9 +335,9 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="over">GTA VI · Tips &amp; tricks · Caspahz</div>
-      <h1>טיפים וטריקים<span>28 שימושיים</span></h1>
-      <p class="lead">טיפים קצרים שחוסכים זמן, כסף וכוכבי משטרה: איך מורידים את המשטרה מהזנב, איפה מסתתר כסף, ואיך ממלאים את ה-Focus מהר. ניסית טיפ? סמן אותו, ואם הוא עבד לך או לא.</p>
+      <div class="over">GTA VI · Tips &amp; tricks · Caspahz · GameSpot</div>
+      <h1>טיפים וטריקים<span>60 שימושיים</span></h1>
+      <p class="lead">טיפים קצרים משני סרטונים, שחוסכים זמן, כסף וכוכבי משטרה: איך מורידים את המשטרה מהזנב, איפה מסתתר כסף, איך מתאמנים נכון ואיך ממלאים את ה-Focus מהר. ניסית טיפ? סמן אותו, ואם הוא עבד לך או לא.</p>
       <ol class="rules" aria-label="איך משתמשים בעמוד">
         <li><i>1</i><b>קרא את הטיפ</b><small>ואם צריך, צפה ברגע שלו בסרטון</small></li>
         <li><i>2</i><b>נסה במשחק</b><small>הכפתורים לפי השלט שבחרת למעלה</small></li>
@@ -348,7 +352,7 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
     <aside class="mine" aria-label="ההתקדמות שלי">
       <div class="over">My checklist</div>
       <div class="mine-top">
-        <div class="mine-num"><span id="mTried">0</span><small> / 28</small></div>
+        <div class="mine-num"><span id="mTried">0</span><small> / <span id="mTotal">60</span></small></div>
         <p><b>טיפים שניסית</b>הסימונים נשמרים רק בדפדפן הזה</p>
       </div>
       <div class="bigtrack"><i id="mBar"></i></div>
@@ -356,7 +360,7 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
         <li><span class="dot ok"></span>עבד לי <b id="mOk">0</b></li>
         <li><span class="dot bad"></span>לא עבד לי <b id="mBad">0</b></li>
         <li><span class="dot tried"></span>ניסיתי, בלי תשובה <b id="mPlain">0</b></li>
-        <li><span class="dot"></span>עוד לא ניסיתי <b id="mTodo">28</b></li>
+        <li><span class="dot"></span>עוד לא ניסיתי <b id="mTodo">60</b></li>
       </ul>
       <div class="catprog" id="catProg"></div>
       <div class="mine-foot"><span>לחיצה על נושא מציגה רק אותו</span><button class="linkbtn" type="button" id="resetBtn">איפוס כל הסימונים</button></div>
@@ -387,8 +391,13 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
         <button type="button" data-st="tried">ניסיתי</button>
         <button type="button" data-st="bad">לא עבד לי</button>
       </div>
-      <input class="search" id="q" type="search" placeholder="חיפוש טיפ: מצלמות, כספומט, לוסיה..." aria-label="חיפוש טיפ">
-      <div class="progress" aria-live="polite"><span id="progText">0 / 28 נוסו</span><span class="track"><i id="progBar"></i></span></div>
+      <div class="seg" role="group" aria-label="סינון לפי סרטון">
+        <button type="button" data-src="all" aria-pressed="true">שני הסרטונים</button>
+        <button type="button" data-src="c">Caspahz</button>
+        <button type="button" data-src="g">GameSpot</button>
+      </div>
+      <input class="search" id="q" type="search" placeholder="חיפוש טיפ: מצלמות, כספת, חדר כושר..." aria-label="חיפוש טיפ">
+      <div class="progress" aria-live="polite"><span id="progText">0 / 60 נוסו</span><span class="track"><i id="progBar"></i></span></div>
     </div>
   </div>
 </div>
@@ -397,8 +406,8 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
 
 <footer>
   <div class="wrap">
-    <p><b>מקור הטיפים:</b> הסרטון <a class="en" href="https://youtu.be/wJTkZeMKU10" target="_blank" rel="noopener">GTA 6 Tips That Will ACTUALLY Help You</a> של הערוץ <span class="en">Caspahz</span> ביוטיוב. כל טיפ מקשר לרגע שלו בסרטון.</p>
-    <p>הטיפים עוד לא נבדקו מול מדריכים כתובים, ולכן ייתכן שחלקם לא מדויקים. הכפתורים של Focus, מחסה וכיוון, שלא מופיעים ברשימה המקורית, נלקחו ממדריך התנועות באתר. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
+    <p><b>מקור הטיפים:</b> טיפים 1 עד 28 מהסרטון <a class="en" href="https://youtu.be/wJTkZeMKU10" target="_blank" rel="noopener">GTA 6 Tips That Will ACTUALLY Help You</a> של הערוץ <span class="en">Caspahz</span>. טיפים 29 עד 60 מהסרטון <a class="en" href="https://youtu.be/dJDf76QVv70" target="_blank" rel="noopener">GTA 6 - 13 Things I Wish I Knew</a> של <span class="en">GameSpot</span> (19.11.2026), לפי הכתוביות שלו. כל טיפ מקשר לרגע שלו בסרטון.</p>
+    <p>הטיפים עוד לא נבדקו מול מדריכים כתובים, ולכן ייתכן שחלקם לא מדויקים. הכפתור של Focus מופיע בסרטון של GameSpot; הכפתורים של מחסה וכיוון נלקחו ממדריך התנועות באתר. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
     <p>פרויקט מעריצים עצמאי, ללא קשר ל-Rockstar Games. הסימונים של "ניסיתי" נשמרים רק בדפדפן הזה. עודכן לאחרונה: 28.11.2026.</p>
   </div>
 </footer>
@@ -406,120 +415,234 @@ footer p{margin:0 0 var(--s-2);max-width:900px}
 <script>
 'use strict';
 /* ================= DATA ================= */
-const VID='wJTkZeMKU10';
+const VIDS={
+ c:{id:'wJTkZeMKU10',name:'Caspahz',title:'GTA 6 Tips That Will ACTUALLY Help You'},
+ g:{id:'dJDf76QVv70',name:'GameSpot',title:'GTA 6 - 13 Things I Wish I Knew',date:'19.11.2026'}
+};
 const CATS=[
  {id:'police',he:'משטרה ובריחה',en:'Police & escape',p:'איך מורידים את רמת הזיהוי, ואיך יודעים לאן לברוח.'},
  {id:'heist',he:'שוד והתגנבות',en:'Heists & stealth',p:'לשדוד בלי שמצלמה או שומר יבחינו בך.'},
- {id:'money',he:'כסף ושלל',en:'Money & loot',p:'עוד מקורות כסף, ואיך מוכרים את מה שלקחת.'},
- {id:'focus',he:'Focus ושיפורים קבועים',en:'Focus & upgrades',p:'למלא את מד ה-Focus מהר, ולהגדיל אותו ואת מד החיים לתמיד.'},
- {id:'guns',he:'נשק וכיוון',en:'Guns & aiming',p:'קיצורים שחוסכים שניות יקרות בקרב יריות.'},
- {id:'drive',he:'נהיגה, שותפים וכיף',en:'Driving & the duo',p:'רכבים, עבודה עם הדמות השנייה, וקפיצות למים.'}
+ {id:'money',he:'כסף ושלל',en:'Money & loot',p:'עוד מקורות כסף, איך סוחבים את השלל, ולמי מוכרים אותו.'},
+ {id:'body',he:'שגרה וכושר',en:'Routine & fitness',p:'אוכל, שינה ואימונים: איך מחזקים את החיים, הסיבולת וה-Focus.'},
+ {id:'focus',he:'Focus',en:'Focus',p:'מה הוא מראה, איך ממלאים אותו מהר, ואיך משפרים אותו לתמיד.'},
+ {id:'guns',he:'נשק וכיוון',en:'Guns & aiming',p:'קיצורים שחוסכים שניות בקרב יריות, ואיך לא להרוג כשלא צריך.'},
+ {id:'drive',he:'רכבים, שותפים וכיף',en:'Cars & the duo',p:'גניבת רכבים, עבודה עם הדמות השנייה, וקפיצות למים.'},
+ {id:'travel',he:'התניידות, טלפון ושמירה',en:'Getting around & saving',p:'איך מגיעים מהר לכל מקום, מה עושים כשלא יודעים מה הלאה, ולמה לשמור ידנית.'}
 ];
-// n = number in the video's list, t = second in the video.
-// Text tokens: {sq} {x} {o} {tri} {L1} {L2} {R1} {R2} {L3} {R3} = buttons, {dl} {dr} = D-pad left/right, {#9} = link to tip 9.
+// n = number on the page (1-28: Caspahz's list, 29-60: GameSpot's 13 sections), v = video (c / g), t = second in that video.
+// Text tokens: {sq} {x} {o} {tri} {L1} {L2} {R1} {R2} {L3} {R3} = buttons, {du} {dl} {dr} = D-pad, {#9} = link to tip 9.
+// also = the same idea shows up in the other video too.
 const TIPS=[
- {n:1,t:7,c:'police',h:'להחליף בגדים באמצע מרדף',
+ {n:1,v:'c',t:7,c:'police',h:'להחליף בגדים באמצע מרדף',
   p:'המשטרה מזהה אותך גם לפי הבגדים. מעבר לסט בגדים שכבר קנית בחנות מוריד את רמת הזיהוי, גם כשהמרדף עוד בעיצומו.',
   how:'קנה מראש סט בגדים נוסף בחנות בגדים. במרדף, החלף אליו.',
-  see:['t047','להחליף בגדים אחרי מרדף']},
- {n:2,t:27,c:'money',h:'כסף ברכבים משוריינים',
+  also:[47],see:['t047','להחליף בגדים אחרי מרדף']},
+ {n:2,v:'c',t:27,c:'money',h:'כסף ברכבים משוריינים',
   p:'טנדרים לבנים עם סימון ירוק מובילים כסף.',
   how:'הדבק עליהם Sticky Bomb ופוצץ כדי לפתוח אותם.'},
- {n:3,t:55,c:'drive',h:'לפרוץ גדר תיל ברוורס',
+ {n:3,v:'c',t:55,c:'drive',h:'לפרוץ גדר תיל ברוורס',
   p:'נסיעה ברוורס לתוך גדר תיל פורצת אותה ופותחת מעבר.',
   how:'הפנה את גב הרכב לגדר וסע אחורה לתוכה.'},
- {n:4,t:67,c:'focus',h:'להגדיל את מד החיים לתמיד',
+ {n:4,v:'c',t:67,c:'body',h:'להגדיל את מד החיים לתמיד',
   p:'בבסיס Milstation Radar Base יש חומר ניסיוני שמגדיל את מד החיים המקסימלי של הדמות, לתמיד.',
   how:'הגע לבסיס ומצא את החומר הניסיוני.'},
- {n:5,t:81,c:'drive',h:'השותף מכין רכב מילוט',
+ {n:5,v:'c',t:81,c:'drive',h:'השותף מכין רכב מילוט',
   p:'אפשר לשלוח את הדמות השנייה להכין מראש רכב מילוט, כך שהוא מחכה לך כשצריך לברוח.',
   seq:[{k:'dr',m:'hold',c:'תפריט השותף'},{type:'then'},{type:'cond',t:'בחר להכין רכב מילוט'}],
   see:['t089','לפתוח את תפריט השותף']},
- {n:6,t:99,c:'drive',h:'לוסיה ליד ההגה במרדף',
+ {n:6,v:'c',t:99,c:'drive',h:'לוסיה ליד ההגה במרדף',
   p:'לוסיה טובה במיוחד בנהיגה במרדפים. כשאפשר לבחור מי נוהג בבריחה, תן לה.'},
- {n:7,t:109,c:'police',h:'להשליך את הבגדים של השוד',
+ {n:7,v:'c',t:109,c:'police',h:'להשליך את הבגדים של השוד',
   p:'אחרי שוד, הבגדים שלבשת קשורים אליו. כשמשליכים אותם, רמת הזיהוי יורדת.',
   how:'פתח את תפריט המלאי ובחר להשליך את הבגדים שלבשת בשוד.'},
- {n:8,t:125,c:'money',h:'שלל משוד אקראי',
+ {n:8,v:'c',t:125,c:'money',h:'שלל משוד אקראי',
   p:'לפעמים נתקלים בשוד של חנות שקורה בלי קשר אליך. אחרי שהשודדים בורחים, אפשר לאסוף את השלל.',
   how:'חכה שהשודדים יימלטו, ואז היכנס ואסוף את מה שנשאר.'},
- {n:9,t:151,c:'heist',h:'למצוא מצלמות אבטחה',
+ {n:9,v:'c',t:151,c:'heist',h:'למצוא מצלמות אבטחה',
   p:'במצב Focus מצלמות האבטחה מסומנות באדום, וקל לראות אותן גם מרחוק.',
   how:'לפני שוד, הפעל Focus ({L3} + {R3}) וסרוק את המקום.',
   see:['t048','לא לבצע פשע מול מצלמה או עד']},
- {n:10,t:174,c:'heist',h:'להוסיף מסכה לסט הבגדים',
+ {n:10,v:'c',t:174,c:'heist',h:'להוסיף מסכה לסט הבגדים',
   p:'מסכה יכולה להיות חלק מסט הבגדים, ואז היא עולה יחד איתו.',
   how:'בארון, היכנס לקטגוריית האביזרים והוסף מסכה לסט.'},
- {n:11,t:189,c:'guns',h:'נשק מתא המטען, בלי לצאת מהרכב',
+ {n:11,v:'c',t:189,c:'guns',h:'נשק מתא המטען, בלי לצאת מהרכב',
   p:'אפשר לקחת את הנשקים שמאוחסנים בתא המטען גם כשאתה יושב ברכב.',
   how:'כשאתה ברכב, פתח את המלאי של תא המטען ובחר נשק.'},
- {n:12,t:200,c:'focus',h:'משקפת ו-Focus יחד',
+ {n:12,v:'c',t:200,c:'focus',h:'משקפת ו-Focus יחד',
   p:'סריקה של אויבים במשקפת מסמנת אותם במיני-מפה.',
   how:'הסתכל על האויבים דרך המשקפת וסרוק אותם.',
   see:['t097','סריקה במשקפת']},
- {n:13,t:222,c:'focus',h:'למלא Focus מהר עם סיגריה',
+ {n:13,v:'c',t:222,c:'focus',h:'למלא Focus מהר עם סיגריה',
   p:'עישון ממלא את מד ה-Focus. כשמעשנים במחסה עם נשק מכוון, האנימציה קצרה יותר והמד מתמלא מהר.',
   how:'היכנס למחסה ({R1}), כוון נשק ({L2}) ואז עשן.',
   see:['t014','לעשן ולהשליך סיגריה']},
- {n:14,t:251,c:'police',h:'לראות מי מתקשר למשטרה',
+ {n:14,v:'c',t:251,c:'police',h:'לראות מי מתקשר למשטרה',
   p:'במצב Focus מופיעים גלי קול ליד אנשים שמתקשרים למשטרה. כך רואים מראש מי עומד להזעיק שוטרים.',
   how:'הפעל Focus ({L3} + {R3}) וחפש גלי קול ליד אנשים.'},
- {n:15,t:266,c:'drive',h:'תיקון ומשלוח רכב בחינם',
+ {n:15,v:'c',t:266,c:'drive',h:'תיקון ומשלוח רכב בחינם',
   p:'השקעה ב-Scooter Bros נותנת שירותי תיקון ומשלוח רכבים בחינם. מספר הפעמים תלוי במהדורה:',
-  ed:true},
- {n:16,t:279,c:'focus',h:'לקלוע בקבוק לפח',
+  ed:true,also:[41]},
+ {n:16,v:'c',t:279,c:'focus',h:'לקלוע בקבוק לפח',
   p:'קליעה של בקבוק משקה חלבון לפח, ממרחק, נותנת נקודות ניסיון שמשפרות את ה-Focus.',
   how:'סיים משקה חלבון, ואז זרוק את הבקבוק לפח מרחוק.'},
- {n:17,t:289,c:'heist',h:'שוד בלי להתגלות',
+ {n:17,v:'c',t:289,c:'heist',h:'שוד בלי להתגלות',
   p:'כדי לשדוד בשקט צריך לחשוב על מצלמות האבטחה ועל מערכות התיעוד של המקום, עוד לפני שנכנסים.',
-  how:'אתר את המצלמות עם Focus ({#9}) ותכנן דרך שעוקפת אותן.'},
- {n:18,t:324,c:'money',h:'למכור שלל דרך המוסך',
+  how:'אתר את המצלמות עם Focus ({#9}) ותכנן דרך שעוקפת אותן.',
+  also:[47]},
+ {n:18,v:'c',t:324,c:'money',h:'למכור שלל דרך המוסך',
   p:'אחרי שפותחים את Yasmani, אפשר למכור שלל דרך תיבת האחסון במוסך. חלק מהסכום הולך לעמלה.',
-  how:'הנח את השלל בתיבת האחסון במוסך.'},
- {n:19,t:344,c:'money',h:'לפתוח כספומט שנתלש',
+  how:'הנח את השלל בתיבת האחסון במוסך.',
+  also:[49]},
+ {n:19,v:'c',t:344,c:'money',h:'לפתוח כספומט שנתלש',
   p:'כספומט שנתלש ממקומו נפתח מהר עם Sticky Bomb.',
   how:'הדבק Sticky Bomb על הכספומט שנתלש ופוצץ.'},
- {n:20,t:357,c:'heist',h:'מד הרעש במיני-מפה',
+ {n:20,v:'c',t:357,c:'heist',h:'מד הרעש במיני-מפה',
   p:'העיגול הלבן שפועם סביב הדמות במיני-מפה מראה כמה רעש היא עושה. ככל שהוא גדול יותר, אתה רועש יותר.',
   how:'בזמן התגנבות, עקוב אחרי העיגול. כריעה ({o}) עוזרת לנוע בשקט.'},
- {n:21,t:374,c:'guns',h:'החלפה מהירה של נשק',
+ {n:21,v:'c',t:374,c:'guns',h:'החלפה מהירה של נשק',
   p:'בזמן כיוון, משולש מחליף נשק מיד. שימושי כשהמחסנית נגמרת באמצע קרב.',
   seq:[{k:'L2',m:'hold',c:'כיוון'},{type:'plus'},{k:'tri',m:'tap'}],
   see:['t025','החלפה מהירה בין שני נשקים']},
- {n:22,t:380,c:'guns',h:'להחליף כתף בזמן כיוון',
+ {n:22,v:'c',t:380,c:'guns',h:'להחליף כתף בזמן כיוון',
   p:'המצלמה עוברת לצד השני של הדמות. שימושי בקרבות מחסה, כשהקיר מסתיר לך את המטרה.',
   seq:[{k:'L2',m:'hold',c:'כיוון'},{type:'plus'},{k:'dl',m:'tap'}],
   see:['t024','החלפת כתף בזמן כיוון']},
- {n:23,t:389,c:'guns',h:'זריקה מהירה של ציוד',
+ {n:23,v:'c',t:389,c:'guns',h:'זריקה מהירה של ציוד',
   p:'בזמן כיוון, הכפתור הזה זורק את פריט הציוד האחרון שהשתמשת בו, למשל רימון, בלי לעזוב את הנשק.',
   seq:[{k:'L2',m:'hold',c:'כיוון'},{type:'plus'},{k:'R1',m:'tap'}],
   note:'במדריך התנועות כתוב להחזיק את {R1}. אם הקשה לא עובדת, נסה להחזיק.',
   see:['t034','זריקה מהירה בלי לעזוב את הנשק']},
- {n:24,t:396,c:'focus',h:'דיג משפר את ה-Focus לתמיד',
+ {n:24,v:'c',t:396,c:'focus',h:'דיג משפר את ה-Focus לתמיד',
   p:'דיג נותן נקודות ניסיון שמשפרות את ה-Focus, והשיפור נשאר.',
-  how:'דוג עם {sq} ו-{R2}. כדאי להפעיל בהגדרות את הדיג האוטומטי.'},
- {n:25,t:414,c:'police',h:'לברוח לפי המצפן',
+  how:'דוג עם {sq} ו-{R2}. כדאי להפעיל בהגדרות את הדיג האוטומטי.',
+  also:[30]},
+ {n:25,v:'c',t:414,c:'police',h:'לברוח לפי המצפן',
   p:'סימונים אדומים במצפן מראים איפה יש שוטרים. לפי הסרטון, כיוון בלי אדום הוא כיוון בלי משטרה.',
   how:'במרדף, הסתכל על המצפן וברח לכיוון שאין בו אדום.',
   note:'כך נאמר בסרטון. עוד לא מצאנו לזה אישור במקור כתוב.'},
- {n:26,t:429,c:'drive',h:'שני רכבים, שני נהגים',
+ {n:26,v:'c',t:429,c:'drive',h:'שני רכבים, שני נהגים',
   p:'אפשר לבקש מלוסיה לנהוג ברכב נפרד ולנסוע אחריך.',
   seq:[{k:'dr',c:'תפריט השותף'},{type:'then'},{type:'cond',t:'בחר שהיא תנהג אחריך'}],
   note:'אם לחיצה קצרה לא פותחת את התפריט, החזק את החץ, כמו ב{#5}.',
   see:['t092','שני רכבים בשיירה אחת']},
- {n:27,t:461,c:'guns',h:'לשנות את צורת הכוונת',
+ {n:27,v:'c',t:461,c:'guns',h:'לשנות את צורת הכוונת',
   p:'בהגדרות המשחק יש שלוש צורות שונות לכוונת של הנשק.',
   how:'חפש בהגדרות את תצוגת הכוונת ובחר את הצורה שנוחה לך.'},
- {n:28,t:467,c:'drive',h:'קפיצות ראווה למים',
+ {n:28,v:'c',t:467,c:'drive',h:'קפיצות ראווה למים',
   p:'ריצה וקפיצה לתוך המים נותנות אנימציות מיוחדות של צלילות וסלטות.',
   how:'רוץ לשפת המים וקפוץ פנימה.',
-  see:['t007','צלילת ראווה למים']}
+  see:['t007','צלילת ראווה למים']},
+
+ /* ---- GameSpot: 13 Things I Wish I Knew ---- */
+ {n:29,v:'g',t:19,c:'body',h:'שגרה יומית מחזקת את שתי הדמויות',
+  p:'לכל דמות יש שלושה מדדים: חיים, סיבולת ו-Focus. אוכל, שינה ומקלחת מחזקים אותם זמנית. החיזוק נשאר עד סוף הסשן, או עד שהדמות מתה.',
+  how:'לך לישון בלילה, התאמן בבוקר, קח אוכל מהמקרר והתקלח. ליד כל פעולה כזו מופיע סמל: לב ורוד לחיים, ברק כחול לסיבולת, עין סגולה ל-Focus.',
+  note:'כשבית המסתור מתחלף במהלך הסיפור, נפתחות פעילויות חדשות. כדאי לסייר סביבו.'},
+ {n:30,v:'g',t:54,c:'body',h:'מה משפר כל מדד לתמיד',
+  list:['חיים: הרמת משקולות.','סיבולת: ריצה, רכיבה על אופניים או קיאקים.','Focus: דיג ({#24}) או ביליארד.'],
+  p:'כל מדד גדל מפעילות אחרת:',
+  how:'את החיים והסיבולת צריך לתחזק באימונים קבועים, אחרת השיפור לא נשמר. השיפור ב-Focus נשאר לתמיד.'},
+ {n:31,v:'g',t:130,c:'body',h:'אימון כוח: ללחוץ מהר, לשחרר לאט',
+  p:'כל תרגיל כוח בחדר הכושר נעשה עם שני ההדקים. צריך לסיים את הסט לפני שהסיבולת נגמרת. איטיות או תזמון לא נכון שורפים עוד סיבולת.',
+  seq:[{k:'L2',c:'ללחוץ מהר'},{type:'plus'},{k:'R2',c:'ללחוץ מהר'},{type:'then'},{type:'cond',t:'לשחרר את שניהם לאט'}],
+  how:'לא משנה איזה תרגיל עושים. בסרטון ממליצים על דדליפט, שהסטים שלו קצרים, ועל קטלבל, שיש לו קצב נוח.'},
+ {n:32,v:'g',t:155,c:'body',h:'לסגור את טבעת הכושר ולנעול עם חלבון',
+  p:'לג׳ייסון וללוסיה יש בטלפון אפליקציית כושר שמראה מתי פתוח חלון אימון. כשהטבעת נסגרת, אין טעם להמשיך להתאמן.',
+  how:'אחרי שהטבעת נסגרת, אכול חטיף חלבון או שתה שייק חלבון כדי לנעול את השיפור. החלון נפתח שוב בערך פעם ביום במשחק. לג׳ייסון יש משקולות מחוץ לבית.'},
+ {n:33,v:'g',t:184,c:'body',h:'מנוי לחדר כושר בשביל סיבולת',
+  p:'בריצה או בקיאקים לוקח הרבה זמן עד שטבעת הסיבולת נסגרת. הליכון או אופני כושר סוגרים אותה בדרך כלל באימון אחד.',
+  how:'קנה מנוי לחדר כושר. אם הולכים יחד, ג׳ייסון ולוסיה מתאמנים שניהם, לא משנה במי אתה משחק.',
+  note:'באזור שבו המשחק מתחיל אין חדרי כושר קרובים.'},
+ {n:34,v:'g',t:220,c:'focus',h:'Focus: מה אומרים הצבעים',
+  p:'עם נשק ביד, Focus מאט את הזמן לרגע כדי לכוון. מחוץ לקרב אפשר להשאיר אותו פתוח בלי הגבלה, והוא צובע את הסביבה:',
+  seq:[{k:'L3',c:'סטיק שמאלי'},{type:'plus'},{k:'R3',c:'סטיק ימני'}],
+  list:['אדום: אויבים.','צהוב או סגול: חפצים שאפשר להשתמש בהם.','ירוק: כסף.']},
+ {n:35,v:'g',t:242,c:'focus',h:'מה עוד Focus חושף',
+  p:'Focus מראה אויבים מבעד לקירות, פתקים שאולי מסתירים קוד לכספת, עקבות של חיות בר, ואפילו אם מישהו מחביא דברי ערך בתא המטען שלו.',
+  how:'הפעל אותו לעיתים קרובות, כדי לא לפספס כלום.'},
+ {n:36,v:'g',t:269,c:'travel',h:'RydeMe: נסיעה, ודילוג תמורת 100 דולר',
+  p:'אין במשחק קפיצה מהמפה ישר ליעד. הדרך הכי ישירה היא RydeMe: מסמנים יעד במפה, מזמינים רכב ויושבים מאחור.',
+  how:'בתוספת 100 דולר אפשר לדלג ישר ליעד. בהתחלה זה יקר.',
+  see:['t103','לקצר נסיעה במונית מיד ליעד']},
+ {n:37,v:'g',t:293,c:'travel',h:'אוטובוס ורכבת',
+  p:'יש עשרות תחנות אוטובוס ורכבת. נסיעה בהן היא קפיצה מהירה כמעט לכל מקום ברשת. בתוך Vice City הרשת הכי נוחה, ויש רכבת שחוצה את כל המדינה.',
+  how:'לך לתחנה וחכה. האוטובוסים והרכבות נוסעים לפי לוח זמנים.'},
+ {n:38,v:'g',t:315,c:'travel',h:'החלפת דמות היא הנסיעה הכי זולה',
+  p:'הדמות שאתה לא משחק בה נמצאת בדרך כלל ליד בית המסתור. אם הגעת רחוק עם ג׳ייסון, פשוט עבור ללוסיה במקום לנהוג חזרה.',
+  see:['t090','להחליף דמות בלי להיכנס לתפריט מלא']},
+ {n:39,v:'g',t:341,c:'drive',h:'לבדוק רכב עם WAiNK לפני שגונבים',
+  p:'כשמסמנים רכב באפליקציה WAiNK, היא מראה את מערכת האבטחה שלו, בכמה אפשר למכור אותו וכמה עולה לרשום אותו.',
+  seq:[{k:'du',m:'hold',c:'WAiNK'},{type:'then'},{type:'cond',t:'כוון על הרכב'}],
+  see:['t096','לסרוק כלי רכב ממרחק']},
+ {n:40,v:'g',t:355,c:'drive',h:'מערכות האבטחה של רכבים',
+  p:'בהתחלה אפשר לגנוב רק חלק מהרכבים. עוד כלים לגניבה נפתחים לאורך הסיפור.',
+  list:['אזעקה: שבירת חלון מזעיקה את האנשים מסביב.','מכשיר איתור רגיל: אי אפשר לשפץ את הרכב עד שרושמים אותו.','מכשיר איתור מתקדם: מדווח למשטרה כשהרכב מתרחק מדי ממקומו. רק נסיעה מהירה עוצרת את הדיווח.','רכב יוקרה בלי מפתח: צריך משכפל מפתחות. את רוב הרכבים האחרים אפשר להניע בחיבור חוטים.']},
+ {n:41,v:'g',t:390,c:'drive',h:'לשמור רכב גנוב',
+  p:'כדי להשאיר רכב גנוב, קח אותו ל-Pay and Spray ושלם את דמי הרישום. ככל שהרכב גרוע יותר, הרישום זול יותר.',
+  how:'אחרי הרישום אפשר להזמין אותו בכל רגע דרך האפליקציה Scooter Bros ({#15}).'},
+ {n:42,v:'g',t:419,c:'heist',h:'לבדוק במפה לפני שוד',
+  p:'המפה מראה לכל מקום כמה כסף אפשר להוציא ממנו ומה רמת האבטחה שלו. באזור ההתחלה כל החנויות באבטחה נמוכה, חוץ מהבנק.',
+  how:'אבטחה נמוכה: אפשר לבד. בינונית או גבוהה: הרבה יותר קל בזוג. כדי להזמין את הדמות השנייה, לחץ {tri} על המקום במפה.'},
+ {n:43,v:'g',t:452,c:'heist',h:'להיכנס מהדלת האחורית',
+  p:'להרבה מקומות יש דלת אחורית. עם הכלי Snap Gun נכנסים דרכה בלי להפעיל אזעקה.',
+  how:'לפני שנכנסים, חפש במפה את הדלת האחורית.'},
+ {n:44,v:'g',t:461,c:'heist',h:'שודים גדולים: לחכות לפרק 2',
+  p:'רק מפרק 2 אפשר לשחק בג׳ייסון ובלוסיה יחד. בזוג, אחד משתלט על האנשים בזמן שהשני מרוקן קופות וכספות.',
+  how:'אם אתה מתכנן להיכנס עם נשק שלוף, חכה עם רוב השודים עד אז.'},
+ {n:45,v:'g',t:477,c:'heist',h:'הכספת שבחדר האחורי',
+  p:'ברוב המקומות הכסף שמור בכספת, בחדר אחורי נעול.',
+  list:['לחלק מהכספות יש קוד, שכתוב בפתק בסביבה. Focus ({#35}) עוזר למצוא אותו.','חלק אפשר לפרוץ, אם יש לך את הכלי המתאים.','חלק אפשר לפוצץ עם Sticky Bomb, אבל זה רועש.']},
+ {n:46,v:'g',t:495,c:'heist',h:'בנקים: לחכות לפרק 3',
+  p:'ברוב הכסף בבנקים ובחנויות הלוואות יש חבילות צבע, שמתפוצצות כשמתרחקים מהבניין.',
+  how:'כדי למנוע את זה צריך משבש לחבילות הצבע (Dye Jammer). מקבלים אותו רק אחרי שפוגשים את ראול, ולכן בסרטון ממליצים לחכות לפרק 3.'},
+ {n:47,v:'g',t:510,c:'police',h:'שישה סימנים שהמשטרה מזהה',
+  p:'המשטרה לא יודעת אוטומטית איפה אתה. היא מזהה אותך לפי סימנים, ואם מטפלים בכולם כשהשוטרים לא רואים, הם לא ימצאו אותך:',
+  list:['מראה: כובע ובנדנה לפני הפשע, ולהוריד אותם אחריו.','בגדים: סט נוסף בתא המטען, או קנייה בחנות בגדים ({#1}).','נשק גלוי: להחזיר את האקדח, ולהניח או לזרוק נשק ארוך ({#48}).','רכב: לנטוש אותו או להחליף.','מצלמות: להשמיד את ההקלטות בחדר האחורי ({#17}).','שותף: להתפצל.']},
+ {n:48,v:'g',t:554,c:'police',h:'נשק שזרקת חוזר לתא המטען',
+  p:'נשק ארוך שבבעלותך אפשר לזרוק בלי לחשוש: הוא חוזר לבד לתא המטען.',
+  how:'זרוק אותו כשאתה בורח, כדי שהנשק לא יסגיר אותך.'},
+ {n:49,v:'g',t:571,c:'money',h:'לבחור קונה לפי סוג השלל',
+  p:'השלל מתחלק לשלושה סוגים: סמים, תכשיטים ושטרות מסומנים. רוב הקונים קונים הכול, אבל כל אחד משלם יותר על מה שהוא מתמחה בו:',
+  list:['Yasmani ב-Little Cuba: מחיר גבוה על תכשיטים ושטרות מסומנים.','Tyrone: מחיר גבוה על סמים.']},
+ {n:50,v:'g',t:598,c:'money',h:'קונה קבוע בא לאסוף',
+  p:'בפעם הראשונה צריך להביא לקונה את הסחורה בעצמך. אם ממשיכים לעבוד איתו, הוא מציע לאסוף אותה תמורת עמלה, ובהמשך גם נתח גדול יותר על פריטים מסוימים.'},
+ {n:51,v:'g',t:610,c:'money',h:'כמה תיקי שלל אפשר לסחוב',
+  p:'כל שלל נכנס לבד לתיק שלל. כל דמות סוחבת שני תיקים, ועוד תיקים נכנסים לתא המטען: בטנדר או במשאית עד שמונה, ובאופנוע אף אחד.',
+  how:'צפה למלא תיק או שניים בכל שוד, חוץ מחנויות נוחות קטנות.'},
+ {n:52,v:'g',t:634,c:'money',h:'להעביר תיק שלל לשותף',
+  p:'בשוד בזוג אפשר להעביר תיקים ביניכם. היתרון הגדול: אחרי שמתפצלים ובורחים מהמשטרה, הדמות השנייה מוכרת את השלל לקונה בשבילך. הכסף מגיע אחרי זמן מה.',
+  seq:[{k:'dr'},{type:'then'},{k:'o',c:'להעביר תיק'}]},
+ {n:53,v:'g',t:655,c:'money',h:'מתת? השלל הלך',
+  p:'מי שמת עם תיקי שלל מאבד אותם, וגם את הכסף שעליו. תיקים שהוחבאו במקום בטוח אולי יישארו, אבל אין הבטחה. גם תיקים ברכב הולכים, אם המשטרה גוררת את הרכב.',
+  how:'אחרי כל שוד גדול, לך ישר לקונה ומכור.'},
+ {n:54,v:'g',t:696,c:'guns',h:'כוונת אופטית במקום כוונת רגילה',
+  p:'בנשק עם כוונת אופטית, לחיצה על הסטיק הימני עוברת למבט מגוף ראשון. עם הכוונת הרגילה של הנשק זה לא עובד.',
+  how:'קנה כוונת נקודה אדומה (Red Dot) ברגע שמצאת נשק שאתה אוהב, ואז לחץ {R3}.',
+  see:['t026','ירי מתוך כוונת הנשק']},
+ {n:55,v:'g',t:708,c:'guns',h:'משתיק קול קונה לך זמן',
+  p:'אם מישהו מדווח על יריות, המשטרה מגיעה. ככל שאתה שקט יותר, יש לך יותר זמן לבזוז. גם במחבוא של כנופיה השוטרים מגיעים אם יורים יותר מדי, רק לאט יותר.',
+  how:'הרכב משתיק קול על הנשק.'},
+ {n:56,v:'g',t:740,c:'travel',h:'לא יודע מה לעשות? תזכורות',
+  p:'בטלפון יש רשימת תזכורות: כתבות, פוסטים מעניינים ב-Snapmatic, הודעות שאפשר לענות עליהן ואנשים שכדאי להתקשר אליהם. לפעמים הן מובילות לשרשרת של משימות צד.',
+  seq:[{k:'du'},{type:'then'},{k:'sq',c:'תזכורות'}]},
+ {n:57,v:'g',t:786,c:'guns',h:'לפצוע במקום להרוג',
+  p:'פגיעה בראש או בלב הורגת. פגיעה במפרקים, בידיים או ברגליים פוצעת.',
+  list:['סימון פגיעה אדום: היריב מת.','סימון צהוב: הוא פצוע, ויוצא מהקרב עד סופו.'],
+  see:['t038','לסמן פגיעה שאינה קטלנית']},
+ {n:58,v:'g',t:806,c:'police',h:'לעצור מרדף בלי להרוג',
+  p:'פנצ׳ר בצמיג או שניים, והרכב שרודף אחריך מסתחרר ומרפה. מסוק נסוג אם יורים מספיק לכיוונו, והטייס מודיע על זה בקשר של המשטרה.'},
+ {n:59,v:'g',t:822,c:'guns',h:'הפרופיל הפלילי',
+  p:'הדרך שבה אתה משחק משפיעה על הפרופיל הפלילי של כל דמות. אם תשחק בלוסיה אלימה, היא תתנהג באלימות גם כשאתה לא שולט בה.',
+  how:'רוצה דמויות רגועות? הרוג רק במשימות או כדי להגן על עצמך.'},
+ {n:60,v:'g',t:844,c:'travel',h:'לשמור ידנית בכל פרק',
+  p:'כל פרק בסיפור קשור לבית מסתור אחר. כשעוברים פרק אין דרך חזרה, אלא אם יש לך שמירה ידנית.',
+  how:'שמור ידנית בכל פרק. משימות הצד הגדולות זמינות בכל פרק, אבל דמויות, הזדמנויות ופעילויות מסוימות באות והולכות.'}
 ];
-const FOCUS_TEXT='מד מיוחד של הדמות. מפעילים אותו בלחיצה על שני הסטיקים יחד ({L3} + {R3}). המסך מסמן אז דברים שקשה לראות בעין, ובקרב הזמן גם מאט. שישה מהטיפים כאן קשורים אליו:';
+const FOCUS_TEXT='מד מיוחד של הדמות. מפעילים אותו בלחיצה על שני הסטיקים יחד ({L3} + {R3}). עם נשק ביד הוא מאט את הזמן כדי לכוון, ומחוץ לקרב אפשר להשאיר אותו פתוח כמה שרוצים. {N} מהטיפים כאן קשורים אליו:';
 const FOCUS_COLS=[
- {h:'מה הוא מראה',items:[[9,'מצלמות אבטחה באדום'],[14,'מי מתקשר למשטרה'],[12,'אויבים שסרקת במשקפת']]},
+ {h:'מה הוא מראה',items:[[34,'צבעים: אויבים, חפצים, כסף'],[35,'מבעד לקירות, קודים, עקבות'],[9,'מצלמות אבטחה באדום'],[14,'מי מתקשר למשטרה'],[12,'אויבים שסרקת במשקפת']]},
  {h:'איך ממלאים אותו מהר',items:[[13,'סיגריה במחסה, עם נשק מכוון']]},
- {h:'איך משפרים אותו לתמיד',items:[[24,'דיג'],[16,'בקבוק לפח, ממרחק'],[4,'ובונוס: מד החיים']]}
+ {h:'איך משפרים אותו לתמיד',items:[[24,'דיג'],[30,'דיג או ביליארד'],[16,'בקבוק לפח, ממרחק']]}
 ];
 
 /* ================= KEY RENDERING (same design as combat.html) ================= */
@@ -527,7 +650,7 @@ const PS_SYM={x:'<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',o:'<circle cx="12" 
 const PS_NAME={x:'איקס',o:'עיגול',sq:'ריבוע',tri:'משולש'};
 const XB_FACE={x:'A',o:'B',sq:'X',tri:'Y'};
 const TRIG={L1:['L1','LB'],L2:['L2','LT'],R1:['R1','RB'],R2:['R2','RT'],L3:['L3','LS'],R3:['R3','RS']};
-const DPAD={dl:['left','חץ שמאלה'],dr:['right','חץ ימינה']};
+const DPAD={du:['up','חץ למעלה'],dd:['down','חץ למטה'],dl:['left','חץ שמאלה'],dr:['right','חץ ימינה']};
 const MOD_CAP={tap:'הקשה',hold:'החזקה'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const svg=inner=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
@@ -588,7 +711,7 @@ let marks={};
 try{const v=JSON.parse(localStorage.getItem(STORE)||'{}');if(v&&typeof v==='object'&&!Array.isArray(v))for(const k in v)if(MARKS.includes(v[k])&&TIPS.some(x=>String(x.n)===k))marks[k]=v[k]}catch(e){}
 const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(marks))}catch(e){}};
 const markOf=n=>marks[n]||'';
-let fCat='all',fSt='all',fQ='';
+let fCat='all',fSt='all',fSrc='all',fQ='';
 const PLATFORM_KEY='gta6-field-guide-controller-mode'; // shared with the moves guide and the combat page
 let platform='ps';
 function getPlatform(){
@@ -618,28 +741,32 @@ function tipHTML(x){
   const s=markOf(x.n);
   const eds=x.ed?'<div class="eds"><div class="ed"><b>3 שימושים</b>מהדורה רגילה</div><div class="ed ult"><b>5 שימושים</b>מהדורת <span class="en">Ultimate</span></div></div>':'';
   const see=x.see?`<a class="see" data-fg="${x.see[0]}" href="${fgHref(x.see[0],platform)}">במדריך התנועות: ${esc(x.see[1])}</a>`:'';
+  const list=x.list?`<ul class="tlist">${x.list.map(li=>`<li>${fill(li)}</li>`).join('')}</ul>`:'';
+  const also=x.also?`<p class="also">${fill('אותו רעיון גם בסרטון השני: '+x.also.map(n=>`{#${n}}`).join(', '))}</p>`:'';
+  const vid=VIDS[x.v];
   return `<article class="tip${s?' is-tried':''}${s==='bad'?' is-bad':''}" id="t${x.n}">
-  <div class="tip-top"><span class="tnum" aria-hidden="true">${String(x.n).padStart(2,'0')}</span><span class="tstate${s==='bad'?' bad':''}" ${s?'':'hidden'}>${s?STATE_TAG[s]:''}</span></div>
+  <div class="tip-top"><span class="tnum" aria-hidden="true">${String(x.n).padStart(2,'0')}</span><span class="src src-${x.v}">${vid.name}</span><span class="tstate${s==='bad'?' bad':''}" ${s?'':'hidden'}>${s?STATE_TAG[s]:''}</span></div>
   <h3><span class="sr">טיפ ${x.n}: </span>${esc(x.h)}</h3>
-  <p class="tbody">${fill(x.p)}</p>${eds}
+  <p class="tbody">${fill(x.p)}</p>${list}${eds}
   ${x.seq?`<div class="inputs">${inputsHTML(x.seq)}</div>`:''}
   ${x.how?`<div class="how"><span class="lbl">איך עושים את זה</span>${fill(x.how)}</div>`:''}
   ${x.note?`<p class="tnote">${fill(x.note)}</p>`:''}
-  ${see}
+  ${also}${see}
   <div class="tactions">
     <button type="button" class="try" data-try="${x.n}" aria-pressed="${!!s}"><span class="box" aria-hidden="true"></span>ניסיתי</button>
     <span class="res" role="group" aria-label="איך הלך בטיפ ${x.n}?"><span class="res-q">איך הלך?</span><button type="button" data-res="ok" data-n="${x.n}" aria-pressed="${s==='ok'}">עבד</button><button type="button" data-res="bad" data-n="${x.n}" aria-pressed="${s==='bad'}">לא עבד</button></span>
-    <a class="yt" href="https://youtu.be/${VID}?t=${x.t}" target="_blank" rel="noopener" aria-label="טיפ ${x.n} בסרטון, דקה ${mmss(x.t)}">▶ <span class="en">${mmss(x.t)}</span> בסרטון</a>
+    <a class="yt" href="https://youtu.be/${vid.id}?t=${x.t}" target="_blank" rel="noopener" aria-label="טיפ ${x.n} בסרטון של ${vid.name}, דקה ${mmss(x.t)}">▶ <span class="en">${mmss(x.t)}</span> בסרטון</a>
   </div>
 </article>`;
 }
 function visible(x){
   if(fCat!=='all'&&x.c!==fCat)return false;
+  if(fSrc!=='all'&&x.v!==fSrc)return false;
   const s=markOf(x.n);
   if(fSt==='todo'&&s)return false;
   if(fSt==='tried'&&!s)return false;
   if(fSt==='bad'&&s!=='bad')return false;
-  if(fQ){const hay=[x.n,x.h,plain(x.p),plain(x.how),plain(x.note),catOf(x.c).he,x.see?x.see[1]:''].join(' ').toLowerCase();if(!hay.includes(fQ))return false}
+  if(fQ){const hay=[x.n,x.h,plain(x.p),plain(x.how),plain(x.note),...(x.list||[]).map(plain),catOf(x.c).he,VIDS[x.v].name,x.see?x.see[1]:''].join(' ').toLowerCase();if(!hay.includes(fQ))return false}
   return true;
 }
 function renderChapters(){
@@ -654,7 +781,7 @@ function renderChapters(){
   <div class="grid">${list.map(tipHTML).join('')}</div>
 </div></section>`;
   });
-  if(!shown)out=`<div class="wrap"><div class="empty"><p>${fSt==='todo'&&!fQ&&fCat==='all'?'ניסית את כל 28 הטיפים. כל הכבוד!':'אין טיפים שמתאימים לסינון הזה.'}</p><button class="btn" type="button" id="clearF">להציג את כל הטיפים</button></div></div>`;
+  if(!shown)out=`<div class="wrap"><div class="empty"><p>${fSt==='todo'&&!fQ&&fCat==='all'&&fSrc==='all'?`ניסית את כל ${TIPS.length} הטיפים. כל הכבוד!`:'אין טיפים שמתאימים לסינון הזה.'}</p><button class="btn" type="button" id="clearF">להציג את כל הטיפים</button></div></div>`;
   document.getElementById('chapters').innerHTML=out;
 }
 function renderChips(){
@@ -680,7 +807,9 @@ function renderProgress(){
   renderChips();
 }
 function renderStatic(){
-  document.getElementById('focusText').innerHTML=fill(FOCUS_TEXT);
+  const nFocus=new Set(FOCUS_COLS.flatMap(c=>c.items.map(i=>i[0]))).size;
+  document.getElementById('focusText').innerHTML=fill(FOCUS_TEXT.replace('{N}',nFocus));
+  document.getElementById('mTotal').textContent=TIPS.length;
   document.getElementById('focusCols').innerHTML=FOCUS_COLS.map(col=>`<div class="fc"><b>${esc(col.h)}</b><ul>${col.items.map(([n,t])=>`<li><a class="goto" href="#t${n}" data-goto="${n}">טיפ ${n}</a> · ${esc(t)}</li>`).join('')}</ul></div>`).join('');
 }
 function renderAll(){renderProgress();renderChapters()}
@@ -702,7 +831,8 @@ function setMark(n,s){
   if(card&&!visible(card)){clearTimeout(refilter);refilter=setTimeout(renderChapters,650)}
 }
 function setStatus(st){fSt=st;document.querySelectorAll('[data-st]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.st===st)))}
-function clearFilters(){fCat='all';setStatus('all');fQ='';document.getElementById('q').value='';renderAll()}
+function setSource(v){fSrc=v;document.querySelectorAll('[data-src]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.src===v)))}
+function clearFilters(){fCat='all';setStatus('all');setSource('all');fQ='';document.getElementById('q').value='';renderAll()}
 function gotoTip(n){
   const card=TIPS.find(x=>x.n===+n);
   if(card&&!visible(card)){clearFilters()}
@@ -720,6 +850,7 @@ document.addEventListener('click',e=>{
   if(t.dataset.res){const n=t.dataset.n;setMark(n,markOf(n)===t.dataset.res?'tried':t.dataset.res);return}
   if(t.dataset.cat){fCat=t.dataset.cat;renderAll();if(t.dataset.jump)document.getElementById('tips').scrollIntoView({behavior:'smooth'});return}
   if(t.dataset.st){setStatus(t.dataset.st);renderChapters();return}
+  if(t.dataset.src){setSource(t.dataset.src);renderChapters();return}
   if(t.id==='todoBtn'){fCat='all';setStatus('todo');renderAll();document.getElementById('tips').scrollIntoView({behavior:'smooth'});return}
   if(t.id==='clearF'){clearFilters();return}
   if(t.id==='resetBtn'){
