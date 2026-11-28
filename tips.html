@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0910">
+<title>טיפים וטריקים | GTA VI · 28 טיפים שימושיים</title>
+<meta name="description" content="28 טיפים וטריקים שימושיים ל-GTA VI: בריחה מהמשטרה, שוד בהתגנבות, כסף, Focus, נשק ונהיגה. עם כפתורי PlayStation ו-Xbox, וסימון של מה שכבר ניסית.">
+<script>
+// Dark is the default. Light only when the viewer chose it before.
+try{if(localStorage.getItem('gta6-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Barlow+Condensed:wght@800;900&display=swap" rel="stylesheet">
+<style>
+/* ============ DESIGN SYSTEM (same tokens as combat.html) ============ */
+:root{
+  color-scheme:dark;
+  /* colour */
+  --bg:#0a0910; --bg-glow-1:#4a1636; --bg-glow-2:#0f3a44;
+  --surface:#15121d; --surface-2:#1d1928; --surface-3:#262036;
+  --line:#2f2840; --line-2:#433a5a;
+  --ink:#f5f0fb; --ink-2:#d2c8df; --muted:#9e93b0;
+  --accent:#ff4f9a; --accent-2:#ff86b9; --on-accent:#22050f;
+  --teal:#38e1cf; --sun:#ffb454; --violet:#ad8fff; --danger:#ff5b5b;
+  --on-teal:#032521; --on-sun:#2a1500; /* text on a teal or amber badge */
+  --cond-ink:#ffd36b; --cond-bg:#2b2412; --cond-line:#7d6326;
+  --chip:#221d2e; --chip-line:#3a3150;
+  --sticky:#0a0910ec;
+  /* controller buttons are "physical objects": they keep their own colours in both themes */
+  --key-face:#1c1827; --key-rim:#4b4163; --key-ink:#f7f2ff; --key-shadow:#00000080;
+  --ps-x:#93b4ff; --ps-o:#ff7d7d; --ps-sq:#f29be2; --ps-tri:#4fdcae;
+  --xb-a:#5fd068; --xb-b:#ff6b5e; --xb-x:#5a9bff; --xb-y:#ffd23f;
+  --dpad-on:#7cefe2;
+  --ps-brand:#0070d1; --xb-brand:#107c10; /* logo badges: brand colours, same in both themes */
+  /* type */
+  --font:'Heebo','Segoe UI',Arial,sans-serif;
+  --font-display:'Barlow Condensed','Heebo','Segoe UI',Arial,sans-serif;
+  --fs-1:clamp(52px,7.4vw,104px);  /* hero title + big progress number (display, never under 36px) */
+  --fs-2:clamp(40px,4vw,56px);     /* tip + chapter numbers (display) */
+  --fs-3:clamp(24px,2.4vw,32px);   /* section titles */
+  --fs-4:21px;                     /* card titles */
+  --fs-5:18px;                     /* lead text, big key letters */
+  --fs-6:16px;                     /* body */
+  --fs-7:14px;                     /* secondary text */
+  --fs-8:12.5px;                   /* labels, chips, captions */
+  --fs-9:11px;                     /* overlines, tiny meta */
+  /* shape + space */
+  --r-1:8px; --r-2:14px; --r-3:22px; --r-pill:999px;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:36px; --s-7:56px;
+  --shadow:0 20px 60px #0000006b;
+  --wrap:1320px;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f5f1ea; --bg-glow-1:#ffd6e8; --bg-glow-2:#cdeff0;
+  --surface:#ffffff; --surface-2:#f8f4fb; --surface-3:#efe8f5;
+  --line:#e3dbea; --line-2:#cfc3dc;
+  --ink:#1b1424; --ink-2:#3d3249; --muted:#6c6079;
+  --accent:#d81f6e; --accent-2:#b0185a; --on-accent:#ffffff;
+  --teal:#0d8f83; --sun:#b85f00; --violet:#6a45d8; --danger:#c62828;
+  --on-teal:#ffffff; --on-sun:#ffffff;
+  --cond-ink:#7a4f00; --cond-bg:#fff3d1; --cond-line:#e2b85a;
+  --chip:#f1ebf6; --chip-line:#d9cfe4;
+  --sticky:#f5f1eaee;
+  --shadow:0 18px 50px #3a1f4a1f;
+}
+
+/* ============ BASE ============ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;background:
+  radial-gradient(900px 520px at 100% -8%,var(--bg-glow-1),transparent 70%),
+  radial-gradient(760px 520px at -6% 22%,var(--bg-glow-2),transparent 70%),var(--bg);
+  color:var(--ink);font-family:var(--font);font-size:var(--fs-6);line-height:1.65}
+a{color:var(--teal)}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{width:min(var(--wrap),calc(100% - 40px));margin-inline:auto}
+.en{direction:ltr;unicode-bidi:isolate}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============ TOP BAR ============ */
+.topbar{border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar .wrap{display:flex;align-items:center;gap:var(--s-4);padding:var(--s-3) 0;flex-wrap:wrap}
+.brand{font-weight:900;font-size:var(--fs-6);white-space:nowrap;text-decoration:none;color:var(--ink)}
+.brand b{color:var(--accent)}
+.cats{display:flex;gap:var(--s-1);flex-wrap:wrap;flex:1}
+.cats a{white-space:nowrap;font-size:var(--fs-7);font-weight:700;color:var(--ink-2);text-decoration:none;padding:7px 12px;border-radius:var(--r-pill);border:1px solid transparent}
+.cats a:hover{background:var(--surface-3)}
+.cats a[aria-current]{background:var(--accent);color:var(--on-accent)}
+.pad-pick{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line-2);background:var(--surface-2);border-radius:var(--r-pill);padding:4px}
+.pad-label{font-size:var(--fs-9);font-weight:800;color:var(--muted);padding:0 8px 0 4px;white-space:nowrap}
+.pad-opt{display:inline-flex;align-items:center;gap:7px;border:0;background:none;border-radius:var(--r-pill);padding:5px 12px 5px 6px;font-size:var(--fs-8);font-weight:900;color:var(--ink-2);white-space:nowrap}
+.pad-opt:hover{background:var(--surface-3)}
+.pad-opt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.pad-ico{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--key-face);border:1px solid var(--key-rim)}
+.pad-ico.brand-ps{background:var(--ps-brand);border-color:var(--ps-brand)}
+.pad-ico.brand-xb{background:var(--xb-brand);border-color:var(--xb-brand)}
+.pad-ico.brand-ps svg{width:17px;height:17px}
+.pad-ico.brand-xb svg{width:18px;height:18px}
+.theme-btn{display:grid;place-items:center;width:40px;height:40px;border-radius:var(--r-pill);border:1px solid var(--line-2);background:var(--surface-2)}
+.theme-btn svg{width:20px;height:20px}
+.theme-btn .sun{display:none}
+:root[data-theme="light"] .theme-btn .sun{display:block}
+:root[data-theme="light"] .theme-btn .moon{display:none}
+
+/* ============ HERO ============ */
+.hero{padding:var(--s-7) 0 var(--s-6)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s-6);align-items:center}
+.over{font-size:var(--fs-9);font-weight:800;letter-spacing:.22em;color:var(--teal);direction:ltr;text-align:right;text-transform:uppercase}
+.hero h1{font-family:var(--font-display);font-weight:900;font-size:var(--fs-1);line-height:.92;margin:var(--s-3) 0 var(--s-4);letter-spacing:-.01em}
+.hero h1 span{display:block;color:var(--accent)}
+.lead{font-size:var(--fs-5);color:var(--ink-2);max-width:620px;margin:0 0 var(--s-5)}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-2);margin:0 0 var(--s-5);padding:0;list-style:none}
+.rules li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3)}
+.rules b{display:block;font-size:var(--fs-7);font-weight:800}
+.rules small{display:block;color:var(--muted);font-size:var(--fs-8);line-height:1.5;margin-top:2px}
+.rules i{font-style:normal;display:inline-grid;place-items:center;width:24px;height:24px;border-radius:var(--r-pill);background:var(--accent);color:var(--on-accent);font-size:var(--fs-8);font-weight:900;margin-bottom:6px}
+.hero-cta{display:flex;gap:var(--s-2);flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:11px 20px;font-weight:800;font-size:var(--fs-7);text-decoration:none;border:1px solid var(--line-2);background:var(--surface-2);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{filter:brightness(1.08)}
+
+/* my checklist panel */
+.mine{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-3);padding:var(--s-5);box-shadow:var(--shadow)}
+.mine-top{display:flex;align-items:flex-end;gap:var(--s-4);flex-wrap:wrap}
+.mine-num{font-family:var(--font-display);font-weight:900;font-size:var(--fs-1);line-height:.85;direction:ltr;unicode-bidi:isolate}
+.mine-num small{font-size:.5em;color:var(--muted)}
+.mine-top p{margin:0 0 6px;font-size:var(--fs-7);color:var(--ink-2)}
+.mine-top p b{display:block;font-size:var(--fs-6);color:var(--ink)}
+.bigtrack{height:10px;border-radius:10px;background:var(--line-2);overflow:hidden;margin:var(--s-4) 0}
+.bigtrack i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--accent));transition:width .35s}
+.tally{display:flex;gap:var(--s-2);flex-wrap:wrap;margin:0 0 var(--s-4);padding:0;list-style:none}
+.tally li{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-8);font-weight:700;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 12px}
+.tally b{color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.dot.ok{background:var(--teal)} .dot.bad{background:var(--sun)} .dot.tried{background:var(--accent)}
+.catprog{display:grid;gap:4px}
+.cp{display:grid;grid-template-columns:minmax(0,1fr) 90px 44px;gap:var(--s-3);align-items:center;width:100%;border:0;background:none;padding:6px 8px;border-radius:var(--r-1);text-align:start;font-size:var(--fs-8);font-weight:700;color:var(--ink-2)}
+.cp:hover{background:var(--surface-2)}
+.cp .tr{height:6px;border-radius:6px;background:var(--line-2);overflow:hidden}
+.cp .tr i{display:block;height:100%;background:var(--teal);transition:width .35s}
+.cp .ct{direction:ltr;text-align:left;color:var(--muted)}
+.cp.full{color:var(--teal)}
+.mine-foot{display:flex;justify-content:space-between;align-items:center;gap:var(--s-3);margin-top:var(--s-3);padding-top:var(--s-3);border-top:1px dashed var(--line);font-size:var(--fs-8);color:var(--muted)}
+.linkbtn{border:0;background:none;padding:0;font-size:var(--fs-8);font-weight:700;color:var(--muted);text-decoration:underline}
+.linkbtn:hover{color:var(--danger)}
+
+/* Focus explainer */
+.focus-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:var(--s-5);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);padding:var(--s-5)}
+.focus-box h2{margin:4px 0 var(--s-2);font-size:var(--fs-3);font-weight:900;line-height:1.2}
+.focus-box > div > p{margin:0;font-size:var(--fs-7);color:var(--ink-2)}
+.focus-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-3)}
+.fc{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3) var(--s-4)}
+.fc b{display:block;font-size:var(--fs-7);font-weight:800;margin-bottom:var(--s-1)}
+.fc ul{margin:0;padding:0;list-style:none;display:grid;gap:2px}
+.fc li{font-size:var(--fs-8);color:var(--ink-2);line-height:1.6}
+.goto{color:var(--teal);font-weight:800;text-decoration:none;white-space:nowrap}
+.goto:hover{text-decoration:underline}
+
+/* ============ KEYS (same button design as combat.html) ============ */
+.seq{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 6px}
+.key{display:inline-flex;flex-direction:column;align-items:center;gap:3px;min-width:46px}
+.glyph{position:relative;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
+  background:radial-gradient(circle at 50% 30%,#2b2540,var(--key-face) 70%);border:2px solid var(--key-rim);
+  box-shadow:0 3px 0 var(--key-shadow),inset 0 1px 0 #ffffff1f;color:var(--key-ink)}
+.glyph svg{width:24px;height:24px}
+.k-ps-x .glyph{color:var(--ps-x)} .k-ps-o .glyph{color:var(--ps-o)} .k-ps-sq .glyph{color:var(--ps-sq)} .k-ps-tri .glyph{color:var(--ps-tri)}
+.k-xb .glyph b{font-size:var(--fs-5);font-weight:900;line-height:1}
+.k-xb-a .glyph{color:var(--xb-a);border-color:#3f7f45} .k-xb-b .glyph{color:var(--xb-b);border-color:#8a3a35}
+.k-xb-x .glyph{color:var(--xb-x);border-color:#35558c} .k-xb-y .glyph{color:var(--xb-y);border-color:#8a7426}
+.k-trig .glyph{width:56px;height:40px;border-radius:14px 14px 9px 9px;margin-top:3px}
+.k-trig .glyph b{font-size:var(--fs-7);font-weight:900;letter-spacing:.02em;color:#fff}
+.k-trig.k-bump .glyph{height:32px;border-radius:9px;margin:7px 0 4px}
+.k-dpad .glyph{border-radius:12px;color:var(--dpad-on)}
+.k-dpad .glyph svg{width:30px;height:30px}
+.meter{display:flex;gap:3px;align-items:center;height:6px}
+.meter i{display:block;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.meter .bar{width:40px;height:6px;border-radius:6px;background:var(--line-2);overflow:hidden;position:relative}
+.meter .bar i{position:absolute;inset:0 0 0 0;width:auto;height:auto;border-radius:6px;background:var(--accent)}
+.cap{font-size:var(--fs-9);font-weight:700;color:var(--muted);white-space:nowrap;line-height:1.2;text-align:center}
+.sep{align-self:center;display:inline-flex;flex-direction:column;align-items:center;color:var(--muted);font-size:var(--fs-9);font-weight:700;margin-top:-14px}
+.sep svg{width:18px;height:18px;color:var(--accent)}
+.sep.plus{font-size:var(--fs-4);font-weight:900;color:var(--ink-2);margin-top:-16px}
+.cond{align-self:center;margin-top:-14px;max-width:170px;font-size:var(--fs-8);font-weight:700;line-height:1.35;color:var(--cond-ink);background:var(--cond-bg);
+  border:1px dashed var(--cond-line);border-radius:10px;padding:6px 9px;text-align:center}
+.prow{display:flex;gap:var(--s-2);align-items:flex-start}
+.plabel{flex:none;font-size:var(--fs-9);font-weight:900;letter-spacing:.08em;color:var(--muted);direction:ltr;width:40px;padding-top:15px;display:none}
+body[data-platform="both"] .plabel{display:block}
+body[data-platform="ps"] .xb, body[data-platform="xb"] .ps{display:none!important}
+.prow+.prow{margin-top:var(--s-2);padding-top:var(--s-2);border-top:1px dashed var(--line)}
+/* inline mini keys inside running text */
+.ik{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 5px;border-radius:var(--r-pill);background:var(--key-face);border:1px solid var(--key-rim);
+  color:var(--key-ink);font-size:var(--fs-9);font-weight:900;vertical-align:-5px;margin:0 2px;direction:ltr}
+.ik svg{width:13px;height:13px}
+.ik.ps-x{color:var(--ps-x)}.ik.ps-o{color:var(--ps-o)}.ik.ps-sq{color:var(--ps-sq)}.ik.ps-tri{color:var(--ps-tri)}
+.ik.xb-a{color:var(--xb-a)}.ik.xb-b{color:var(--xb-b)}.ik.xb-x{color:var(--xb-x)}.ik.xb-y{color:var(--xb-y)}
+.ik.trig{border-radius:6px}
+.ik.dpad{border-radius:6px;color:var(--dpad-on);padding:0 3px}
+.ik.dpad svg{width:16px;height:16px}
+.ikpair .slash{color:var(--muted);margin:0 1px}
+body:not([data-platform="both"]) .ikpair .slash{display:none}
+
+/* ============ STICKY FILTERS ============ */
+.filters{position:sticky;top:0;z-index:30;background:var(--sticky);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);margin-top:var(--s-6)}
+.filters .wrap{padding:var(--s-3) 0;display:grid;gap:var(--s-2)}
+.chiprow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}
+.chip{flex:none;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:6px 12px;font-size:var(--fs-8);font-weight:700;color:var(--ink-2);white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip .n{opacity:.7;margin-inline-start:6px;unicode-bidi:isolate}
+.toolrow{display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:3px}
+.seg button{border:0;background:none;border-radius:var(--r-pill);padding:5px 12px;font-size:var(--fs-8);font-weight:800;color:var(--ink-2);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 4px #0000003a}
+:root[data-theme="light"] .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.search{flex:1 1 200px;min-width:160px;border:1px solid var(--chip-line);background:var(--surface);border-radius:var(--r-pill);padding:8px 14px;font-size:var(--fs-7);color:var(--ink)}
+.search::placeholder{color:var(--muted)}
+.progress{display:flex;align-items:center;gap:8px;font-size:var(--fs-8);font-weight:800;color:var(--ink-2);white-space:nowrap;margin-inline-start:auto}
+.progress .track{width:110px;height:7px;border-radius:7px;background:var(--line-2);overflow:hidden}
+.progress .track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--accent));transition:width .3s}
+
+/* ============ CHAPTERS + TIP CARDS ============ */
+.chapter{padding:var(--s-6) 0 var(--s-2)}
+.ch-head{display:grid;grid-template-columns:auto 1fr;gap:var(--s-4);align-items:center;margin-bottom:var(--s-4)}
+.ch-num{font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:.9;color:transparent;-webkit-text-stroke:2px var(--accent)}
+.ch-head h2{margin:0;font-size:var(--fs-3);font-weight:900;line-height:1.2}
+.ch-head p{margin:4px 0 0;color:var(--ink-2);font-size:var(--fs-7);max-width:760px}
+.ch-head .cnt{color:var(--muted);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--s-4)}
+.tip{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-3);padding:var(--s-4) var(--s-5) var(--s-4);display:flex;flex-direction:column;gap:var(--s-3);transition:border-color .2s,box-shadow .2s}
+.tip:hover{border-color:var(--line-2)}
+.tip.is-tried{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
+.tip.is-bad{border-color:var(--sun);box-shadow:0 0 0 1px var(--sun)}
+.tip.flash{animation:flashTip 1.4s ease}
+@keyframes flashTip{0%,40%{box-shadow:0 0 0 4px var(--accent)}100%{box-shadow:none}}
+.tip-top{display:flex;align-items:center;gap:var(--s-3);min-height:44px}
+.tnum{font-family:var(--font-display);font-weight:900;font-size:var(--fs-2);line-height:.9;color:transparent;-webkit-text-stroke:2px var(--accent);direction:ltr}
+.tip.is-tried .tnum{-webkit-text-stroke-color:var(--teal)}
+.tip.is-bad .tnum{-webkit-text-stroke-color:var(--sun)}
+.tstate{margin-inline-start:auto;font-size:var(--fs-9);font-weight:900;padding:3px 10px;border-radius:var(--r-pill);background:var(--teal);color:var(--on-teal);white-space:nowrap}
+.tstate.bad{background:var(--sun);color:var(--on-sun)}
+.tip h3{margin:0;font-size:var(--fs-4);font-weight:900;line-height:1.25}
+.tbody{margin:0;font-size:var(--fs-7);color:var(--ink-2);line-height:1.7}
+.how{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3);font-size:var(--fs-7);line-height:1.75}
+.lbl{display:block;font-size:var(--fs-9);font-weight:900;color:var(--teal);letter-spacing:.04em;margin-bottom:2px}
+.inputs{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-3)}
+.tnote{margin:0;font-size:var(--fs-8);line-height:1.6;color:var(--cond-ink);background:var(--cond-bg);border:1px dashed var(--cond-line);border-radius:var(--r-1);padding:6px 10px}
+.eds{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-2)}
+.ed{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-2);padding:var(--s-2) var(--s-3);font-size:var(--fs-8);color:var(--ink-2)}
+.ed b{display:block;font-size:var(--fs-4);font-weight:900;color:var(--ink);line-height:1.2}
+.ed.ult{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--surface-2))}
+.ed.ult b{color:var(--accent)}
+.see{font-size:var(--fs-8);font-weight:700;color:var(--teal);text-decoration:none}
+.see:hover{text-decoration:underline}
+.see::after{content:' ←'}
+.tactions{margin-top:auto;display:flex;gap:var(--s-2);align-items:center;flex-wrap:wrap;padding-top:var(--s-3);border-top:1px solid var(--line)}
+.try{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-2);background:var(--surface-2);border-radius:var(--r-pill);padding:6px 14px 6px 12px;font-size:var(--fs-8);font-weight:900;color:var(--ink)}
+.try .box{width:16px;height:16px;border-radius:5px;border:2px solid var(--muted);display:grid;place-items:center}
+.try[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.try[aria-pressed="true"] .box{border-color:var(--on-teal);background:var(--on-teal)}
+.try[aria-pressed="true"] .box::after{content:'';width:8px;height:4px;border:solid var(--teal);border-width:0 0 2px 2px;transform:translateY(-1px) rotate(-45deg)}
+.res{display:none;align-items:center;gap:4px}
+.tip.is-tried .res{display:inline-flex}
+.res-q{font-size:var(--fs-9);font-weight:800;color:var(--muted);margin-inline-end:2px}
+.res button{border:1px solid var(--chip-line);background:var(--chip);border-radius:var(--r-pill);padding:4px 11px;font-size:var(--fs-8);font-weight:800;color:var(--ink-2)}
+.res button[data-res="ok"][aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--on-teal)}
+.res button[data-res="bad"][aria-pressed="true"]{background:var(--sun);border-color:var(--sun);color:var(--on-sun)}
+.yt{margin-inline-start:auto;font-size:var(--fs-8);font-weight:700;color:var(--muted);text-decoration:none;white-space:nowrap}
+.yt:hover{color:var(--teal)}
+.empty{padding:var(--s-6);text-align:center;color:var(--muted)}
+.empty p{margin:0 0 var(--s-3)}
+
+footer{border-top:1px solid var(--line);margin-top:var(--s-6);padding:var(--s-6) 0 var(--s-7);color:var(--muted);font-size:var(--fs-8);line-height:1.9}
+footer p{margin:0 0 var(--s-2);max-width:900px}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1060px){
+  .hero .wrap{grid-template-columns:1fr}
+  .mine{max-width:640px}
+  .focus-box{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 24px)}
+  .hero{padding-top:var(--s-5)}
+  .rules,.focus-cols{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .tip{padding:var(--s-4)}
+  .cp{grid-template-columns:minmax(0,1fr) 64px 40px}
+  .progress{margin-inline-start:0}
+  .progress .track{width:70px}
+  .cats{order:3;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
+  .topbar .wrap{justify-content:space-between}
+  .theme-btn{order:1}
+  .pad-pick{order:2;flex-basis:100%}
+  .pad-opt{flex:1;justify-content:center}
+  .filters{position:relative}
+  html{scroll-padding-top:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:1ms!important;animation-iteration-count:1!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body data-platform="ps">
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">GTA VI <b>Ultimate</b></a>
+    <nav class="cats" aria-label="קטגוריות המדריך">
+      <a href="index.html">בונוסי Ultimate</a>
+      <a href="GTA6_Field_Guide/index.html">תנועות ומהלכים</a>
+      <a href="GTA6_Field_Guide/loot.html">רכבים, נשקים וכסף</a>
+      <a href="map.html">מפת לאונידה</a>
+      <a href="combat.html">קרב מגע</a>
+      <a href="tips.html" aria-current="page">טיפים וטריקים</a>
+    </nav>
+    <div class="pad-pick" role="group" aria-label="איזה שלט להציג">
+      <span class="pad-label">השלט שלי</span>
+      <!-- logos: Simple Icons paths (simpleicons.org, CC0); trademarks of Sony Interactive Entertainment and Microsoft -->
+      <button class="pad-opt" type="button" data-set-platform="ps"><span class="pad-ico brand-ps" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#fff" d="M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.18.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.152 0-3.237-1.126-4.675-4.438-5.827-1.307-.448-3.728-1.186-5.39-1.502zm4.656 16.241l6.296-2.275c.715-.258.826-.625.246-.818-.586-.192-1.637-.139-2.357.123l-4.205 1.5V14.98l.24-.085s1.201-.42 2.913-.615c1.696-.18 3.785.03 5.437.661 1.848.601 2.04 1.472 1.576 2.072-.465.6-1.622 1.036-1.622 1.036l-8.544 3.107V18.86zM1.807 18.6c-1.9-.545-2.214-1.668-1.352-2.32.801-.586 2.16-1.052 2.16-1.052l5.615-2.013v2.313L4.205 17c-.705.271-.825.632-.239.826.586.195 1.637.15 2.343-.12L8.247 17v2.074c-.12.03-.256.044-.39.073-1.939.331-3.996.196-6.038-.479z"/></svg></span>PlayStation</button>
+      <button class="pad-opt" type="button" data-set-platform="xb"><span class="pad-ico brand-xb" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="#fff" d="M4.102 21.033C6.211 22.881 8.977 24 12 24c3.026 0 5.789-1.119 7.902-2.967 1.877-1.912-4.316-8.709-7.902-11.417-3.582 2.708-9.779 9.505-7.898 11.417zm11.16-14.406c2.5 2.961 7.484 10.313 6.076 12.912C23.002 17.48 24 14.861 24 12.004c0-3.34-1.365-6.362-3.57-8.536 0 0-.027-.022-.082-.042-.063-.022-.152-.045-.281-.045-.592 0-1.985.434-4.805 3.246zM3.654 3.426c-.057.02-.082.041-.086.042C1.365 5.642 0 8.664 0 12.004c0 2.854.998 5.473 2.661 7.533-1.401-2.605 3.579-9.951 6.08-12.91-2.82-2.813-4.216-3.245-4.806-3.245-.131 0-.223.021-.281.046v-.002zM12 3.551S9.055 1.828 6.755 1.746c-.903-.033-1.454.295-1.521.339C7.379.646 9.659 0 11.984 0H12c2.334 0 4.605.646 6.766 2.085-.068-.046-.615-.372-1.52-.339C14.946 1.828 12 3.545 12 3.545v.006z"/></svg></span>Xbox</button>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="מעבר בין מצב כהה למצב בהיר">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="over">GTA VI · Tips &amp; tricks · Caspahz</div>
+      <h1>טיפים וטריקים<span>28 שימושיים</span></h1>
+      <p class="lead">טיפים קצרים שחוסכים זמן, כסף וכוכבי משטרה: איך מורידים את המשטרה מהזנב, איפה מסתתר כסף, ואיך ממלאים את ה-Focus מהר. ניסית טיפ? סמן אותו, ואם הוא עבד לך או לא.</p>
+      <ol class="rules" aria-label="איך משתמשים בעמוד">
+        <li><i>1</i><b>קרא את הטיפ</b><small>ואם צריך, צפה ברגע שלו בסרטון</small></li>
+        <li><i>2</i><b>נסה במשחק</b><small>הכפתורים לפי השלט שבחרת למעלה</small></li>
+        <li><i>3</i><b>סמן "ניסיתי"</b><small>ואם זה עבד לך או לא. הכול נשמר בדפדפן</small></li>
+      </ol>
+      <div class="hero-cta">
+        <a class="btn primary" href="#tips">לכל הטיפים</a>
+        <button class="btn" type="button" id="todoBtn">רק מה שעוד לא ניסיתי</button>
+        <a class="btn" href="#focus">מה זה Focus?</a>
+      </div>
+    </div>
+    <aside class="mine" aria-label="ההתקדמות שלי">
+      <div class="over">My checklist</div>
+      <div class="mine-top">
+        <div class="mine-num"><span id="mTried">0</span><small> / 28</small></div>
+        <p><b>טיפים שניסית</b>הסימונים נשמרים רק בדפדפן הזה</p>
+      </div>
+      <div class="bigtrack"><i id="mBar"></i></div>
+      <ul class="tally">
+        <li><span class="dot ok"></span>עבד לי <b id="mOk">0</b></li>
+        <li><span class="dot bad"></span>לא עבד לי <b id="mBad">0</b></li>
+        <li><span class="dot tried"></span>ניסיתי, בלי תשובה <b id="mPlain">0</b></li>
+        <li><span class="dot"></span>עוד לא ניסיתי <b id="mTodo">28</b></li>
+      </ul>
+      <div class="catprog" id="catProg"></div>
+      <div class="mine-foot"><span>לחיצה על נושא מציגה רק אותו</span><button class="linkbtn" type="button" id="resetBtn">איפוס כל הסימונים</button></div>
+    </aside>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <div class="focus-box">
+      <div>
+        <div class="over">Focus · what it is</div>
+        <h2>מה זה Focus?</h2>
+        <p id="focusText"></p>
+      </div>
+      <div class="focus-cols" id="focusCols"></div>
+    </div>
+  </div>
+</section>
+
+<div class="filters" id="tips">
+  <div class="wrap">
+    <div class="chiprow" id="catChips" role="group" aria-label="סינון לפי נושא"></div>
+    <div class="toolrow">
+      <div class="seg" id="stSeg" role="group" aria-label="סינון לפי מה שניסיתי">
+        <button type="button" data-st="all" aria-pressed="true">הכול</button>
+        <button type="button" data-st="todo">עוד לא ניסיתי</button>
+        <button type="button" data-st="tried">ניסיתי</button>
+        <button type="button" data-st="bad">לא עבד לי</button>
+      </div>
+      <input class="search" id="q" type="search" placeholder="חיפוש טיפ: מצלמות, כספומט, לוסיה..." aria-label="חיפוש טיפ">
+      <div class="progress" aria-live="polite"><span id="progText">0 / 28 נוסו</span><span class="track"><i id="progBar"></i></span></div>
+    </div>
+  </div>
+</div>
+
+<main id="chapters"></main>
+
+<footer>
+  <div class="wrap">
+    <p><b>מקור הטיפים:</b> הסרטון <a class="en" href="https://youtu.be/wJTkZeMKU10" target="_blank" rel="noopener">GTA 6 Tips That Will ACTUALLY Help You</a> של הערוץ <span class="en">Caspahz</span> ביוטיוב. כל טיפ מקשר לרגע שלו בסרטון.</p>
+    <p>הטיפים עוד לא נבדקו מול מדריכים כתובים, ולכן ייתכן שחלקם לא מדויקים. הכפתורים של Focus, מחסה וכיוון, שלא מופיעים ברשימה המקורית, נלקחו ממדריך התנועות באתר. הפריסה היא ברירת המחדל של המשחק; אם שינית פריסת שליטה, הכפתורים אצלך יהיו אחרים.</p>
+    <p>פרויקט מעריצים עצמאי, ללא קשר ל-Rockstar Games. הסימונים של "ניסיתי" נשמרים רק בדפדפן הזה. עודכן לאחרונה: 28.11.2026.</p>
+  </div>
+</footer>
+
+<script>
+'use strict';
+/* ================= DATA ================= */
+const VID='wJTkZeMKU10';
+const CATS=[
+ {id:'police',he:'משטרה ובריחה',en:'Police & escape',p:'איך מורידים את רמת הזיהוי, ואיך יודעים לאן לברוח.'},
+ {id:'heist',he:'שוד והתגנבות',en:'Heists & stealth',p:'לשדוד בלי שמצלמה או שומר יבחינו בך.'},
+ {id:'money',he:'כסף ושלל',en:'Money & loot',p:'עוד מקורות כסף, ואיך מוכרים את מה שלקחת.'},
+ {id:'focus',he:'Focus ושיפורים קבועים',en:'Focus & upgrades',p:'למלא את מד ה-Focus מהר, ולהגדיל אותו ואת מד החיים לתמיד.'},
+ {id:'guns',he:'נשק וכיוון',en:'Guns & aiming',p:'קיצורים שחוסכים שניות יקרות בקרב יריות.'},
+ {id:'drive',he:'נהיגה, שותפים וכיף',en:'Driving & the duo',p:'רכבים, עבודה עם הדמות השנייה, וקפיצות למים.'}
+];
+// n = number in the video's list, t = second in the video.
+// Text tokens: {sq} {x} {o} {tri} {L1} {L2} {R1} {R2} {L3} {R3} = buttons, {dl} {dr} = D-pad left/right, {#9} = link to tip 9.
+const TIPS=[
+ {n:1,t:7,c:'police',h:'להחליף בגדים באמצע מרדף',
+  p:'המשטרה מזהה אותך גם לפי הבגדים. מעבר לסט בגדים שכבר קנית בחנות מוריד את רמת הזיהוי, גם כשהמרדף עוד בעיצומו.',
+  how:'קנה מראש סט בגדים נוסף בחנות בגדים. במרדף, החלף אליו.',
+  see:['t047','להחליף בגדים אחרי מרדף']},
+ {n:2,t:27,c:'money',h:'כסף ברכבים משוריינים',
+  p:'טנדרים לבנים עם סימון ירוק מובילים כסף.',
+  how:'הדבק עליהם Sticky Bomb ופוצץ כדי לפתוח אותם.'},
+ {n:3,t:55,c:'drive',h:'לפרוץ גדר תיל ברוורס',
+  p:'נסיעה ברוורס לתוך גדר תיל פורצת אותה ופותחת מעבר.',
+  how:'הפנה את גב הרכב לגדר וסע אחורה לתוכה.'},
+ {n:4,t:67,c:'focus',h:'להגדיל את מד החיים לתמיד',
+  p:'בבסיס Milstation Radar Base יש חומר ניסיוני שמגדיל את מד החיים המקסימלי של הדמות, לתמיד.',
+  how:'הגע לבסיס ומצא את החומר הניסיוני.'},
+ {n:5,t:81,c:'drive',h:'השותף מכין רכב מילוט',
+  p:'אפשר לשלוח את הדמות השנייה להכין מראש רכב מילוט, כך שהוא מחכה לך כשצריך לברוח.',
+  seq:[{k:'dr',m:'hold',c:'תפריט השותף'},{type:'then'},{type:'cond',t:'בחר להכין רכב מילוט'}],
+  see:['t089','לפתוח את תפריט השותף']},
+ {n:6,t:99,c:'drive',h:'לוסיה ליד ההגה במרדף',
+  p:'לוסיה טובה במיוחד בנהיגה במרדפים. כשאפשר לבחור מי נוהג בבריחה, תן לה.'},
+ {n:7,t:109,c:'police',h:'להשליך את הבגדים של השוד',
+  p:'אחרי שוד, הבגדים שלבשת קשורים אליו. כשמשליכים אותם, רמת הזיהוי יורדת.',
+  how:'פתח את תפריט המלאי ובחר להשליך את הבגדים שלבשת בשוד.'},
+ {n:8,t:125,c:'money',h:'שלל משוד אקראי',
+  p:'לפעמים נתקלים בשוד של חנות שקורה בלי קשר אליך. אחרי שהשודדים בורחים, אפשר לאסוף את השלל.',
+  how:'חכה שהשודדים יימלטו, ואז היכנס ואסוף את מה שנשאר.'},
+ {n:9,t:151,c:'heist',h:'למצוא מצלמות אבטחה',
+  p:'במצב Focus מצלמות האבטחה מסומנות באדום, וקל לראות אותן גם מרחוק.',
+  how:'לפני שוד, הפעל Focus ({L3} + {R3}) וסרוק את המקום.',
+  see:['t048','לא לבצע פשע מול מצלמה או עד']},
+ {n:10,t:174,c:'heist',h:'להוסיף מסכה לסט הבגדים',
+  p:'מסכה יכולה להיות חלק מסט הבגדים, ואז היא עולה יחד איתו.',
+  how:'בארון, היכנס לקטגוריית האביזרים והוסף מסכה לסט.'},
+ {n:11,t:189,c:'guns',h:'נשק מתא המטען, בלי לצאת מהרכב',
+  p:'אפשר לקחת את הנשקים שמאוחסנים בתא המטען גם כשאתה יושב ברכב.',
+  how:'כשאתה ברכב, פתח את המלאי של תא המטען ובחר נשק.'},
+ {n:12,t:200,c:'focus',h:'משקפת ו-Focus יחד',
+  p:'סריקה של אויבים במשקפת מסמנת אותם במיני-מפה.',
+  how:'הסתכל על האויבים דרך המשקפת וסרוק אותם.',
+  see:['t097','סריקה במשקפת']},
+ {n:13,t:222,c:'focus',h:'למלא Focus מהר עם סיגריה',
+  p:'עישון ממלא את מד ה-Focus. כשמעשנים במחסה עם נשק מכוון, האנימציה קצרה יותר והמד מתמלא מהר.',
+  how:'היכנס למחסה ({R1}), כוון נשק ({L2}) ואז עשן.',
+  see:['t014','לעשן ולהשליך סיגריה']},
+ {n:14,t:251,c:'police',h:'לראות מי מתקשר למשטרה',
+  p:'במצב Focus מופיעים גלי קול ליד אנשים שמתקשרים למשטרה. כך רואים מראש מי עומד להזעיק שוטרים.',
+  how:'הפעל Focus ({L3} + {R3}) וחפש גלי קול ליד אנשים.'},
+ {n:15,t:266,c:'drive',h:'תיקון ומשלוח רכב בחינם',
+  p:'השקעה ב-Scooter Bros נותנת שירותי תיקון ומשלוח רכבים בחינם. מספר הפעמים תלוי במהדורה:',
+  ed:true},
+ {n:16,t:279,c:'focus',h:'לקלוע בקבוק לפח',
+  p:'קליעה של בקבוק משקה חלבון לפח, ממרחק, נותנת נקודות ניסיון שמשפרות את ה-Focus.',
+  how:'סיים משקה חלבון, ואז זרוק את הבקבוק לפח מרחוק.'},
+ {n:17,t:289,c:'heist',h:'שוד בלי להתגלות',
+  p:'כדי לשדוד בשקט צריך לחשוב על מצלמות האבטחה ועל מערכות התיעוד של המקום, עוד לפני שנכנסים.',
+  how:'אתר את המצלמות עם Focus ({#9}) ותכנן דרך שעוקפת אותן.'},
+ {n:18,t:324,c:'money',h:'למכור שלל דרך המוסך',
+  p:'אחרי שפותחים את Yasmani, אפשר למכור שלל דרך תיבת האחסון במוסך. חלק מהסכום הולך לעמלה.',
+  how:'הנח את השלל בתיבת האחסון במוסך.'},
+ {n:19,t:344,c:'money',h:'לפתוח כספומט שנתלש',
+  p:'כספומט שנתלש ממקומו נפתח מהר עם Sticky Bomb.',
+  how:'הדבק Sticky Bomb על הכספומט שנתלש ופוצץ.'},
+ {n:20,t:357,c:'heist',h:'מד הרעש במיני-מפה',
+  p:'העיגול הלבן שפועם סביב הדמות במיני-מפה מראה כמה רעש היא עושה. ככל שהוא גדול יותר, אתה רועש יותר.',
+  how:'בזמן התגנבות, עקוב אחרי העיגול. כריעה ({o}) עוזרת לנוע בשקט.'},
+ {n:21,t:374,c:'guns',h:'החלפה מהירה של נשק',
+  p:'בזמן כיוון, משולש מחליף נשק מיד. שימושי כשהמחסנית נגמרת באמצע קרב.',
+  seq:[{k:'L2',m:'hold',c:'כיוון'},{type:'plus'},{k:'tri',m:'tap'}],
+  see:['t025','החלפה מהירה בין שני נשקים']},
+ {n:22,t:380,c:'guns',h:'להחליף כתף בזמן כיוון',
+  p:'המצלמה עוברת לצד השני של הדמות. שימושי בקרבות מחסה, כשהקיר מסתיר לך את המטרה.',
+  seq:[{k:'L2',m:'hold',c:'כיוון'},{type:'plus'},{k:'dl',m:'tap'}],
+  see:['t024','החלפת כתף בזמן כיוון']},
+ {n:23,t:389,c:'guns',h:'זריקה מהירה של ציוד',
+  p:'בזמן כיוון, הכפתור הזה זורק את פריט הציוד האחרון שהשתמשת בו, למשל רימון, בלי לעזוב את הנשק.',
+  seq:[{k:'L2',m:'hold',c:'כיוון'},{type:'plus'},{k:'R1',m:'tap'}],
+  note:'במדריך התנועות כתוב להחזיק את {R1}. אם הקשה לא עובדת, נסה להחזיק.',
+  see:['t034','זריקה מהירה בלי לעזוב את הנשק']},
+ {n:24,t:396,c:'focus',h:'דיג משפר את ה-Focus לתמיד',
+  p:'דיג נותן נקודות ניסיון שמשפרות את ה-Focus, והשיפור נשאר.',
+  how:'דוג עם {sq} ו-{R2}. כדאי להפעיל בהגדרות את הדיג האוטומטי.'},
+ {n:25,t:414,c:'police',h:'לברוח לפי המצפן',
+  p:'סימונים אדומים במצפן מראים איפה יש שוטרים. לפי הסרטון, כיוון בלי אדום הוא כיוון בלי משטרה.',
+  how:'במרדף, הסתכל על המצפן וברח לכיוון שאין בו אדום.',
+  note:'כך נאמר בסרטון. עוד לא מצאנו לזה אישור במקור כתוב.'},
+ {n:26,t:429,c:'drive',h:'שני רכבים, שני נהגים',
+  p:'אפשר לבקש מלוסיה לנהוג ברכב נפרד ולנסוע אחריך.',
+  seq:[{k:'dr',c:'תפריט השותף'},{type:'then'},{type:'cond',t:'בחר שהיא תנהג אחריך'}],
+  note:'אם לחיצה קצרה לא פותחת את התפריט, החזק את החץ, כמו ב{#5}.',
+  see:['t092','שני רכבים בשיירה אחת']},
+ {n:27,t:461,c:'guns',h:'לשנות את צורת הכוונת',
+  p:'בהגדרות המשחק יש שלוש צורות שונות לכוונת של הנשק.',
+  how:'חפש בהגדרות את תצוגת הכוונת ובחר את הצורה שנוחה לך.'},
+ {n:28,t:467,c:'drive',h:'קפיצות ראווה למים',
+  p:'ריצה וקפיצה לתוך המים נותנות אנימציות מיוחדות של צלילות וסלטות.',
+  how:'רוץ לשפת המים וקפוץ פנימה.',
+  see:['t007','צלילת ראווה למים']}
+];
+const FOCUS_TEXT='מד מיוחד של הדמות. מפעילים אותו בלחיצה על שני הסטיקים יחד ({L3} + {R3}). המסך מסמן אז דברים שקשה לראות בעין, ובקרב הזמן גם מאט. שישה מהטיפים כאן קשורים אליו:';
+const FOCUS_COLS=[
+ {h:'מה הוא מראה',items:[[9,'מצלמות אבטחה באדום'],[14,'מי מתקשר למשטרה'],[12,'אויבים שסרקת במשקפת']]},
+ {h:'איך ממלאים אותו מהר',items:[[13,'סיגריה במחסה, עם נשק מכוון']]},
+ {h:'איך משפרים אותו לתמיד',items:[[24,'דיג'],[16,'בקבוק לפח, ממרחק'],[4,'ובונוס: מד החיים']]}
+];
+
+/* ================= KEY RENDERING (same design as combat.html) ================= */
+const PS_SYM={x:'<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',o:'<circle cx="12" cy="12" r="6.4"/>',sq:'<rect x="6" y="6" width="12" height="12" rx="1.2"/>',tri:'<path d="M12 5l7.4 12.6H4.6z"/>'};
+const PS_NAME={x:'איקס',o:'עיגול',sq:'ריבוע',tri:'משולש'};
+const XB_FACE={x:'A',o:'B',sq:'X',tri:'Y'};
+const TRIG={L1:['L1','LB'],L2:['L2','LT'],R1:['R1','RB'],R2:['R2','RT'],L3:['L3','LS'],R3:['R3','RS']};
+const DPAD={dl:['left','חץ שמאלה'],dr:['right','חץ ימינה']};
+const MOD_CAP={tap:'הקשה',hold:'החזקה'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const svg=inner=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${inner}</svg>`;
+// D-pad drawn as a cross; the pressed arm is lit. Physical left/right, not mirrored by the RTL page.
+function dpadSVG(d){
+  const arms={up:'M9 2.5h6v6.5H9z',down:'M9 15h6v6.5H9z',left:'M2.5 9H9v6H2.5z',right:'M15 9h6.5v6H15z'};
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${Object.entries(arms).map(([k,p])=>`<path d="${p}" fill="${k===d?'currentColor':'#ffffff30'}"/>`).join('')}<path d="M9 9h6v6H9z" fill="#ffffff30"/></svg>`;
+}
+function meter(m){
+  if(m==='hold')return '<span class="meter"><span class="bar"><i></i></span></span>';
+  if(m==='tap')return '<span class="meter"><i></i></span>';
+  return '<span class="meter"></span>';
+}
+function keyName(k,pf){
+  if(TRIG[k])return TRIG[k][pf==='ps'?0:1];
+  if(DPAD[k])return DPAD[k][1];
+  return pf==='ps'?PS_NAME[k]:XB_FACE[k];
+}
+function glyphHTML(k,pf){
+  if(DPAD[k])return {cls:'k-dpad',inner:`<span class="glyph">${dpadSVG(DPAD[k][0])}</span>`};
+  if(TRIG[k]){const label=TRIG[k][pf==='ps'?0:1];return {cls:k==='R1'||k==='L1'?'k-trig k-bump':'k-trig',inner:`<span class="glyph"><b>${label}</b></span>`}}
+  if(pf==='ps')return {cls:'k-ps k-ps-'+k,inner:`<span class="glyph">${svg(PS_SYM[k])}</span>`};
+  return {cls:'k-xb k-xb-'+XB_FACE[k].toLowerCase(),inner:`<span class="glyph"><b>${XB_FACE[k]}</b></span>`};
+}
+function keyHTML(it,pf){
+  const g=glyphHTML(it.k,pf);const m=it.m||'';
+  const cap=[MOD_CAP[m],it.c].filter(Boolean).join(' · ');
+  const lab=[MOD_CAP[m]||'לחיצה',keyName(it.k,pf),it.c].filter(Boolean).join(' ');
+  return `<span class="key ${g.cls}" role="img" aria-label="${esc(lab)}">${g.inner}${meter(m)}<span class="cap">${esc(cap)||'&nbsp;'}</span></span>`;
+}
+const CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+function seqHTML(seq,pf){
+  return `<div class="seq">${seq.map(it=>{
+    if(it.type==='then')return `<span class="sep then" aria-label="ואז">${CHEV}ואז</span>`;
+    if(it.type==='plus')return '<span class="sep plus" aria-label="יחד עם">+</span>';
+    if(it.type==='cond')return `<span class="cond">${esc(it.t)}</span>`;
+    return keyHTML(it,pf);
+  }).join('')}</div>`;
+}
+const inputsHTML=seq=>`<div class="prow ps"><span class="plabel">PS5</span>${seqHTML(seq,'ps')}</div><div class="prow xb"><span class="plabel">XBOX</span>${seqHTML(seq,'xb')}</div>`;
+// small inline key for running text
+function ik(k){
+  if(DPAD[k])return `<span class="ik dpad" role="img" aria-label="${DPAD[k][1]}">${dpadSVG(DPAD[k][0])}</span>`;
+  const one=pf=>{
+    if(TRIG[k])return `<span class="ik trig ${pf}">${TRIG[k][pf==='ps'?0:1]}</span>`;
+    if(pf==='ps')return `<span class="ik ps ps-${k}" role="img" aria-label="${PS_NAME[k]}">${svg(PS_SYM[k])}</span>`;
+    return `<span class="ik xb xb-${XB_FACE[k].toLowerCase()}">${XB_FACE[k]}</span>`;
+  };
+  return `<span class="ikpair">${one('ps')}<span class="slash">/</span>${one('xb')}</span>`;
+}
+const fill=s=>esc(s).replace(/\{#(\d+)\}/g,(_,n)=>`<a class="goto" href="#t${n}" data-goto="${n}">טיפ ${n}</a>`).replace(/\{(\w+)\}/g,(_,k)=>ik(k));
+const plain=s=>String(s||'').replace(/\{#(\d+)\}/g,'טיפ $1').replace(/\{\w+\}/g,'');
+
+/* ================= STATE ================= */
+const STORE='gta6-tips-tried';            // {"5":"ok","7":"tried","25":"bad"}
+const MARKS=['tried','ok','bad'];
+let marks={};
+try{const v=JSON.parse(localStorage.getItem(STORE)||'{}');if(v&&typeof v==='object'&&!Array.isArray(v))for(const k in v)if(MARKS.includes(v[k])&&TIPS.some(x=>String(x.n)===k))marks[k]=v[k]}catch(e){}
+const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(marks))}catch(e){}};
+const markOf=n=>marks[n]||'';
+let fCat='all',fSt='all',fQ='';
+const PLATFORM_KEY='gta6-field-guide-controller-mode'; // shared with the moves guide and the combat page
+let platform='ps';
+function getPlatform(){
+  const q=new URLSearchParams(location.search).get('pad');
+  if(['ps','xb','both'].includes(q))return q;
+  try{const p=localStorage.getItem(PLATFORM_KEY);if(['ps','xb','both'].includes(p))return p}catch(e){}
+  return 'ps';
+}
+const fgHref=(id,p)=>`GTA6_Field_Guide/index.html?pad=${p}#card-${id}`;
+function setPlatform(p){
+  platform=p;
+  document.body.dataset.platform=p;
+  document.querySelectorAll('[data-set-platform]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.setPlatform===p)));
+  try{localStorage.setItem(PLATFORM_KEY,p)}catch(e){}
+  document.querySelectorAll('a[href]').forEach(a=>{
+    const h=a.getAttribute('href');
+    if(a.dataset.fg)a.setAttribute('href',fgHref(a.dataset.fg,p));
+    else if(/^GTA6_Field_Guide\/(index|loot)\.html/.test(h))a.setAttribute('href',h.split('?')[0]+'?pad='+p);
+  });
+}
+const mmss=t=>Math.floor(t/60)+':'+String(t%60).padStart(2,'0');
+const catOf=id=>CATS.find(c=>c.id===id);
+
+/* ================= RENDER ================= */
+const STATE_TAG={tried:'✓ ניסיתי',ok:'✓ עבד לי',bad:'✗ לא עבד לי'};
+function tipHTML(x){
+  const s=markOf(x.n);
+  const eds=x.ed?'<div class="eds"><div class="ed"><b>3 שימושים</b>מהדורה רגילה</div><div class="ed ult"><b>5 שימושים</b>מהדורת <span class="en">Ultimate</span></div></div>':'';
+  const see=x.see?`<a class="see" data-fg="${x.see[0]}" href="${fgHref(x.see[0],platform)}">במדריך התנועות: ${esc(x.see[1])}</a>`:'';
+  return `<article class="tip${s?' is-tried':''}${s==='bad'?' is-bad':''}" id="t${x.n}">
+  <div class="tip-top"><span class="tnum" aria-hidden="true">${String(x.n).padStart(2,'0')}</span><span class="tstate${s==='bad'?' bad':''}" ${s?'':'hidden'}>${s?STATE_TAG[s]:''}</span></div>
+  <h3><span class="sr">טיפ ${x.n}: </span>${esc(x.h)}</h3>
+  <p class="tbody">${fill(x.p)}</p>${eds}
+  ${x.seq?`<div class="inputs">${inputsHTML(x.seq)}</div>`:''}
+  ${x.how?`<div class="how"><span class="lbl">איך עושים את זה</span>${fill(x.how)}</div>`:''}
+  ${x.note?`<p class="tnote">${fill(x.note)}</p>`:''}
+  ${see}
+  <div class="tactions">
+    <button type="button" class="try" data-try="${x.n}" aria-pressed="${!!s}"><span class="box" aria-hidden="true"></span>ניסיתי</button>
+    <span class="res" role="group" aria-label="איך הלך בטיפ ${x.n}?"><span class="res-q">איך הלך?</span><button type="button" data-res="ok" data-n="${x.n}" aria-pressed="${s==='ok'}">עבד</button><button type="button" data-res="bad" data-n="${x.n}" aria-pressed="${s==='bad'}">לא עבד</button></span>
+    <a class="yt" href="https://youtu.be/${VID}?t=${x.t}" target="_blank" rel="noopener" aria-label="טיפ ${x.n} בסרטון, דקה ${mmss(x.t)}">▶ <span class="en">${mmss(x.t)}</span> בסרטון</a>
+  </div>
+</article>`;
+}
+function visible(x){
+  if(fCat!=='all'&&x.c!==fCat)return false;
+  const s=markOf(x.n);
+  if(fSt==='todo'&&s)return false;
+  if(fSt==='tried'&&!s)return false;
+  if(fSt==='bad'&&s!=='bad')return false;
+  if(fQ){const hay=[x.n,x.h,plain(x.p),plain(x.how),plain(x.note),catOf(x.c).he,x.see?x.see[1]:''].join(' ').toLowerCase();if(!hay.includes(fQ))return false}
+  return true;
+}
+function renderChapters(){
+  let out='',shown=0;
+  CATS.forEach((c,i)=>{
+    const all=TIPS.filter(x=>x.c===c.id);
+    const list=all.filter(visible).sort((a,b)=>a.n-b.n);
+    if(!list.length)return;
+    shown+=list.length;
+    out+=`<section class="chapter" id="cat-${c.id}"><div class="wrap">
+  <div class="ch-head"><div class="ch-num" aria-hidden="true">${String(i+1).padStart(2,'0')}</div><div><div class="over">${c.en}</div><h2>${esc(c.he)}</h2><p>${esc(c.p)} <span class="cnt">· ${all.length} טיפים</span></p></div></div>
+  <div class="grid">${list.map(tipHTML).join('')}</div>
+</div></section>`;
+  });
+  if(!shown)out=`<div class="wrap"><div class="empty"><p>${fSt==='todo'&&!fQ&&fCat==='all'?'ניסית את כל 28 הטיפים. כל הכבוד!':'אין טיפים שמתאימים לסינון הזה.'}</p><button class="btn" type="button" id="clearF">להציג את כל הטיפים</button></div></div>`;
+  document.getElementById('chapters').innerHTML=out;
+}
+function renderChips(){
+  const done=id=>TIPS.filter(x=>(id==='all'||x.c===id)&&markOf(x.n)).length;
+  const tot=id=>TIPS.filter(x=>id==='all'||x.c===id).length;
+  let out=`<button class="chip" type="button" data-cat="all" aria-pressed="${fCat==='all'}">כל הנושאים<span class="n">${done('all')}/${tot('all')}</span></button>`;
+  CATS.forEach(c=>out+=`<button class="chip" type="button" data-cat="${c.id}" aria-pressed="${fCat===c.id}">${esc(c.he)}<span class="n">${done(c.id)}/${tot(c.id)}</span></button>`);
+  document.getElementById('catChips').innerHTML=out;
+  document.getElementById('catProg').innerHTML=CATS.map(c=>{const d=done(c.id),t=tot(c.id);
+    return `<button class="cp${d===t?' full':''}" type="button" data-cat="${c.id}" data-jump="1"><span>${esc(c.he)}</span><span class="tr"><i style="width:${Math.round(100*d/t)}%"></i></span><span class="ct">${d}/${t}</span></button>`}).join('');
+}
+function renderProgress(){
+  const v=Object.values(marks),tried=v.length,tot=TIPS.length;
+  const pct=Math.round(100*tried/tot)+'%';
+  document.getElementById('mTried').textContent=tried;
+  document.getElementById('mBar').style.width=pct;
+  document.getElementById('mOk').textContent=v.filter(s=>s==='ok').length;
+  document.getElementById('mBad').textContent=v.filter(s=>s==='bad').length;
+  document.getElementById('mPlain').textContent=v.filter(s=>s==='tried').length;
+  document.getElementById('mTodo').textContent=tot-tried;
+  document.getElementById('progText').textContent=`${tried} / ${tot} נוסו`;
+  document.getElementById('progBar').style.width=pct;
+  renderChips();
+}
+function renderStatic(){
+  document.getElementById('focusText').innerHTML=fill(FOCUS_TEXT);
+  document.getElementById('focusCols').innerHTML=FOCUS_COLS.map(col=>`<div class="fc"><b>${esc(col.h)}</b><ul>${col.items.map(([n,t])=>`<li><a class="goto" href="#t${n}" data-goto="${n}">טיפ ${n}</a> · ${esc(t)}</li>`).join('')}</ul></div>`).join('');
+}
+function renderAll(){renderProgress();renderChapters()}
+// update one card in place, so the button keeps keyboard focus
+function updateCard(n){
+  const card=document.getElementById('t'+n);if(!card)return;
+  const s=markOf(n);
+  card.classList.toggle('is-tried',!!s);card.classList.toggle('is-bad',s==='bad');
+  const tag=card.querySelector('.tstate');tag.hidden=!s;tag.textContent=s?STATE_TAG[s]:'';tag.classList.toggle('bad',s==='bad');
+  card.querySelector('[data-try]').setAttribute('aria-pressed',String(!!s));
+  card.querySelectorAll('[data-res]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.res===s)));
+}
+let refilter=null;
+function setMark(n,s){
+  if(s)marks[n]=s;else delete marks[n];
+  save();updateCard(n);renderProgress();
+  // when a filter hides what was just marked, let the click land first, then tidy the list
+  const card=TIPS.find(x=>x.n===+n);
+  if(card&&!visible(card)){clearTimeout(refilter);refilter=setTimeout(renderChapters,650)}
+}
+function setStatus(st){fSt=st;document.querySelectorAll('[data-st]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.st===st)))}
+function clearFilters(){fCat='all';setStatus('all');fQ='';document.getElementById('q').value='';renderAll()}
+function gotoTip(n){
+  const card=TIPS.find(x=>x.n===+n);
+  if(card&&!visible(card)){clearFilters()}
+  const el=document.getElementById('t'+n);if(!el)return;
+  el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'center'});
+  el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+}
+
+/* ================= EVENTS ================= */
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button,a[data-goto]');if(!t)return;
+  if(t.dataset.goto){e.preventDefault();gotoTip(t.dataset.goto);history.replaceState(null,'','#t'+t.dataset.goto);return}
+  if(t.dataset.setPlatform){setPlatform(t.dataset.setPlatform);return}
+  if(t.dataset.try){const n=t.dataset.try;setMark(n,markOf(n)?'':'tried');return}
+  if(t.dataset.res){const n=t.dataset.n;setMark(n,markOf(n)===t.dataset.res?'tried':t.dataset.res);return}
+  if(t.dataset.cat){fCat=t.dataset.cat;renderAll();if(t.dataset.jump)document.getElementById('tips').scrollIntoView({behavior:'smooth'});return}
+  if(t.dataset.st){setStatus(t.dataset.st);renderChapters();return}
+  if(t.id==='todoBtn'){fCat='all';setStatus('todo');renderAll();document.getElementById('tips').scrollIntoView({behavior:'smooth'});return}
+  if(t.id==='clearF'){clearFilters();return}
+  if(t.id==='resetBtn'){
+    if(!Object.keys(marks).length)return;
+    if(confirm('למחוק את כל הסימונים של "ניסיתי" בעמוד הזה? אי אפשר לבטל את זה.')){marks={};save();renderAll()}
+    return;
+  }
+  if(t.id==='themeBtn'){
+    const light=document.documentElement.getAttribute('data-theme')!=='light';
+    if(light)document.documentElement.setAttribute('data-theme','light');else document.documentElement.removeAttribute('data-theme');
+    try{localStorage.setItem('gta6-theme',light?'light':'dark')}catch(e){}
+    document.querySelector('meta[name="theme-color"]').content=light?'#f5f1ea':'#0a0910';
+  }
+});
+document.getElementById('q').addEventListener('input',e=>{fQ=e.target.value.trim().toLowerCase();renderChapters()});
+
+platform=getPlatform();
+renderStatic();renderAll();setPlatform(platform);
+if(document.documentElement.getAttribute('data-theme')==='light')document.querySelector('meta[name="theme-color"]').content='#f5f1ea';
+// a link like tips.html#t13 opens straight on that tip
+if(/^#t\d+$/.test(location.hash))requestAnimationFrame(()=>gotoTip(location.hash.slice(2)));
+</script>
+</body>
+</html>
